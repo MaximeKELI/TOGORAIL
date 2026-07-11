@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-11 15:16+0000\n"
+"POT-Creation-Date: 2026-07-11 15:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -230,7 +230,7 @@ msgid ""
 "durabilité au cœur de chaque kilomètre de voie que nous construisons."
 msgstr ""
 
-#: templates/pages/about.html:24 templates/pages/home.html:143
+#: templates/pages/about.html:24 templates/pages/home.html:167
 msgid "Mission"
 msgstr ""
 
@@ -240,7 +240,7 @@ msgid ""
 "ferroviaire de classe mondiale."
 msgstr ""
 
-#: templates/pages/about.html:28 templates/pages/home.html:147
+#: templates/pages/about.html:28 templates/pages/home.html:171
 msgid "Vision"
 msgstr ""
 
@@ -298,154 +298,200 @@ msgstr ""
 msgid "Mobilité ferroviaire premium"
 msgstr ""
 
-#: templates/pages/home.html:23
+#: templates/pages/home.html:30
 msgid "Togo Rail · Infrastructure de nouvelle génération"
 msgstr ""
 
-#: templates/pages/home.html:26
+#: templates/pages/home.html:33
 msgid "Relier le Togo,"
 msgstr ""
 
-#: templates/pages/home.html:27
+#: templates/pages/home.html:34
 msgid "propulser l’Afrique."
 msgstr ""
 
-#: templates/pages/home.html:31
+#: templates/pages/home.html:38
 msgid ""
 "Fret ferroviaire, transport de voyageurs et logistique intégrée. Une "
 "infrastructure fiable, durable et intelligente au cœur de l’Afrique de "
 "l’Ouest."
 msgstr ""
 
-#: templates/pages/home.html:36
+#: templates/pages/home.html:43
 msgid "Découvrir nos services"
 msgstr ""
 
-#: templates/pages/home.html:39
+#: templates/pages/home.html:46
 msgid "Nous contacter"
 msgstr ""
 
-#: templates/pages/home.html:56
+#: templates/pages/home.html:63
 msgid "Défiler"
 msgstr ""
 
-#: templates/pages/home.html:65
+#: templates/pages/home.html:72
 msgid "Ils nous font confiance"
 msgstr ""
 
-#: templates/pages/home.html:82
+#: templates/pages/home.html:89
 msgid "Nos expertises"
 msgstr ""
 
-#: templates/pages/home.html:84
+#: templates/pages/home.html:91
 msgid "Des solutions ferroviaires"
 msgstr ""
 
-#: templates/pages/home.html:84
+#: templates/pages/home.html:91
 msgid "de bout en bout."
 msgstr ""
 
-#: templates/pages/home.html:87
+#: templates/pages/home.html:94
 msgid "Tous les services →"
 msgstr ""
 
-#: templates/pages/home.html:100
+#: templates/pages/home.html:107
 msgid "En savoir plus"
 msgstr ""
 
-#: templates/pages/home.html:106 templates/pages/services.html:33
+#: templates/pages/home.html:113 templates/pages/services.html:33
 msgid "Le contenu sera bientôt disponible."
 msgstr ""
 
-#: templates/pages/home.html:133
+#: templates/pages/home.html:140
+msgid "Corridor ferroviaire Togo Rail"
+msgstr ""
+
+#: templates/pages/home.html:145
+msgid "Le réseau"
+msgstr ""
+
+#: templates/pages/home.html:147
+msgid "Un corridor qui traverse"
+msgstr ""
+
+#: templates/pages/home.html:147
+msgid "les frontières."
+msgstr ""
+
+#: templates/pages/home.html:157
 msgid "Notre raison d’être"
 msgstr ""
 
-#: templates/pages/home.html:135
+#: templates/pages/home.html:159
 msgid "Nous construisons l’épine dorsale"
 msgstr ""
 
-#: templates/pages/home.html:135
+#: templates/pages/home.html:159
 msgid "de la mobilité togolaise."
 msgstr ""
 
-#: templates/pages/home.html:138
+#: templates/pages/home.html:162
 msgid ""
 "Togo Rail conçoit et opère des infrastructures ferroviaires modernes qui "
 "accélèrent le commerce, rapprochent les territoires et réduisent l’empreinte "
 "carbone des transports."
 msgstr ""
 
-#: templates/pages/home.html:144
+#: templates/pages/home.html:168
 msgid ""
 "Offrir une mobilité fiable, sûre et durable à chaque citoyen et entreprise."
 msgstr ""
 
-#: templates/pages/home.html:148
+#: templates/pages/home.html:172
 msgid "Faire du Togo un hub logistique majeur de l’Afrique de l’Ouest."
 msgstr ""
 
-#: templates/pages/home.html:174
+#: templates/pages/home.html:200
+msgid "Infrastructure ferroviaire moderne"
+msgstr ""
+
+#: templates/pages/home.html:206
+msgid "Infrastructure"
+msgstr ""
+
+#: templates/pages/home.html:208
+msgid "Des ouvrages pensés pour"
+msgstr ""
+
+#: templates/pages/home.html:208
+msgid "durer des générations."
+msgstr ""
+
+#: templates/pages/home.html:211
+msgid ""
+"Gares intelligentes, ponts et voies de nouvelle génération : chaque ouvrage "
+"allie ingénierie de pointe, esthétique et durabilité."
+msgstr ""
+
+#: templates/pages/home.html:216
+msgid "Supervision"
+msgstr ""
+
+#: templates/pages/home.html:220
+msgid "Sécurité certifiée"
+msgstr ""
+
+#: templates/pages/home.html:230
 msgid "Notre méthode"
 msgstr ""
 
-#: templates/pages/home.html:176
+#: templates/pages/home.html:232
 msgid "De la vision"
 msgstr ""
 
-#: templates/pages/home.html:176
+#: templates/pages/home.html:232
 msgid "à la mise en service."
 msgstr ""
 
-#: templates/pages/home.html:184
+#: templates/pages/home.html:240
 msgid "Étude & conception"
 msgstr ""
 
-#: templates/pages/home.html:185
+#: templates/pages/home.html:241
 msgid ""
 "Analyse des corridors, modélisation du trafic et ingénierie de précision "
 "pour chaque tracé."
 msgstr ""
 
-#: templates/pages/home.html:190
+#: templates/pages/home.html:246
 msgid "Construction durable"
 msgstr ""
 
-#: templates/pages/home.html:191
+#: templates/pages/home.html:247
 msgid ""
 "Matériaux responsables, standards internationaux et suivi qualité à chaque "
 "kilomètre."
 msgstr ""
 
-#: templates/pages/home.html:196
+#: templates/pages/home.html:252
 msgid "Exploitation intelligente"
 msgstr ""
 
-#: templates/pages/home.html:197
+#: templates/pages/home.html:253
 msgid ""
 "Supervision numérique en temps réel, maintenance prédictive et sécurité 24/7."
 msgstr ""
 
-#: templates/pages/home.html:202
+#: templates/pages/home.html:258
 msgid "Impact régional"
 msgstr ""
 
-#: templates/pages/home.html:203
+#: templates/pages/home.html:259
 msgid ""
 "Interconnexion des marchés ouest-africains et croissance partagée durable."
 msgstr ""
 
-#: templates/pages/home.html:215
+#: templates/pages/home.html:271
 msgid "Prêt à faire avancer votre projet logistique ?"
 msgstr ""
 
-#: templates/pages/home.html:217
+#: templates/pages/home.html:273
 msgid ""
 "Parlons de vos besoins en transport et infrastructure. Notre équipe vous "
 "répond sous 24h."
 msgstr ""
 
-#: templates/pages/home.html:219
+#: templates/pages/home.html:275
 msgid "Demander un devis"
 msgstr ""
 
