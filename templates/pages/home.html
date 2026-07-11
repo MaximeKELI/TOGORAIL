@@ -105,23 +105,38 @@
 
         <!-- Slides images animées (cinemagraph) -->
         <div class="carousel-slide" data-carousel-slide>
-          <img class="kenburns h-full w-full object-cover" src="{% static 'media/slide-station.png' %}" alt="{% trans 'Gare de nuit' %}" loading="lazy" />
+          <picture>
+            <source srcset="{% static 'media/slide-station.webp' %}" type="image/webp" />
+            <img class="kenburns" src="{% static 'media/slide-station.png' %}" alt="{% trans 'Gare de nuit' %}" loading="lazy" />
+          </picture>
           <div class="carousel-caption"><h3>{% trans "Gares d’exception" %}</h3></div>
         </div>
         <div class="carousel-slide" data-carousel-slide>
-          <img class="kenburns-2 h-full w-full object-cover" src="{% static 'media/slide-bridge.png' %}" alt="{% trans 'Pont ferroviaire' %}" loading="lazy" />
+          <picture>
+            <source srcset="{% static 'media/slide-bridge.webp' %}" type="image/webp" />
+            <img class="kenburns-2" src="{% static 'media/slide-bridge.png' %}" alt="{% trans 'Pont ferroviaire' %}" loading="lazy" />
+          </picture>
           <div class="carousel-caption"><h3>{% trans "Ouvrages d’art" %}</h3></div>
         </div>
         <div class="carousel-slide" data-carousel-slide>
-          <img class="kenburns h-full w-full object-cover" src="{% static 'media/slide-cargo.png' %}" alt="{% trans 'Fret ferroviaire' %}" loading="lazy" />
+          <picture>
+            <source srcset="{% static 'media/slide-cargo.webp' %}" type="image/webp" />
+            <img class="kenburns" src="{% static 'media/slide-cargo.png' %}" alt="{% trans 'Fret ferroviaire' %}" loading="lazy" />
+          </picture>
           <div class="carousel-caption"><h3>{% trans "Fret & logistique" %}</h3></div>
         </div>
         <div class="carousel-slide" data-carousel-slide>
-          <img class="kenburns-2 h-full w-full object-cover" src="{% static 'media/slide-control.png' %}" alt="{% trans 'Centre de supervision' %}" loading="lazy" />
+          <picture>
+            <source srcset="{% static 'media/slide-control.webp' %}" type="image/webp" />
+            <img class="kenburns-2" src="{% static 'media/slide-control.png' %}" alt="{% trans 'Centre de supervision' %}" loading="lazy" />
+          </picture>
           <div class="carousel-caption"><h3>{% trans "Supervision intelligente" %}</h3></div>
         </div>
         <div class="carousel-slide" data-carousel-slide>
-          <img class="kenburns h-full w-full object-cover" src="{% static 'media/slide-junction.png' %}" alt="{% trans 'Nœud ferroviaire' %}" loading="lazy" />
+          <picture>
+            <source srcset="{% static 'media/slide-junction.webp' %}" type="image/webp" />
+            <img class="kenburns" src="{% static 'media/slide-junction.png' %}" alt="{% trans 'Nœud ferroviaire' %}" loading="lazy" />
+          </picture>
           <div class="carousel-caption"><h3>{% trans "Réseau connecté" %}</h3></div>
         </div>
 
