@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Créer un compte" %} — Togo Rail{% endblock %}
+
+{% block content %}
+<section class="relative pt-40 pb-16 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_0%,rgba(201,162,39,0.15),transparent_45%)]"></div>
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <p data-animate class="eyebrow mb-5">{% trans "Espace membre" %}</p>
+    <h1 data-split class="font-display text-5xl md:text-7xl font-extrabold max-w-4xl leading-[0.95]">
+      {% trans "Créez votre" %} <span class="text-gradient">{% trans "compte." %}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="mx-auto max-w-2xl px-5 md:px-8 py-12">
+  <form method="post" novalidate class="glass rounded-3xl p-8 md:p-10 space-y-6" data-animate="scale">
+    {% csrf_token %}
+    {% if form.non_field_errors %}<div class="text-sm text-red-400">{{ form.non_field_errors }}</div>{% endif %}
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="field">
+        {{ form.first_name }}
+        <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+        {% if form.first_name.errors %}<p class="mt-1 text-xs text-red-400">{{ form.first_name.errors|striptags }}</p>{% endif %}
+      </div>
+      <div class="field">
+        {{ form.last_name }}
+        <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+        {% if form.last_name.errors %}<p class="mt-1 text-xs text-red-400">{{ form.last_name.errors|striptags }}</p>{% endif %}
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="field">
+        {{ form.username }}
+        <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+        {% if form.username.errors %}<p class="mt-1 text-xs text-red-400">{{ form.username.errors|striptags }}</p>{% endif %}
+      </div>
+      <div class="field">
+        {{ form.email }}
+        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+        {% if form.email.errors %}<p class="mt-1 text-xs text-red-400">{{ form.email.errors|striptags }}</p>{% endif %}
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="field">
+        {{ form.password1 }}
+        <label for="{{ form.password1.id_for_label }}">{{ form.password1.label }}</label>
+        {% if form.password1.errors %}<p class="mt-1 text-xs text-red-400">{{ form.password1.errors|striptags }}</p>{% endif %}
+      </div>
+      <div class="field">
+        {{ form.password2 }}
+        <label for="{{ form.password2.id_for_label }}">{{ form.password2.label }}</label>
+        {% if form.password2.errors %}<p class="mt-1 text-xs text-red-400">{{ form.password2.errors|striptags }}</p>{% endif %}
+      </div>
+    </div>
+
+    {% if form.password1.help_text %}<p class="text-xs text-muted leading-relaxed">{{ form.password1.help_text|safe }}</p>{% endif %}
+
+    <button type="submit" class="btn-gold w-full justify-center">{% trans "Créer mon compte" %}</button>
+
+    <p class="text-center text-sm text-muted">
+      {% trans "Vous avez déjà un compte ?" %}
+      <a href="{% url 'login' %}" class="text-gold hover:text-goldsoft transition-colors">{% trans "Se connecter" %}</a>
+    </p>
+  </form>
+</section>
+{% endblock %}
