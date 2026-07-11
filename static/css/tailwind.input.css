@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Project component styles live in styles.css and are loaded alongside the
+   compiled Tailwind output. To switch from the Play CDN to a compiled build:
+
+   1. npm install
+   2. npm run build        (generates static/css/tailwind.build.css)
+   3. In templates/base.html, replace the Tailwind CDN <script> with:
+      <link rel="stylesheet" href="{% static 'css/tailwind.build.css' %}" />
+   4. Keep the existing styles.css link.
+*/

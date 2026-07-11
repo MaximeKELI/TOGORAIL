@@ -1,0 +1,14 @@
+{
+  "name": "togo-rail",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tailwind CSS build pipeline for the Togo Rail site.",
+  "scripts": {
+    "dev": "tailwindcss -i ./static/css/tailwind.input.css -o ./static/css/tailwind.build.css --watch",
+    "build": "tailwindcss -i ./static/css/tailwind.input.css -o ./static/css/tailwind.build.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "tailwindcss": "^3.4.4"
+  }
+}
