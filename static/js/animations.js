@@ -76,6 +76,24 @@
     });
   }
 
+  /* ---------------- Cinematic band image parallax ---------------- */
+  gsap.utils.toArray("[data-parallax-img]").forEach((img) => {
+    gsap.fromTo(
+      img,
+      { yPercent: -8 },
+      {
+        yPercent: 8,
+        ease: "none",
+        scrollTrigger: {
+          trigger: img.closest(".media-frame") || img,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      }
+    );
+  });
+
   /* ---------------- Generic scroll reveals ---------------- */
   gsap.utils.toArray("[data-animate]").forEach((el) => {
     const type = el.dataset.animate || "up";
