@@ -7,6 +7,19 @@
         <span class="font-display text-lg font-bold">Togo<span class="text-gold">Rail</span></span>
       </a>
       <p class="mt-5 max-w-sm text-muted leading-relaxed">{{ SITE_TAGLINE }}</p>
+
+      <!-- Newsletter -->
+      <div class="mt-8 max-w-sm">
+        <h4 class="font-display font-semibold text-white/90">{% trans "Newsletter" %}</h4>
+        <p class="mt-2 text-sm text-muted">{% trans "Recevez nos actualités et annonces." %}</p>
+        <form id="newsletter-form" action="{% url 'newsletter_subscribe' %}" method="post" class="mt-4 flex gap-2">
+          {% csrf_token %}
+          <input type="email" name="email" required placeholder="{% trans 'Votre e-mail' %}"
+                 class="w-full bg-white/[0.04] border border-white/10 rounded-full px-5 py-3 text-white placeholder-muted outline-none transition-all duration-300 focus:border-gold/70 focus:ring-2 focus:ring-gold/20" />
+          <button type="submit" class="btn-gold !px-5 !py-3 whitespace-nowrap text-sm">{% trans "OK" %}</button>
+        </form>
+        <p id="newsletter-msg" class="mt-2 text-xs text-gold hidden"></p>
+      </div>
     </div>
 
     <div>
@@ -14,7 +27,11 @@
       <ul class="mt-4 space-y-3 text-sm text-muted">
         <li><a href="{% url 'home' %}" class="hover:text-gold transition-colors">{% trans "Accueil" %}</a></li>
         <li><a href="{% url 'services' %}" class="hover:text-gold transition-colors">{% trans "Services" %}</a></li>
+        <li><a href="{% url 'projects' %}" class="hover:text-gold transition-colors">{% trans "Réalisations" %}</a></li>
         <li><a href="{% url 'about' %}" class="hover:text-gold transition-colors">{% trans "À propos" %}</a></li>
+        <li><a href="{% url 'blog' %}" class="hover:text-gold transition-colors">{% trans "Actualités" %}</a></li>
+        <li><a href="{% url 'careers' %}" class="hover:text-gold transition-colors">{% trans "Carrières" %}</a></li>
+        <li><a href="{% url 'faq' %}" class="hover:text-gold transition-colors">{% trans "FAQ" %}</a></li>
         <li><a href="{% url 'contact' %}" class="hover:text-gold transition-colors">{% trans "Contact" %}</a></li>
       </ul>
     </div>
