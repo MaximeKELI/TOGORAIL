@@ -14,8 +14,9 @@
   let lenis = null;
   if (window.Lenis && !prefersReduced) {
     lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.2,
+      wheelMultiplier: 1.6,
+      touchMultiplier: 2,
       smoothWheel: true,
     });
 
@@ -34,7 +35,7 @@
           const target = document.querySelector(id);
           if (target) {
             e.preventDefault();
-            lenis.scrollTo(target, { offset: -80 });
+            lenis.scrollTo(target, { offset: -80, duration: 0.8 });
           }
         });
       }

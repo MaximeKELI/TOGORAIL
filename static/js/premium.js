@@ -283,7 +283,7 @@
     window.addEventListener("scroll", update, { passive: true });
     update();
     btn.addEventListener("click", () => {
-      if (window.__lenis) window.__lenis.scrollTo(0, { duration: 1.2 });
+      if (window.__lenis) window.__lenis.scrollTo(0, { duration: 0.7 });
       else window.scrollTo({ top: 0, behavior: "smooth" });
     });
   })();
