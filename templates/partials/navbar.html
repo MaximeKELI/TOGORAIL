@@ -67,7 +67,19 @@
       <li><a href="{% url 'careers' %}">{% trans "Carrières" %}</a></li>
       <li><a href="{% url 'faq' %}">{% trans "FAQ" %}</a></li>
       <li><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'account' %}" class="text-gold">{% trans "Mon espace" %}</a></li>
+      {% else %}
+      <li><a href="{% url 'login' %}" class="text-gold">{% trans "Connexion" %}</a></li>
+      <li><a href="{% url 'register' %}" class="text-gold">{% trans "S’inscrire" %}</a></li>
+      {% endif %}
     </ul>
+    {% if user.is_authenticated %}
+    <form method="post" action="{% url 'logout' %}" class="mt-4">
+      {% csrf_token %}
+      <button type="submit" class="w-full rounded-lg border border-white/10 py-2 text-sm text-muted">{% trans "Se déconnecter" %}</button>
+    </form>
+    {% endif %}
     <form action="{% url 'set_language' %}" method="post" class="mt-5 flex gap-2">
       {% csrf_token %}
       <input name="next" type="hidden" value="{{ request.path }}" />
