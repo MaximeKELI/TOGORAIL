@@ -43,7 +43,19 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   {% block extra_css %}{% endblock %}
 </head>
-<body class="bg-ink text-white font-body antialiased overflow-x-hidden selection:bg-gold/30">
+<body class="bg-ink text-white font-body antialiased overflow-x-hidden selection:bg-gold/30 loading">
+
+  <!-- Cinematic preloader -->
+  <div id="preloader">
+    <div class="pl-inner">
+      <div class="pl-brand">Togo<span class="dot">Rail</span></div>
+      <div class="pl-bar"><span></span></div>
+      <div class="pl-count">000</div>
+    </div>
+  </div>
+
+  <!-- Film grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- Scroll progress bar -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] w-0 z-[60] bg-gradient-to-r from-goldsoft to-gold"></div>
@@ -72,6 +84,15 @@
 
   {% include "partials/footer.html" %}
 
+  <!-- Back to top -->
+  <button id="to-top" aria-label="Back to top">
+    <svg class="ring" viewBox="0 0 54 54">
+      <circle class="bg" cx="27" cy="27" r="25"></circle>
+      <circle class="fg" cx="27" cy="27" r="25"></circle>
+    </svg>
+    <svg class="arrow h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
   <!-- Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -80,6 +101,7 @@
 
   <script src="{% static 'js/main.js' %}" defer></script>
   <script src="{% static 'js/animations.js' %}" defer></script>
+  <script src="{% static 'js/premium.js' %}" defer></script>
   {% block extra_js %}{% endblock %}
 </body>
 </html>

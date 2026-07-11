@@ -283,6 +283,265 @@ body {
   opacity: 0;
 }
 
+/* ==========================================================================
+   PREMIUM LAYER — advanced micro-interactions
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Cinematic preloader
+   -------------------------------------------------------------------------- */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: #05070c;
+}
+#preloader .pl-inner {
+  text-align: center;
+}
+#preloader .pl-brand {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 4rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+#preloader .pl-brand .dot {
+  color: var(--gold);
+}
+#preloader .pl-bar {
+  margin: 1.5rem auto 0;
+  height: 2px;
+  width: min(240px, 60vw);
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  border-radius: 2px;
+}
+#preloader .pl-bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--goldsoft), var(--gold));
+}
+#preloader .pl-count {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: #9aa3b5;
+}
+body.loading {
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Custom cursor (desktop / fine pointer only)
+   -------------------------------------------------------------------------- */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 190;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease,
+    background 0.3s ease;
+}
+.cursor-ring.is-hover {
+  width: 74px;
+  height: 74px;
+  border-color: var(--gold);
+  background: rgba(201, 162, 39, 0.12);
+}
+.cursor-ring.is-down {
+  width: 32px;
+  height: 32px;
+}
+body.has-custom-cursor,
+body.has-custom-cursor a,
+body.has-custom-cursor button {
+  cursor: none;
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Magnetic elements
+   -------------------------------------------------------------------------- */
+[data-magnetic] {
+  will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   3D tilt cards
+   -------------------------------------------------------------------------- */
+[data-tilt] {
+  transform-style: preserve-3d;
+  transform: perspective(900px);
+}
+[data-tilt] .tilt-layer {
+  transform: translateZ(40px);
+  transform-style: preserve-3d;
+}
+
+/* --------------------------------------------------------------------------
+   Split text (char / line reveal)
+   -------------------------------------------------------------------------- */
+.split-line {
+  display: block;
+  overflow: hidden;
+}
+.split-char,
+.split-word {
+  display: inline-block;
+  will-change: transform;
+}
+[data-split] {
+  visibility: hidden;
+}
+[data-split].is-ready {
+  visibility: visible;
+}
+
+/* --------------------------------------------------------------------------
+   Cinematic film grain overlay
+   -------------------------------------------------------------------------- */
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 150;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.6s steps(2) infinite;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-4%, 3%); }
+  50% { transform: translate(3%, -4%); }
+  75% { transform: translate(-3%, -3%); }
+  100% { transform: translate(4%, 3%); }
+}
+
+/* --------------------------------------------------------------------------
+   Back-to-top with progress ring
+   -------------------------------------------------------------------------- */
+#to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 120;
+  height: 54px;
+  width: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 9999px;
+  background: rgba(11, 18, 32, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+#to-top.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+#to-top:hover {
+  box-shadow: 0 0 30px rgba(201, 162, 39, 0.4);
+}
+#to-top svg.ring {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+#to-top svg.ring circle {
+  fill: none;
+  stroke-width: 2;
+}
+#to-top svg.ring .bg {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+#to-top svg.ring .fg {
+  stroke: var(--gold);
+  stroke-linecap: round;
+}
+#to-top .arrow {
+  color: var(--goldsoft);
+}
+
+/* --------------------------------------------------------------------------
+   Pinned horizontal scroll section
+   -------------------------------------------------------------------------- */
+.h-scroll-viewport {
+  overflow: hidden;
+}
+.h-scroll-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  padding: 0 max(1.25rem, calc((100vw - 80rem) / 2 + 1.25rem));
+}
+.h-panel {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(78vw, 460px);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+.h-panel .h-index {
+  font-family: "Syne", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201, 162, 39, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   Gradient shimmer sweep on hover text
+   -------------------------------------------------------------------------- */
+.shimmer-hover {
+  background: linear-gradient(90deg, #fff 0%, #fff 40%, #e8d48b 50%, #fff 60%, #fff 100%);
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: background-position 0.8s ease;
+}
+.shimmer-hover:hover {
+  background-position: 0 0;
+}
+
+/* Image clip reveal */
+[data-clip] {
+  clip-path: inset(0 100% 0 0);
+}
+
 /* --------------------------------------------------------------------------
    Accessibility — respect reduced motion
    -------------------------------------------------------------------------- */
@@ -296,4 +555,8 @@ body {
     opacity: 1 !important;
     transform: none !important;
   }
+  [data-split] { visibility: visible !important; }
+  [data-clip] { clip-path: none !important; }
+  .grain, #preloader { display: none !important; }
+  .cursor-dot, .cursor-ring { display: none !important; }
 }

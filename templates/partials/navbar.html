@@ -28,7 +28,7 @@
           <button type="submit" name="language" value="en" class="rounded-full px-3 py-1.5 transition-colors {% if LANGUAGE_CODE == 'en' %}bg-gold text-ink font-semibold{% else %}text-muted hover:text-white{% endif %}">EN</button>
         </form>
 
-        <a href="{% url 'contact' %}" class="hidden md:inline-flex btn-gold text-sm !px-5 !py-2.5">{% trans "Devis" %}</a>
+        <a href="{% url 'contact' %}" data-magnetic="0.5" class="hidden md:inline-flex btn-gold text-sm !px-5 !py-2.5">{% trans "Devis" %}</a>
 
         <!-- Mobile toggle -->
         <button id="menu-toggle" class="md:hidden grid h-10 w-10 place-items-center rounded-xl border border-white/10" aria-label="Menu">

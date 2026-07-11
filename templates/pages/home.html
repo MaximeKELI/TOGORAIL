@@ -6,10 +6,10 @@
 {% block content %}
 
 <!-- ============================ HERO ============================ -->
-<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+<section id="hero" data-parallax-scene class="relative min-h-screen flex items-center overflow-hidden">
   <!-- Background media -->
   <div class="absolute inset-0 -z-10">
-    <div data-hero-media class="absolute inset-0">
+    <div data-hero-media data-depth="0.35" class="absolute inset-0 scale-110">
       <video class="h-full w-full object-cover opacity-70" autoplay muted loop playsinline poster="{% static 'media/hero-poster.svg' %}">
         <source src="{% static 'media/hero.mp4' %}" type="video/mp4" />
       </video>
@@ -32,11 +32,11 @@
     </p>
 
     <div data-hero-cta class="mt-10 flex flex-wrap items-center gap-4">
-      <a href="{% url 'services' %}" class="btn-gold">
+      <a href="{% url 'services' %}" data-magnetic="0.5" class="btn-gold">
         {% trans "Découvrir nos services" %}
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <a href="{% url 'contact' %}" class="btn-ghost">{% trans "Nous contacter" %}</a>
+      <a href="{% url 'contact' %}" data-magnetic="0.4" class="btn-ghost">{% trans "Nous contacter" %}</a>
     </div>
 
     <!-- Inline hero stats -->
@@ -89,15 +89,17 @@
 
   <div data-stagger class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     {% for service in featured_services %}
-    <article data-stagger-item class="service-card group">
-      <div class="icon-wrap grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 text-gold border border-gold/20">
-        {% include "partials/icon.html" with icon=service.icon %}
-      </div>
-      <h3 class="mt-6 font-display text-xl font-semibold">{{ service.title }}</h3>
-      <p class="mt-3 text-muted leading-relaxed text-[0.95rem]">{{ service.summary }}</p>
-      <div class="mt-6 flex items-center gap-2 text-sm text-gold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-        {% trans "En savoir plus" %}
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    <article data-stagger-item data-tilt class="service-card group">
+      <div class="tilt-layer">
+        <div class="icon-wrap grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 text-gold border border-gold/20">
+          {% include "partials/icon.html" with icon=service.icon %}
+        </div>
+        <h3 class="mt-6 font-display text-xl font-semibold">{{ service.title }}</h3>
+        <p class="mt-3 text-muted leading-relaxed text-[0.95rem]">{{ service.summary }}</p>
+        <div class="mt-6 flex items-center gap-2 text-sm text-gold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+          {% trans "En savoir plus" %}
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
       </div>
     </article>
     {% empty %}
@@ -166,6 +168,45 @@
   </div>
 </section>
 
+<!-- ============================ PINNED HORIZONTAL — MÉTHODE ============================ -->
+<section data-hscroll class="relative py-20 md:py-0 md:h-screen flex flex-col justify-center overflow-hidden">
+  <div class="mx-auto max-w-7xl w-full px-5 md:px-8 mb-10 md:mb-14">
+    <p class="eyebrow mb-4">{% trans "Notre méthode" %}</p>
+    <h2 class="font-display text-4xl md:text-5xl font-bold max-w-2xl leading-tight">
+      {% trans "De la vision" %} <span class="text-gradient">{% trans "à la mise en service." %}</span>
+    </h2>
+  </div>
+
+  <div class="h-scroll-viewport">
+    <div class="h-scroll-track">
+      <article class="h-panel group">
+        <div class="h-index">01</div>
+        <h3 class="mt-6 font-display text-2xl font-semibold">{% trans "Étude & conception" %}</h3>
+        <p class="mt-3 text-muted leading-relaxed">{% trans "Analyse des corridors, modélisation du trafic et ingénierie de précision pour chaque tracé." %}</p>
+        <div class="mt-8 h-px w-full bg-gradient-to-r from-gold/50 to-transparent"></div>
+      </article>
+      <article class="h-panel group">
+        <div class="h-index">02</div>
+        <h3 class="mt-6 font-display text-2xl font-semibold">{% trans "Construction durable" %}</h3>
+        <p class="mt-3 text-muted leading-relaxed">{% trans "Matériaux responsables, standards internationaux et suivi qualité à chaque kilomètre." %}</p>
+        <div class="mt-8 h-px w-full bg-gradient-to-r from-gold/50 to-transparent"></div>
+      </article>
+      <article class="h-panel group">
+        <div class="h-index">03</div>
+        <h3 class="mt-6 font-display text-2xl font-semibold">{% trans "Exploitation intelligente" %}</h3>
+        <p class="mt-3 text-muted leading-relaxed">{% trans "Supervision numérique en temps réel, maintenance prédictive et sécurité 24/7." %}</p>
+        <div class="mt-8 h-px w-full bg-gradient-to-r from-gold/50 to-transparent"></div>
+      </article>
+      <article class="h-panel group">
+        <div class="h-index">04</div>
+        <h3 class="mt-6 font-display text-2xl font-semibold">{% trans "Impact régional" %}</h3>
+        <p class="mt-3 text-muted leading-relaxed">{% trans "Interconnexion des marchés ouest-africains et croissance partagée durable." %}</p>
+        <div class="mt-8 h-px w-full bg-gradient-to-r from-gold/50 to-transparent"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ CTA BAND ============================ -->
 <section class="mx-auto max-w-7xl px-5 md:px-8">
   <div data-animate="scale" class="relative overflow-hidden rounded-3xl glass p-10 md:p-16 text-center">
@@ -175,7 +216,7 @@
     </h2>
     <p class="mt-5 text-muted max-w-xl mx-auto">{% trans "Parlons de vos besoins en transport et infrastructure. Notre équipe vous répond sous 24h." %}</p>
     <div class="mt-8 flex justify-center">
-      <a href="{% url 'contact' %}" class="btn-gold">{% trans "Demander un devis" %}</a>
+      <a href="{% url 'contact' %}" data-magnetic="0.5" class="btn-gold">{% trans "Demander un devis" %}</a>
     </div>
   </div>
 </section>
