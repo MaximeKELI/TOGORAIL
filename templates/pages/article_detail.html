@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{{ article.title }} — Togo Rail{% endblock %}
+{% block og_title %}{{ article.title }}{% endblock %}
+{% block og_image %}{% if article.cover %}{{ request.scheme }}://{{ request.get_host }}{{ article.cover.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+
+{% block content %}
+<article class="relative pt-40 pb-16 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_0%,rgba(201,162,39,0.15),transparent_45%)]"></div>
+  <div class="mx-auto max-w-3xl px-5 md:px-8">
+    <nav class="mb-6 text-sm text-muted"><a href="{% url 'blog' %}" class="hover:text-gold transition-colors">{% trans "Actualités" %}</a> <span class="mx-2">/</span> <span class="text-white/80">{{ article.category }}</span></nav>
+    <p class="eyebrow mb-4">{{ article.published_at|date:"d M Y" }}</p>
+    <h1 data-split class="font-display text-4xl md:text-5xl font-extrabold leading-[1.05]">{{ article.title }}</h1>
+    <p class="mt-6 text-lg text-muted leading-relaxed">{{ article.excerpt }}</p>
+  </div>
+
+  {% if article.cover %}
+  <div class="mx-auto max-w-5xl px-5 md:px-8 mt-10">
+    <div data-clip class="media-frame overflow-hidden rounded-3xl border border-white/10">
+      <img src="{{ article.cover.url }}" alt="{{ article.title }}" class="w-full h-[26rem] object-cover" />
+      <span class="shine" aria-hidden="true"></span>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="mx-auto max-w-3xl px-5 md:px-8 mt-12">
+    <div data-animate class="prose-tr text-muted leading-relaxed text-lg space-y-5">
+      {{ article.body|linebreaks }}
+    </div>
+  </div>
+</article>
+
+{% if related %}
+<section class="mx-auto max-w-7xl px-5 md:px-8 py-16 border-t border-white/10 mt-10">
+  <h2 data-animate class="font-display text-3xl font-bold mb-8">{% trans "À lire aussi" %}</h2>
+  <div data-stagger class="grid gap-8 md:grid-cols-3">
+    {% for a in related %}
+    <a href="{{ a.get_absolute_url }}" data-stagger-item data-cursor="{% trans 'Lire' %}" class="group flex flex-col overflow-hidden rounded-3xl border border-white/10 glass">
+      <div class="relative h-44 overflow-hidden">
+        {% if a.cover %}<img src="{{ a.cover.url }}" alt="{{ a.title }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />{% else %}<img src="{% static 'media/slide-bridge.png' %}" alt="{{ a.title }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />{% endif %}
+      </div>
+      <div class="p-6">
+        <h3 class="font-display text-lg font-semibold group-hover:text-gold transition-colors">{{ a.title }}</h3>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}

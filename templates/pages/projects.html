@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Réalisations" %} — Togo Rail{% endblock %}
+
+{% block content %}
+<section class="relative pt-40 pb-16 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_0%,rgba(201,162,39,0.15),transparent_45%)]"></div>
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <p data-animate class="eyebrow mb-5">{% trans "Nos réalisations" %}</p>
+    <h1 data-split class="font-display text-5xl md:text-7xl font-extrabold max-w-4xl leading-[0.95]">
+      {% trans "Des projets qui" %} <span class="text-gradient">{% trans "façonnent l’avenir." %}</span>
+    </h1>
+    <p data-animate class="mt-8 max-w-2xl text-lg text-muted leading-relaxed">
+      {% trans "Découvrez nos études de cas et infrastructures livrées à travers la région." %}
+    </p>
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-5 md:px-8 py-16">
+  <div data-stagger class="grid gap-8 md:grid-cols-2">
+    {% for project in projects %}
+    <article data-stagger-item data-tilt data-cursor="{% trans 'Explorer' %}" class="group relative overflow-hidden rounded-3xl border border-white/10 glass">
+      <div class="relative h-64 overflow-hidden">
+        {% if project.image %}
+        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        {% else %}
+        <img src="{% static 'media/about-infra.png' %}" alt="{{ project.title }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        {% endif %}
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent"></div>
+        {% if project.year %}<span class="absolute top-4 left-4 rounded-full bg-gold/90 text-ink text-xs font-semibold px-3 py-1">{{ project.year }}</span>{% endif %}
+      </div>
+      <div class="p-7">
+        <h3 class="font-display text-2xl font-semibold">{{ project.title }}</h3>
+        {% if project.location %}<p class="mt-1 text-sm text-gold">{{ project.location }}</p>{% endif %}
+        <p class="mt-3 text-muted leading-relaxed">{{ project.summary }}</p>
+      </div>
+    </article>
+    {% empty %}
+    <p class="text-muted">{% trans "Le contenu sera bientôt disponible." %}</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-5 md:px-8 py-16">
+  <div data-animate="scale" class="relative overflow-hidden rounded-3xl glass p-10 md:p-16 text-center">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(201,162,39,0.2),transparent_55%)]"></div>
+    <h2 class="font-display text-3xl md:text-4xl font-bold">{% trans "Un projet en tête ?" %}</h2>
+    <p class="mt-4 text-muted max-w-xl mx-auto">{% trans "Parlons de votre prochaine infrastructure ferroviaire." %}</p>
+    <div class="mt-8 flex justify-center"><a href="{% url 'contact' %}" data-magnetic="0.5" class="btn-gold">{% trans "Contactez-nous" %}</a></div>
+  </div>
+</section>
+{% endblock %}

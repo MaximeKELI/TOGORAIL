@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Actualités" %} — Togo Rail{% endblock %}
+
+{% block content %}
+<section class="relative pt-40 pb-16 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_0%,rgba(201,162,39,0.15),transparent_45%)]"></div>
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <p data-animate class="eyebrow mb-5">{% trans "Actualités" %}</p>
+    <h1 data-split class="font-display text-5xl md:text-7xl font-extrabold max-w-4xl leading-[0.95]">
+      {% trans "Le journal de" %} <span class="text-gradient">Togo Rail.</span>
+    </h1>
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-5 md:px-8 py-16">
+  <div data-stagger class="grid gap-8 md:grid-cols-3">
+    {% for article in articles %}
+    <a href="{{ article.get_absolute_url }}" data-stagger-item data-cursor="{% trans 'Lire' %}" class="group flex flex-col overflow-hidden rounded-3xl border border-white/10 glass">
+      <div class="relative h-52 overflow-hidden">
+        {% if article.cover %}
+        <img src="{{ article.cover.url }}" alt="{{ article.title }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        {% else %}
+        <img src="{% static 'media/slide-station.png' %}" alt="{{ article.title }}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        {% endif %}
+        <span class="absolute top-4 left-4 rounded-full bg-ink/70 backdrop-blur text-goldsoft text-xs font-semibold px-3 py-1 border border-white/10">{{ article.category }}</span>
+      </div>
+      <div class="flex flex-col flex-1 p-6">
+        <time class="text-xs text-muted">{{ article.published_at|date:"d M Y" }}</time>
+        <h3 class="mt-2 font-display text-xl font-semibold leading-snug group-hover:text-gold transition-colors">{{ article.title }}</h3>
+        <p class="mt-3 text-muted text-[0.95rem] leading-relaxed flex-1">{{ article.excerpt|truncatewords:22 }}</p>
+        <span class="mt-4 inline-flex items-center gap-2 text-sm text-gold font-medium">{% trans "Lire l’article" %} <span aria-hidden="true">&rarr;</span></span>
+      </div>
+    </a>
+    {% empty %}
+    <p class="text-muted">{% trans "Aucune actualité pour le moment." %}</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
