@@ -10,7 +10,10 @@
   <!-- Background media + cinematic lighting -->
   <div class="absolute inset-0 z-0 overflow-hidden">
     <div data-hero-media data-depth="0.35" class="absolute inset-0">
-      <img src="{% static 'media/hero-train.png' %}" alt="" class="kenburns h-full w-full object-cover" fetchpriority="high" />
+      <picture>
+        <source srcset="{% static 'media/hero-train.webp' %}" type="image/webp" />
+        <img src="{% static 'media/hero-train.png' %}" alt="" class="kenburns h-full w-full object-cover" fetchpriority="high" />
+      </picture>
     </div>
     <!-- rotating volumetric beams -->
     <div class="beam-layer"></div>
@@ -202,8 +205,11 @@
 <section class="relative mx-auto max-w-7xl px-5 md:px-8 py-16">
   <div data-clip class="media-frame group">
     <div class="relative h-[45vh] md:h-[60vh] overflow-hidden">
-      <img src="{% static 'media/corridor.png' %}" alt="{% trans 'Corridor ferroviaire Togo Rail' %}" loading="lazy"
-           class="kenburns absolute inset-0 h-full w-full object-cover" />
+      <picture>
+        <source srcset="{% static 'media/corridor.webp' %}" type="image/webp" />
+        <img src="{% static 'media/corridor.png' %}" alt="{% trans 'Corridor ferroviaire Togo Rail' %}" loading="lazy"
+             class="kenburns absolute inset-0 h-full w-full object-cover" />
+      </picture>
     </div>
     <span class="shine"></span>
     <span class="frame-glow"></span>
