@@ -933,6 +933,254 @@ body.has-custom-cursor button {
 }
 
 /* --------------------------------------------------------------------------
+   Three.js hero particle canvas
+   -------------------------------------------------------------------------- */
+#hero-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   Preloader SVG logo draw
+   -------------------------------------------------------------------------- */
+#preloader .pl-logo {
+  width: clamp(72px, 12vw, 110px);
+  height: auto;
+  margin: 0 auto 1.5rem;
+  display: block;
+  filter: drop-shadow(0 0 20px rgba(201, 162, 39, 0.35));
+}
+
+/* --------------------------------------------------------------------------
+   Contextual cursor label ("Voir", "Lire"...)
+   -------------------------------------------------------------------------- */
+.cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 195;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.6);
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  background: linear-gradient(120deg, var(--goldsoft), var(--gold));
+  color: #05070c;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+.cursor-label.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.cursor-ring.is-media {
+  width: 8px;
+  height: 8px;
+  opacity: 0;
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor-label {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Page transition overlay (golden sweep)
+   -------------------------------------------------------------------------- */
+#page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 210;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(120deg, #0a1628, #05070c 60%);
+  transform: translateY(100%);
+  pointer-events: none;
+}
+#page-transition::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(201, 162, 39, 0.18), transparent 60%);
+}
+#page-transition .pt-brand {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+#page-transition .pt-brand span {
+  color: var(--gold);
+}
+#page-transition.is-active {
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  pointer-events: all;
+}
+#page-transition.is-active .pt-brand {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+#page-transition.is-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   FAQ accordion
+   -------------------------------------------------------------------------- */
+.accordion-trigger {
+  cursor: pointer;
+}
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.accordion.open .accordion-icon {
+  transform: rotate(45deg);
+  background: rgba(201, 162, 39, 0.15);
+  border-color: rgba(201, 162, 39, 0.5);
+}
+.accordion.open {
+  border-color: rgba(201, 162, 39, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   Testimonial slider
+   -------------------------------------------------------------------------- */
+.testimonial-slider {
+  overflow: hidden;
+}
+.testimonial-track {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.testimonial-slide {
+  min-width: 100%;
+  padding: 0 1rem;
+}
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+}
+.testimonial-dots .t-dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.22);
+  transition: all 0.35s ease;
+}
+.testimonial-dots .t-dot.active {
+  width: 30px;
+  background: linear-gradient(90deg, var(--goldsoft), var(--gold));
+}
+
+/* --------------------------------------------------------------------------
+   Active nav section / current page indicator
+   -------------------------------------------------------------------------- */
+.nav-link.active,
+.nav-link.section-active {
+  color: #fff;
+}
+.nav-link.active::after,
+.nav-link.section-active::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Long-form article / service body typography
+   -------------------------------------------------------------------------- */
+.prose-tr p {
+  margin-bottom: 1.25rem;
+}
+.prose-tr h2,
+.prose-tr h3 {
+  font-family: "Syne", sans-serif;
+  color: #fff;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility — visible focus states
+   -------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--goldsoft);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Light theme overrides
+   -------------------------------------------------------------------------- */
+html:not(.dark) body {
+  background-color: #f4f5f8;
+  color: #0a1628;
+}
+html:not(.dark) {
+  --tr-surface: #ffffff;
+}
+html:not(.dark) body {
+  background-color: #eef1f6;
+}
+html:not(.dark) .glass {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(10, 22, 40, 0.08);
+}
+html:not(.dark) #navbar.scrolled .glass {
+  background: rgba(255, 255, 255, 0.85);
+}
+html:not(.dark) .text-muted,
+html:not(.dark) .text-muted * {
+  color: #4a5568 !important;
+}
+html:not(.dark) .nav-link {
+  color: #4a5568;
+}
+html:not(.dark) .nav-link:hover,
+html:not(.dark) .nav-link.active {
+  color: #0a1628;
+}
+html:not(.dark) .service-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(10, 22, 40, 0.08);
+}
+html:not(.dark) .field label {
+  background: #eef1f6;
+  color: #4a5568;
+}
+html:not(.dark) .btn-ghost {
+  border-color: rgba(10, 22, 40, 0.2);
+  color: #0a1628;
+}
+html:not(.dark) .h-panel {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(10, 22, 40, 0.08);
+}
+html:not(.dark) .grain {
+  opacity: 0.02;
+}
+
+/* --------------------------------------------------------------------------
    Accessibility — respect reduced motion
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
