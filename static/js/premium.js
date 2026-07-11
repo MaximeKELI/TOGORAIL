@@ -105,6 +105,28 @@
       el.addEventListener("mouseenter", () => ring.classList.add("is-hover"));
       el.addEventListener("mouseleave", () => ring.classList.remove("is-hover"));
     });
+
+    // Contextual cursor label (e.g. "Voir", "Lire", "Explorer")
+    const label = document.querySelector(".cursor-label");
+    if (label) {
+      const xLbl = gsap.quickTo(label, "x", { duration: 0.2, ease: "power3" });
+      const yLbl = gsap.quickTo(label, "y", { duration: 0.2, ease: "power3" });
+      window.addEventListener("mousemove", (e) => {
+        xLbl(e.clientX);
+        yLbl(e.clientY);
+      });
+      document.querySelectorAll("[data-cursor]").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          label.textContent = el.dataset.cursor;
+          label.classList.add("show");
+          ring.classList.add("is-media");
+        });
+        el.addEventListener("mouseleave", () => {
+          label.classList.remove("show");
+          ring.classList.remove("is-media");
+        });
+      });
+    }
   }
 
   /* ======================================================================
@@ -130,17 +152,30 @@
   /* ======================================================================
      4. SPLIT-TEXT REVEALS
      ====================================================================== */
-  function splitToChars(el) {
-    const text = el.textContent;
-    el.textContent = "";
+  // Recursively split text nodes into per-character spans while preserving
+  // inner elements (e.g. <span class="text-gradient">) and their styling.
+  function wrapTextNode(node) {
+    const text = node.textContent;
     const frag = document.createDocumentFragment();
-    text.split("").forEach((ch) => {
+    for (const ch of text) {
       const span = document.createElement("span");
       span.className = "split-char";
       span.textContent = ch === " " ? "\u00A0" : ch;
       frag.appendChild(span);
+    }
+    node.parentNode.replaceChild(frag, node);
+  }
+
+  function splitToChars(el) {
+    const nodes = [];
+    el.childNodes.forEach((n) => nodes.push(n));
+    nodes.forEach((n) => {
+      if (n.nodeType === Node.TEXT_NODE && n.textContent.trim() !== "") {
+        wrapTextNode(n);
+      } else if (n.nodeType === Node.ELEMENT_NODE) {
+        splitToChars(n);
+      }
     });
-    el.appendChild(frag);
     return el.querySelectorAll(".split-char");
   }
 
