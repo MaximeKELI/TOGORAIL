@@ -567,10 +567,8 @@ msgid "Mobilité"
 msgstr "Mobility"
 
 #: templates/pages/home.html:335 templates/pages/home.html:339
-#, fuzzy
-#| msgid "Fret & logistique"
 msgid "Logistique"
-msgstr "Freight & logistics"
+msgstr "Logistics"
 
 #: templates/pages/home.html:336 templates/pages/home.html:340
 msgid "Innovation"
@@ -589,10 +587,8 @@ msgid "Afrique de l’Ouest"
 msgstr "West Africa"
 
 #: templates/pages/home.html:346 templates/pages/home.html:350
-#, fuzzy
-#| msgid "Le réseau"
 msgid "Réseau"
-msgstr "The network"
+msgstr "Network"
 
 #: templates/pages/home.html:347 templates/pages/home.html:351
 msgid "Avenir"
