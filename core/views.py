@@ -155,7 +155,10 @@ def contact(request):
         if _rate_limited(request, "contact", limit=5):
             messages.error(request, _("Trop de messages envoyés. Réessayez plus tard."))
         elif form.is_valid():
-            msg = form.save()
+            msg = form.save(commit=False)
+            if request.user.is_authenticated:
+                msg.user = request.user
+            msg.save()
             _notify_contact(msg)
             messages.success(
                 request,
@@ -201,6 +204,87 @@ def faq(request):
     ctx["active_page"] = "faq"
     ctx["meta_description"] = _("Questions fréquentes à propos de Togo Rail.")
     return render(request, "pages/faq.html", ctx)
+
+
+# ── Authentication & member area ──────────────────────────────────────────
+
+def register(request):
+    if request.user.is_authenticated:
+        return redirect("account")
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if _rate_limited(request, "register", limit=8):
+            messages.error(request, _("Trop de tentatives. Réessayez plus tard."))
+        elif form.is_valid():
+            user = form.save()
+            auth_login(request, user)
+            messages.success(request, _("Bienvenue ! Votre compte a bien été créé."))
+            return redirect("account")
+        else:
+            messages.error(request, _("Veuillez corriger les erreurs ci-dessous."))
+    else:
+        form = SignUpForm()
+    ctx = _common()
+    ctx["form"] = form
+    ctx["active_page"] = "register"
+    ctx["meta_description"] = _("Créez votre compte Togo Rail.")
+    return render(request, "pages/register.html", ctx)
+
+
+def login_view(request):
+    if request.user.is_authenticated:
+        return redirect("account")
+    if request.method == "POST":
+        form = LoginForm(request, data=request.POST)
+        if form.is_valid():
+            auth_login(request, form.get_user())
+            messages.success(request, _("Connexion réussie."))
+            nxt = request.GET.get("next") or request.POST.get("next")
+            return redirect(nxt or "account")
+        messages.error(request, _("Identifiants invalides."))
+    else:
+        form = LoginForm(request)
+    ctx = _common()
+    ctx["form"] = form
+    ctx["active_page"] = "login"
+    ctx["next"] = request.GET.get("next", "")
+    ctx["meta_description"] = _("Connectez-vous à votre espace Togo Rail.")
+    return render(request, "pages/login.html", ctx)
+
+
+@require_POST
+def logout_view(request):
+    auth_logout(request)
+    messages.success(request, _("Vous êtes déconnecté."))
+    return redirect("home")
+
+
+@login_required
+def account(request):
+    if request.method == "POST":
+        form = MemberMessageForm(request.POST)
+        if _rate_limited(request, "member_msg", limit=10):
+            messages.error(request, _("Trop de messages envoyés. Réessayez plus tard."))
+        elif form.is_valid():
+            msg = form.save(commit=False)
+            msg.user = request.user
+            msg.name = request.user.get_full_name() or request.user.username
+            msg.email = request.user.email
+            msg.save()
+            _notify_contact(msg)
+            messages.success(request, _("Message envoyé à Togo Rail. Merci !"))
+            return redirect("account")
+        else:
+            messages.error(request, _("Veuillez corriger les erreurs ci-dessous."))
+    else:
+        form = MemberMessageForm()
+
+    ctx = _common()
+    ctx["form"] = form
+    ctx["my_messages"] = request.user.messages.all()
+    ctx["active_page"] = "account"
+    ctx["meta_description"] = _("Votre espace membre Togo Rail.")
+    return render(request, "pages/account.html", ctx)
 
 
 # ── Email helpers ─────────────────────────────────────────────────────────

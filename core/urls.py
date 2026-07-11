@@ -14,4 +14,9 @@ urlpatterns = [
     path("faq/", views.faq, name="faq"),
     path("contact/", views.contact, name="contact"),
     path("newsletter/", views.newsletter_subscribe, name="newsletter_subscribe"),
+    # Comptes & espace membre
+    path("register/", views.register, name="register"),
+    path("login/", views.login_view, name="login"),
+    path("logout/", views.logout_view, name="logout"),
+    path("account/", views.account, name="account"),
 ]
