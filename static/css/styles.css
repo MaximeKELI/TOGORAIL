@@ -652,6 +652,115 @@ body.has-custom-cursor button {
   50% { box-shadow: 0 0 45px rgba(201, 162, 39, 0.55); }
 }
 
+/* --------------------------------------------------------------------------
+   Premium carousel
+   -------------------------------------------------------------------------- */
+.carousel {
+  position: relative;
+}
+.carousel-viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+.carousel-track {
+  display: flex;
+  will-change: transform;
+}
+.carousel-slide {
+  position: relative;
+  min-width: 100%;
+  height: 52vh;
+  max-height: 640px;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .carousel-slide {
+    height: 66vh;
+  }
+}
+.carousel-slide > img,
+.carousel-slide > video {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.carousel-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5, 7, 12, 0.9), transparent 55%);
+  z-index: 1;
+}
+.carousel-caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  padding: 2rem;
+}
+@media (min-width: 768px) {
+  .carousel-caption {
+    padding: 3rem;
+  }
+}
+.carousel-caption h3 {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.75rem);
+  line-height: 1.05;
+}
+.carousel-btn {
+  display: grid;
+  place-items: center;
+  height: 48px;
+  width: 48px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.carousel-btn:hover {
+  border-color: var(--gold);
+  color: var(--goldsoft);
+  background: rgba(201, 162, 39, 0.1);
+  box-shadow: 0 0 25px rgba(201, 162, 39, 0.35);
+}
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.carousel-dots button {
+  height: 8px;
+  width: 8px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.22);
+  transition: all 0.35s ease;
+}
+.carousel-dots button.active {
+  width: 30px;
+  background: linear-gradient(90deg, var(--goldsoft), var(--gold));
+}
+.carousel-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+  height: 3px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+}
+.carousel-progress span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--goldsoft), var(--gold));
+}
+
 /* Ken Burns — cinemagraph motion (makes still images feel like luxury GIFs) */
 .kenburns {
   will-change: transform;
