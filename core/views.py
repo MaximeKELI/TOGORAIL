@@ -45,8 +45,13 @@ def _common():
     }
 
 
-def _rate_limited(request, key: str, limit: int = 5, window: int = 3600) -> bool:
-    """Simple IP-based rate limiter backed by the cache."""
+def _rate_limited(request, key: str, limit: int = 30, window: int = 300) -> bool:
+    """Simple IP-based rate limiter backed by the cache.
+
+    Uses a short window so any accidental lockout clears quickly, and a
+    generous limit so legitimate users (including failed form validations)
+    are never blocked during normal use.
+    """
     ip = request.META.get("REMOTE_ADDR", "unknown")
     cache_key = f"rl:{key}:{ip}"
     count = cache.get(cache_key, 0)
