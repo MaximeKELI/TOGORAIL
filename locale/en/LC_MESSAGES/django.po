@@ -412,22 +412,16 @@ msgid "Fret & logistique"
 msgstr "Freight & logistics"
 
 #: templates/pages/home.html:163
-#, fuzzy
-#| msgid "Supervision"
 msgid "Centre de supervision"
-msgstr "Supervision"
+msgstr "Supervision centre"
 
 #: templates/pages/home.html:164
-#, fuzzy
-#| msgid "Exploitation intelligente"
 msgid "Supervision intelligente"
-msgstr "Smart operations"
+msgstr "Smart supervision"
 
 #: templates/pages/home.html:167
-#, fuzzy
-#| msgid "Des solutions ferroviaires"
 msgid "Nœud ferroviaire"
-msgstr "End-to-end railway"
+msgstr "Railway hub"
 
 #: templates/pages/home.html:168
 msgid "Réseau connecté"
