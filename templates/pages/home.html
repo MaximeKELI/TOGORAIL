@@ -160,7 +160,7 @@
 
   <div data-stagger class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
     {% for service in featured_services %}
-    <article data-stagger-item data-tilt class="service-card group">
+    <a href="{{ service.get_absolute_url }}" data-stagger-item data-tilt data-cursor="{% trans 'Voir' %}" class="service-card group block">
       <div class="tilt-layer">
         <div class="icon-wrap grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 text-gold border border-gold/20">
           {% include "partials/icon.html" with icon=service.icon %}
@@ -172,7 +172,7 @@
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </div>
       </div>
-    </article>
+    </a>
     {% empty %}
     <p class="text-muted">{% trans "Le contenu sera bientôt disponible." %}</p>
     {% endfor %}
