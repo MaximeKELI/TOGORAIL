@@ -666,6 +666,103 @@ body.has-custom-cursor button {
 }
 
 /* --------------------------------------------------------------------------
+   Kinetic typography band
+   -------------------------------------------------------------------------- */
+.kinetic {
+  overflow: hidden;
+  padding: 3.5rem 0;
+  position: relative;
+}
+.kinetic-row {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+}
+.kinetic-row + .kinetic-row {
+  margin-top: 0.5rem;
+}
+.kinetic-word {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.75rem, 9vw, 8.5rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 3rem;
+}
+.kinetic-word.outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(201, 162, 39, 0.55);
+}
+.kinetic-word.solid {
+  color: rgba(255, 255, 255, 0.92);
+}
+.kinetic-word .sep {
+  color: var(--gold);
+  font-size: 0.5em;
+}
+
+/* --------------------------------------------------------------------------
+   Rotating animated gold border on cards
+   -------------------------------------------------------------------------- */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0%,
+    rgba(201, 162, 39, 0.6) 15%,
+    transparent 35%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.service-card:hover::after {
+  opacity: 1;
+  animation: borderSpin 4s linear infinite;
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes borderSpin {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Stat item micro-interactions
+   -------------------------------------------------------------------------- */
+.stat-item {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.stat-item:hover {
+  transform: translateY(-6px);
+}
+.stat-item .stat-underline {
+  height: 2px;
+  width: 0;
+  margin-top: 0.75rem;
+  background: linear-gradient(90deg, var(--goldsoft), var(--gold));
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.stat-item:hover .stat-underline {
+  width: 48px;
+}
+
+/* --------------------------------------------------------------------------
    Premium carousel
    -------------------------------------------------------------------------- */
 .carousel {
@@ -854,4 +951,6 @@ body.has-custom-cursor button {
   .cursor-dot, .cursor-ring { display: none !important; }
   .beam-layer, .light-overlay, .aurora, .glow-pulse { animation: none !important; }
   .kenburns, .kenburns-2, .media-frame .shine { animation: none !important; }
+  .text-gradient { animation: none !important; }
+  .service-card:hover::after { animation: none !important; }
 }
