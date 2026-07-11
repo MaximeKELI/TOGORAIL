@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -124,6 +125,14 @@ class PartnerLogo(models.Model):
 
 
 class ContactMessage(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="messages",
+        verbose_name=_("Utilisateur"),
+    )
     name = models.CharField(_("Nom"), max_length=120)
     email = models.EmailField(_("Email"))
     company = models.CharField(_("Société"), max_length=120, blank=True, default="")
