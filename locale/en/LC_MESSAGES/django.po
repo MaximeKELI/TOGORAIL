@@ -54,7 +54,7 @@ msgstr "Your message"
 
 #: core/forms.py:68
 msgid "Poste visé"
-msgstr ""
+msgstr "Target position"
 
 #: core/forms.py:71 core/models.py:270 templates/pages/contact.html:30
 msgid "Téléphone"
@@ -62,30 +62,27 @@ msgstr "Phone"
 
 #: core/forms.py:72
 msgid "CV (PDF, DOC)"
-msgstr ""
+msgstr "CV (PDF, DOC)"
 
 #: core/forms.py:73
-#, fuzzy
 #| msgid "Message de contact"
 msgid "Message / motivation"
 msgstr "Contact message"
 
 #: core/forms.py:86
 msgid "Format accepté : PDF, DOC, DOCX."
-msgstr ""
+msgstr "Accepted format: PDF, DOC, DOCX."
 
 #: core/forms.py:88
 msgid "Fichier trop volumineux (5 Mo max)."
-msgstr ""
+msgstr "File too large (5 MB max)."
 
 #: core/forms.py:102 templates/partials/footer.html:17
-#, fuzzy
 #| msgid "Adresse e-mail"
 msgid "Votre e-mail"
 msgstr "Email address"
 
 #: core/forms.py:106
-#, fuzzy
 #| msgid "Email"
 msgid "E-mail"
 msgstr "Email"
@@ -100,7 +97,7 @@ msgstr "Title (EN)"
 
 #: core/models.py:20 core/models.py:147 core/models.py:194
 msgid "Slug"
-msgstr ""
+msgstr "Slug"
 
 #: core/models.py:21 core/models.py:195
 msgid "Résumé (FR)"
@@ -111,20 +108,18 @@ msgid "Summary (EN)"
 msgstr "Summary (EN)"
 
 #: core/models.py:23
-#, fuzzy
 #| msgid "Description (FR)"
 msgid "Description détaillée (FR)"
 msgstr "Description (FR)"
 
 #: core/models.py:24
-#, fuzzy
 #| msgid "Description (EN)"
 msgid "Detailed description (EN)"
 msgstr "Description (EN)"
 
 #: core/models.py:25 core/models.py:199
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 #: core/models.py:28
 msgid "Icône (nom)"
@@ -248,218 +243,203 @@ msgstr "Contact messages"
 
 #: core/models.py:148
 msgid "Chapô (FR)"
-msgstr ""
+msgstr "Intro (FR)"
 
 #: core/models.py:149
-#, fuzzy
 #| msgid "Description (EN)"
 msgid "Excerpt (EN)"
 msgstr "Description (EN)"
 
 #: core/models.py:150
-#, fuzzy
 #| msgid "Titre (FR)"
 msgid "Contenu (FR)"
 msgstr "Title (FR)"
 
 #: core/models.py:151
-#, fuzzy
 #| msgid "Title (EN)"
 msgid "Content (EN)"
 msgstr "Title (EN)"
 
 #: core/models.py:152
 msgid "Image de couverture"
-msgstr ""
+msgstr "Cover image"
 
 #: core/models.py:153
-#, fuzzy
 #| msgid "Titre (FR)"
 msgid "Catégorie (FR)"
 msgstr "Title (FR)"
 
 #: core/models.py:154
-#, fuzzy
 #| msgid "Summary (EN)"
 msgid "Category (EN)"
 msgstr "Summary (EN)"
 
 #: core/models.py:155
 msgid "Date de publication"
-msgstr ""
+msgstr "Publication date"
 
 #: core/models.py:156
 msgid "Publié"
-msgstr ""
+msgstr "Published"
 
 #: core/models.py:160
 msgid "Article"
-msgstr ""
+msgstr "Article"
 
 #: core/models.py:161
 msgid "Articles"
-msgstr ""
+msgstr "Articles"
 
 #: core/models.py:197
 msgid "Étude de cas (FR)"
-msgstr ""
+msgstr "Case study (FR)"
 
 #: core/models.py:198
 msgid "Case study (EN)"
-msgstr ""
+msgstr "Case study (EN)"
 
 #: core/models.py:201 core/models.py:239
 msgid "Lieu"
-msgstr ""
+msgstr "Location"
 
 #: core/models.py:206
 msgid "Projet"
-msgstr ""
+msgstr "Project"
 
 #: core/models.py:207
 msgid "Projets"
-msgstr ""
+msgstr "Projects"
 
 #: core/models.py:232
 msgid "CDI"
-msgstr ""
+msgstr "Permanent"
 
 #: core/models.py:233
 msgid "CDD"
-msgstr ""
+msgstr "Fixed-term"
 
 #: core/models.py:234
 msgid "Stage"
-msgstr ""
+msgstr "Internship"
 
 #: core/models.py:235
 msgid "Alternance"
-msgstr ""
+msgstr "Apprenticeship"
 
 #: core/models.py:237
-#, fuzzy
 #| msgid "Titre (FR)"
 msgid "Poste (FR)"
 msgstr "Title (FR)"
 
 #: core/models.py:238
-#, fuzzy
 #| msgid "Description (EN)"
 msgid "Position (EN)"
 msgstr "Description (EN)"
 
 #: core/models.py:240
-#, fuzzy
 #| msgid "Contact"
 msgid "Contrat"
 msgstr "Contact"
 
 #: core/models.py:243
 msgid "Ouvert"
-msgstr ""
+msgstr "Open"
 
 #: core/models.py:248
 msgid "Offre d'emploi"
-msgstr ""
+msgstr "Job offer"
 
 #: core/models.py:249
 msgid "Offres d'emploi"
-msgstr ""
+msgstr "Job offers"
 
 #: core/models.py:266
 msgid "Offre"
-msgstr ""
+msgstr "Offer"
 
 #: core/models.py:271
 msgid "CV"
-msgstr ""
+msgstr "CV"
 
 #: core/models.py:277 templates/pages/careers.html:42
 msgid "Candidature"
-msgstr ""
+msgstr "Application"
 
 #: core/models.py:278
 msgid "Candidatures"
-msgstr ""
+msgstr "Applications"
 
 #: core/models.py:285
-#, fuzzy
 #| msgid "Description (FR)"
 msgid "Question (FR)"
 msgstr "Description (FR)"
 
 #: core/models.py:286
-#, fuzzy
 #| msgid "Description (EN)"
 msgid "Question (EN)"
 msgstr "Description (EN)"
 
 #: core/models.py:287
-#, fuzzy
 #| msgid "Résumé (FR)"
 msgid "Réponse (FR)"
 msgstr "Summary (FR)"
 
 #: core/models.py:288
 msgid "Answer (EN)"
-msgstr ""
+msgstr "Answer (EN)"
 
 #: core/models.py:293 core/models.py:294 templates/pages/faq.html:4
 #: templates/partials/footer.html:34 templates/partials/navbar.html:60
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
 
 #: core/models.py:309
 msgid "Auteur"
-msgstr ""
+msgstr "Author"
 
 #: core/models.py:310
-#, fuzzy
 #| msgid "Description (FR)"
 msgid "Fonction (FR)"
 msgstr "Description (FR)"
 
 #: core/models.py:311
-#, fuzzy
 #| msgid "Title (EN)"
 msgid "Role (EN)"
 msgstr "Title (EN)"
 
 #: core/models.py:312
-#, fuzzy
 #| msgid "Description (FR)"
 msgid "Citation (FR)"
 msgstr "Description (FR)"
 
 #: core/models.py:313
-#, fuzzy
 #| msgid "Title (EN)"
 msgid "Quote (EN)"
 msgstr "Title (EN)"
 
 #: core/models.py:314
 msgid "Photo"
-msgstr ""
+msgstr "Photo"
 
 #: core/models.py:319
 msgid "Témoignage"
-msgstr ""
+msgstr "Testimonial"
 
 #: core/models.py:320
 msgid "Témoignages"
-msgstr ""
+msgstr "Testimonials"
 
 #: core/models.py:336
 msgid "Inscrit le"
-msgstr ""
+msgstr "Subscribed on"
 
 #: core/models.py:340
 msgid "Abonné newsletter"
-msgstr ""
+msgstr "Newsletter subscriber"
 
 #: core/models.py:341
 msgid "Abonnés newsletter"
-msgstr ""
+msgstr "Newsletter subscribers"
 
 #: core/views.py:55
 msgid ""
@@ -469,7 +449,7 @@ msgstr ""
 
 #: core/views.py:65
 msgid "Découvrez la mission, la vision et l'histoire de Togo Rail."
-msgstr ""
+msgstr "Discover the mission, vision and history of Togo Rail."
 
 #: core/views.py:74
 msgid ""
@@ -479,19 +459,19 @@ msgstr ""
 
 #: core/views.py:93
 msgid "Nos réalisations et études de cas ferroviaires."
-msgstr ""
+msgstr "Our railway achievements and case studies."
 
 #: core/views.py:101
 msgid "Actualités, annonces et publications de Togo Rail."
-msgstr ""
+msgstr "News, announcements and publications from Togo Rail."
 
 #: core/views.py:120 core/views.py:172
 msgid "Trop de tentatives. Réessayez plus tard."
-msgstr ""
+msgstr "Too many attempts. Please try again later."
 
 #: core/views.py:126
 msgid "Merci ! Votre candidature a bien été reçue."
-msgstr ""
+msgstr "Thank you! Your application has been received."
 
 #: core/views.py:130 core/views.py:155
 msgid "Veuillez corriger les erreurs ci-dessous."
@@ -499,11 +479,11 @@ msgstr "Please correct the errors below."
 
 #: core/views.py:137
 msgid "Rejoignez les équipes de Togo Rail."
-msgstr ""
+msgstr "Join the Togo Rail teams."
 
 #: core/views.py:145
 msgid "Trop de messages envoyés. Réessayez plus tard."
-msgstr ""
+msgstr "Too many messages sent. Please try again later."
 
 #: core/views.py:151
 msgid ""
@@ -513,27 +493,25 @@ msgstr ""
 
 #: core/views.py:162
 msgid "Contactez les équipes de Togo Rail."
-msgstr ""
+msgstr "Contact the Togo Rail teams."
 
 #: core/views.py:176
 msgid "Merci ! Vous êtes bien inscrit à notre newsletter."
-msgstr ""
+msgstr "Thank you! You are now subscribed to our newsletter."
 
 #: core/views.py:179
-#, fuzzy
 #| msgid "Adresse e-mail"
 msgid "Adresse e-mail invalide."
 msgstr "Email address"
 
 #: core/views.py:191
-#, fuzzy
 #| msgid "À propos de Togo Rail"
 msgid "Questions fréquentes à propos de Togo Rail."
 msgstr "About Togo Rail"
 
 #: core/views.py:211
 msgid "Togo Rail — Nous avons bien reçu votre message"
-msgstr ""
+msgstr "Togo Rail — We have received your message"
 
 #: core/views.py:213
 #, python-format
@@ -547,7 +525,6 @@ msgid ""
 msgstr ""
 
 #: templates/base.html:10
-#, fuzzy
 #| msgid "Togo Rail · Infrastructure de nouvelle génération"
 msgid "Infrastructure ferroviaire nouvelle génération"
 msgstr "Togo Rail · Next-generation infrastructure"
@@ -561,14 +538,13 @@ msgstr ""
 "transport and integrated logistics."
 
 #: templates/base.html:17 templates/base.html:25
-#, fuzzy
 #| msgid "Relier le Togo, connecter l'Afrique de l'Ouest."
 msgid "Relier le Togo, connecter l’Afrique de l’Ouest."
 msgstr "Connecting Togo, powering West Africa."
 
 #: templates/base.html:139
 msgid "Revenir en haut"
-msgstr ""
+msgstr "Back to top"
 
 #: templates/pages/about.html:4 templates/partials/footer.html:31
 #: templates/partials/navbar.html:19 templates/partials/navbar.html:57
@@ -638,45 +614,44 @@ msgstr "progress."
 #: templates/pages/blog.html:10 templates/pages/home.html:419
 #: templates/partials/footer.html:32 templates/partials/navbar.html:20
 #: templates/partials/navbar.html:58
-#, fuzzy
 #| msgid "Durabilité"
 msgid "Actualités"
 msgstr "Sustainability"
 
 #: templates/pages/article_detail.html:36
 msgid "À lire aussi"
-msgstr ""
+msgstr "Read also"
 
 #: templates/pages/article_detail.html:39 templates/pages/blog.html:20
 #: templates/pages/home.html:428
 msgid "Lire"
-msgstr ""
+msgstr "Read"
 
 #: templates/pages/blog.html:12
 msgid "Le journal de"
-msgstr ""
+msgstr "The journal of"
 
 #: templates/pages/blog.html:33
 msgid "Lire l’article"
-msgstr ""
+msgstr "Read the article"
 
 #: templates/pages/blog.html:37
 msgid "Aucune actualité pour le moment."
-msgstr ""
+msgstr "No news yet."
 
 #: templates/pages/careers.html:4 templates/pages/careers.html:10
 #: templates/partials/footer.html:33 templates/partials/navbar.html:21
 #: templates/partials/navbar.html:59
 msgid "Carrières"
-msgstr ""
+msgstr "Careers"
 
 #: templates/pages/careers.html:12
 msgid "Construisez l’avenir"
-msgstr ""
+msgstr "Build the future"
 
 #: templates/pages/careers.html:12
 msgid "avec nous."
-msgstr ""
+msgstr "with us."
 
 #: templates/pages/careers.html:15
 msgid ""
@@ -686,11 +661,11 @@ msgstr ""
 
 #: templates/pages/careers.html:23
 msgid "Offres ouvertes"
-msgstr ""
+msgstr "Open positions"
 
 #: templates/pages/careers.html:32
 msgid "Postuler"
-msgstr ""
+msgstr "Apply"
 
 #: templates/pages/careers.html:35
 msgid ""
@@ -700,7 +675,7 @@ msgstr ""
 
 #: templates/pages/careers.html:76
 msgid "Envoyer ma candidature"
-msgstr ""
+msgstr "Send my application"
 
 #: templates/pages/contact.html:4 templates/pages/contact.html:10
 #: templates/partials/footer.html:35 templates/partials/footer.html:40
@@ -726,23 +701,23 @@ msgstr "Send message"
 
 #: templates/pages/faq.html:10
 msgid "Questions fréquentes"
-msgstr ""
+msgstr "Frequently asked questions"
 
 #: templates/pages/faq.html:12
 msgid "Tout ce qu’il faut"
-msgstr ""
+msgstr "Everything you need"
 
 #: templates/pages/faq.html:12
 msgid "savoir."
-msgstr ""
+msgstr "to know."
 
 #: templates/pages/faq.html:32
 msgid "Aucune question pour le moment."
-msgstr ""
+msgstr "No questions yet."
 
 #: templates/pages/faq.html:37
 msgid "Vous ne trouvez pas votre réponse ?"
-msgstr ""
+msgstr "Can’t find your answer?"
 
 #: templates/pages/faq.html:38 templates/pages/projects.html:50
 #: templates/pages/services.html:44
@@ -877,7 +852,7 @@ msgstr "All services →"
 #: templates/pages/home.html:181 templates/pages/service_detail.html:46
 #: templates/pages/services.html:23
 msgid "Voir"
-msgstr ""
+msgstr "View"
 
 #: templates/pages/home.html:189 templates/pages/services.html:30
 msgid "En savoir plus"
@@ -1026,55 +1001,50 @@ msgstr "Interconnecting West-African markets for shared, sustainable growth."
 #: templates/pages/home.html:362 templates/pages/projects.html:4
 #: templates/partials/footer.html:30 templates/partials/navbar.html:18
 #: templates/partials/navbar.html:56
-#, fuzzy
 #| msgid "Navigation"
 msgid "Réalisations"
 msgstr "Navigation"
 
 #: templates/pages/home.html:364 templates/pages/projects.html:12
 msgid "Des projets qui"
-msgstr ""
+msgstr "Projects that"
 
 #: templates/pages/home.html:364
 msgid "font référence."
-msgstr ""
+msgstr "set the standard."
 
 #: templates/pages/home.html:367
-#, fuzzy
 #| msgid "Tous les services →"
 msgid "Toutes les réalisations →"
 msgstr "All services →"
 
 #: templates/pages/home.html:371 templates/pages/projects.html:23
 msgid "Explorer"
-msgstr ""
+msgstr "Explore"
 
 #: templates/pages/home.html:391
 msgid "Ils témoignent"
-msgstr ""
+msgstr "They vouch for us"
 
 #: templates/pages/home.html:393
 msgid "La confiance de nos"
-msgstr ""
+msgstr "The trust of our"
 
 #: templates/pages/home.html:393
-#, fuzzy
 #| msgid "Logos partenaires"
 msgid "partenaires."
 msgstr "Partner logos"
 
 #: templates/pages/home.html:421
-#, fuzzy
 #| msgid "les frontières."
 msgid "Les dernières"
 msgstr "borders."
 
 #: templates/pages/home.html:421
 msgid "nouvelles."
-msgstr ""
+msgstr "news."
 
 #: templates/pages/home.html:424
-#, fuzzy
 #| msgid "Tous les services →"
 msgid "Toutes les actualités →"
 msgstr "All services →"
@@ -1129,11 +1099,11 @@ msgstr "Request a quote"
 
 #: templates/pages/projects.html:10
 msgid "Nos réalisations"
-msgstr ""
+msgstr "Our achievements"
 
 #: templates/pages/projects.html:12
 msgid "façonnent l’avenir."
-msgstr ""
+msgstr "shape the future."
 
 #: templates/pages/projects.html:15
 msgid ""
@@ -1142,18 +1112,17 @@ msgstr ""
 
 #: templates/pages/projects.html:48
 msgid "Un projet en tête ?"
-msgstr ""
+msgstr "Got a project in mind?"
 
 #: templates/pages/projects.html:49
 msgid "Parlons de votre prochaine infrastructure ferroviaire."
-msgstr ""
+msgstr "Let’s talk about your next railway infrastructure."
 
 #: templates/pages/service_detail.html:19
 msgid "Discuter de ce service"
-msgstr ""
+msgstr "Discuss this service"
 
 #: templates/pages/service_detail.html:43
-#, fuzzy
 #| msgid "Nos services"
 msgid "Autres services"
 msgstr "Our services"
@@ -1188,15 +1157,15 @@ msgstr "Let's build a tailor-made logistics solution together."
 
 #: templates/partials/footer.html:13
 msgid "Newsletter"
-msgstr ""
+msgstr "Newsletter"
 
 #: templates/partials/footer.html:14
 msgid "Recevez nos actualités et annonces."
-msgstr ""
+msgstr "Get our news and announcements."
 
 #: templates/partials/footer.html:19
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: templates/partials/footer.html:26
 msgid "Navigation"
@@ -1217,7 +1186,7 @@ msgstr "Crafted with precision and passion."
 
 #: templates/partials/navbar.html:27
 msgid "Changer de thème"
-msgstr ""
+msgstr "Toggle theme"
 
 #: templates/partials/navbar.html:40
 msgid "Devis"
