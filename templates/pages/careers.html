@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Carrières" %} — Togo Rail{% endblock %}
+
+{% block content %}
+<section class="relative pt-40 pb-16 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_0%,rgba(201,162,39,0.15),transparent_45%)]"></div>
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <p data-animate class="eyebrow mb-5">{% trans "Carrières" %}</p>
+    <h1 data-split class="font-display text-5xl md:text-7xl font-extrabold max-w-4xl leading-[0.95]">
+      {% trans "Construisez l’avenir" %} <span class="text-gradient">{% trans "avec nous." %}</span>
+    </h1>
+    <p data-animate class="mt-8 max-w-2xl text-lg text-muted leading-relaxed">
+      {% trans "Rejoignez une équipe passionnée qui redéfinit la mobilité en Afrique de l’Ouest." %}
+    </p>
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-5 md:px-8 py-12 grid lg:grid-cols-5 gap-10">
+  <!-- Offers -->
+  <div class="lg:col-span-3">
+    <h2 data-animate class="font-display text-2xl font-bold mb-6">{% trans "Offres ouvertes" %}</h2>
+    <div data-stagger class="space-y-4">
+      {% for offer in offers %}
+      <article data-stagger-item class="glass rounded-2xl p-6 flex items-start justify-between gap-4">
+        <div>
+          <h3 class="font-display text-lg font-semibold">{{ offer.title }}</h3>
+          <p class="mt-1 text-sm text-gold">{{ offer.get_contract_type_display }} · {{ offer.location }}</p>
+          <p class="mt-3 text-muted text-[0.95rem] leading-relaxed">{{ offer.description|truncatewords:30 }}</p>
+        </div>
+        <a href="#apply" class="btn-ghost text-sm whitespace-nowrap !px-4 !py-2">{% trans "Postuler" %}</a>
+      </article>
+      {% empty %}
+      <p class="text-muted">{% trans "Aucune offre ouverte actuellement — envoyez tout de même une candidature spontanée." %}</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Application form -->
+  <div id="apply" class="lg:col-span-2">
+    <h2 data-animate class="font-display text-2xl font-bold mb-6">{% trans "Candidature" %}</h2>
+    <form method="post" enctype="multipart/form-data" novalidate class="glass rounded-3xl p-8 space-y-6" data-animate="right">
+      {% csrf_token %}
+      {{ form.website }}
+      {% if form.non_field_errors %}<div class="text-sm text-red-400">{{ form.non_field_errors }}</div>{% endif %}
+
+      <div>
+        <label class="block text-sm text-muted mb-2" for="{{ form.offer.id_for_label }}">{{ form.offer.label }}</label>
+        {{ form.offer }}
+      </div>
+      <div class="field">
+        {{ form.name }}
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+        {% if form.name.errors %}<p class="mt-1 text-xs text-red-400">{{ form.name.errors|striptags }}</p>{% endif %}
+      </div>
+      <div class="field">
+        {{ form.email }}
+        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+        {% if form.email.errors %}<p class="mt-1 text-xs text-red-400">{{ form.email.errors|striptags }}</p>{% endif %}
+      </div>
+      <div class="field">
+        {{ form.phone }}
+        <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+      </div>
+      <div>
+        <label class="block text-sm text-muted mb-2" for="{{ form.cv.id_for_label }}">{{ form.cv.label }}</label>
+        {{ form.cv }}
+        {% if form.cv.errors %}<p class="mt-1 text-xs text-red-400">{{ form.cv.errors|striptags }}</p>{% endif %}
+      </div>
+      <div class="field">
+        {{ form.message }}
+        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+      </div>
+
+      <button type="submit" class="btn-gold w-full justify-center">{% trans "Envoyer ma candidature" %}</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

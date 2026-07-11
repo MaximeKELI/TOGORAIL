@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "FAQ" %} — Togo Rail{% endblock %}
+
+{% block content %}
+<section class="relative pt-40 pb-16 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_0%,rgba(201,162,39,0.15),transparent_45%)]"></div>
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <p data-animate class="eyebrow mb-5">{% trans "Questions fréquentes" %}</p>
+    <h1 data-split class="font-display text-5xl md:text-7xl font-extrabold max-w-4xl leading-[0.95]">
+      {% trans "Tout ce qu’il faut" %} <span class="text-gradient">{% trans "savoir." %}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="mx-auto max-w-3xl px-5 md:px-8 py-12">
+  <div data-stagger class="space-y-4">
+    {% for faq in faqs %}
+    <div data-stagger-item class="accordion glass rounded-2xl overflow-hidden">
+      <button type="button" class="accordion-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+        <span class="font-display text-lg font-semibold">{{ faq.question }}</span>
+        <span class="accordion-icon grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/10 text-gold transition-transform duration-300">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        </span>
+      </button>
+      <div class="accordion-panel">
+        <div class="px-6 pb-6 text-muted leading-relaxed">{{ faq.answer|linebreaks }}</div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-muted">{% trans "Aucune question pour le moment." %}</p>
+    {% endfor %}
+  </div>
+
+  <div class="mt-12 text-center">
+    <p class="text-muted">{% trans "Vous ne trouvez pas votre réponse ?" %}</p>
+    <a href="{% url 'contact' %}" data-magnetic="0.5" class="btn-gold mt-4">{% trans "Contactez-nous" %}</a>
+  </div>
+</section>
+{% endblock %}
