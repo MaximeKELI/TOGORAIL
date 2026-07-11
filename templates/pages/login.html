@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Connexion" %} — Togo Rail{% endblock %}
+
+{% block content %}
+<section class="relative pt-40 pb-16 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_0%,rgba(201,162,39,0.15),transparent_45%)]"></div>
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <p data-animate class="eyebrow mb-5">{% trans "Espace membre" %}</p>
+    <h1 data-split class="font-display text-5xl md:text-7xl font-extrabold max-w-4xl leading-[0.95]">
+      {% trans "Bon retour" %} <span class="text-gradient">{% trans "parmi nous." %}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="mx-auto max-w-md px-5 md:px-8 py-12">
+  <form method="post" novalidate class="glass rounded-3xl p-8 md:p-10 space-y-6" data-animate="scale">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    {% if form.non_field_errors %}<div class="text-sm text-red-400">{{ form.non_field_errors|striptags }}</div>{% endif %}
+
+    <div class="field">
+      {{ form.username }}
+      <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+    </div>
+    <div class="field">
+      {{ form.password }}
+      <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+    </div>
+
+    <button type="submit" class="btn-gold w-full justify-center">{% trans "Se connecter" %}</button>
+
+    <p class="text-center text-sm text-muted">
+      {% trans "Pas encore de compte ?" %}
+      <a href="{% url 'register' %}" class="text-gold hover:text-goldsoft transition-colors">{% trans "S’inscrire" %}</a>
+    </p>
+  </form>
+</section>
+{% endblock %}
