@@ -1,6 +1,17 @@
 from django.core.management.base import BaseCommand
+from django.utils import timezone
 
-from core.models import PartnerLogo, Service, Stat, TimelineEvent
+from core.models import (
+    Article,
+    FAQ,
+    JobOffer,
+    PartnerLogo,
+    Project,
+    Service,
+    Stat,
+    Testimonial,
+    TimelineEvent,
+)
 
 
 class Command(BaseCommand):
