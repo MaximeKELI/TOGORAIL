@@ -396,20 +396,16 @@ msgid "Gares d’exception"
 msgstr "Exceptional stations"
 
 #: templates/pages/home.html:155
-#, fuzzy
-#| msgid "Des solutions ferroviaires"
 msgid "Pont ferroviaire"
-msgstr "End-to-end railway"
+msgstr "Railway bridge"
 
 #: templates/pages/home.html:156
 msgid "Ouvrages d’art"
 msgstr "Engineering structures"
 
 #: templates/pages/home.html:159
-#, fuzzy
-#| msgid "Des solutions ferroviaires"
 msgid "Fret ferroviaire"
-msgstr "End-to-end railway"
+msgstr "Rail freight"
 
 #: templates/pages/home.html:160
 msgid "Fret & logistique"
