@@ -152,16 +152,37 @@
   /* ======================================================================
      4. SPLIT-TEXT REVEALS
      ====================================================================== */
-  // Recursively split text nodes into per-character spans while preserving
-  // inner elements (e.g. <span class="text-gradient">) and their styling.
+  // Recursively split text nodes into per-word / per-character spans while
+  // preserving inner elements (e.g. <span class="text-gradient">). Template
+  // indentation whitespace is normalized so titles never get a broken indent,
+  // and real spaces stay as text nodes so long titles can wrap naturally.
   function wrapTextNode(node) {
-    const text = node.textContent;
+    const raw = node.textContent;
+    const hadLead = /^\s/.test(raw);
+    const hadTrail = /\s$/.test(raw);
+    const prev = node.previousSibling;
+    const next = node.nextSibling;
+    const words = raw.trim().split(/\s+/).filter(Boolean);
+    if (!words.length) return;
+
     const frag = document.createDocumentFragment();
-    for (const ch of text) {
-      const span = document.createElement("span");
-      span.className = "split-char";
-      span.textContent = ch === " " ? "\u00A0" : ch;
-      frag.appendChild(span);
+    if (hadLead && prev && prev.nodeType === Node.ELEMENT_NODE) {
+      frag.appendChild(document.createTextNode(" "));
+    }
+    words.forEach((word, i) => {
+      const wordSpan = document.createElement("span");
+      wordSpan.className = "split-word";
+      for (const ch of word) {
+        const span = document.createElement("span");
+        span.className = "split-char";
+        span.textContent = ch;
+        wordSpan.appendChild(span);
+      }
+      frag.appendChild(wordSpan);
+      if (i < words.length - 1) frag.appendChild(document.createTextNode(" "));
+    });
+    if (hadTrail && next && next.nodeType === Node.ELEMENT_NODE) {
+      frag.appendChild(document.createTextNode(" "));
     }
     node.parentNode.replaceChild(frag, node);
   }
