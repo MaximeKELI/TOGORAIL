@@ -1,13 +1,24 @@
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
+from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
 from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_POST
 
-from .forms import ContactForm, JobApplicationForm, NewsletterForm
+from .forms import (
+    ContactForm,
+    JobApplicationForm,
+    LoginForm,
+    MemberMessageForm,
+    NewsletterForm,
+    SignUpForm,
+)
 from .models import (
     Article,
     FAQ,
