@@ -7,15 +7,22 @@
 
 <!-- ============================ HERO ============================ -->
 <section id="hero" data-parallax-scene class="relative min-h-screen flex items-center overflow-hidden">
-  <!-- Background media -->
-  <div class="absolute inset-0 -z-10">
+  <!-- Background media + cinematic lighting -->
+  <div class="absolute inset-0 -z-10 overflow-hidden">
     <div data-hero-media data-depth="0.35" class="absolute inset-0 scale-110">
-      <video class="h-full w-full object-cover opacity-70" autoplay muted loop playsinline poster="{% static 'media/hero-poster.svg' %}">
-        <source src="{% static 'media/hero.mp4' %}" type="video/mp4" />
-      </video>
-      <img src="{% static 'media/hero-poster.svg' %}" alt="" class="absolute inset-0 h-full w-full object-cover -z-10" />
+      <img src="{% static 'media/hero-train.png' %}" alt="" class="h-full w-full object-cover" fetchpriority="high" />
     </div>
-    <div class="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/60 to-ink"></div>
+    <!-- rotating volumetric beams -->
+    <div class="beam-layer"></div>
+    <!-- animated aurora blobs -->
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <!-- god-ray / bokeh texture overlay -->
+    <div class="light-overlay" style="background-image:url('{% static 'media/light-texture.png' %}')"></div>
+    <!-- animated particle + speed-streak canvas -->
+    <canvas id="hero-lights"></canvas>
+    <!-- readability gradients -->
+    <div class="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/45 to-ink"></div>
     <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/40 to-transparent"></div>
   </div>
 
