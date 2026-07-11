@@ -556,6 +556,123 @@ body.has-custom-cursor button {
   clip-path: inset(0 100% 0 0);
 }
 
+/* ==========================================================================
+   CINEMATIC LIGHTING
+   ========================================================================== */
+
+/* Hero light canvas */
+#hero-lights {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* Golden bokeh / god-ray texture overlay (screen blended, slow drift) */
+.light-overlay {
+  position: absolute;
+  inset: -10%;
+  z-index: 1;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: screen;
+  opacity: 0.55;
+  animation: lightDrift 18s ease-in-out infinite alternate;
+}
+@keyframes lightDrift {
+  0% { transform: scale(1.05) translate(0, 0); opacity: 0.45; }
+  100% { transform: scale(1.15) translate(-2%, -2%); opacity: 0.7; }
+}
+
+/* Rotating volumetric light beams (conic sweep) */
+.beam-layer {
+  position: absolute;
+  inset: -40%;
+  z-index: 0;
+  pointer-events: none;
+  background: conic-gradient(
+    from 0deg at 50% 40%,
+    transparent 0deg,
+    rgba(201, 162, 39, 0.12) 12deg,
+    transparent 30deg,
+    transparent 180deg,
+    rgba(201, 162, 39, 0.08) 200deg,
+    transparent 230deg
+  );
+  filter: blur(30px);
+  animation: beamSpin 32s linear infinite;
+  mix-blend-mode: screen;
+}
+@keyframes beamSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Animated aurora blobs */
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+.aurora.a1 {
+  width: 34rem;
+  height: 34rem;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.55), transparent 65%);
+  top: -8rem;
+  left: -6rem;
+  animation: auroraMove1 16s ease-in-out infinite alternate;
+}
+.aurora.a2 {
+  width: 30rem;
+  height: 30rem;
+  background: radial-gradient(circle, rgba(56, 120, 200, 0.4), transparent 65%);
+  bottom: -10rem;
+  right: -8rem;
+  animation: auroraMove2 20s ease-in-out infinite alternate;
+}
+@keyframes auroraMove1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(6rem, 4rem) scale(1.2); }
+}
+@keyframes auroraMove2 {
+  0% { transform: translate(0, 0) scale(1.1); }
+  100% { transform: translate(-5rem, -3rem) scale(1); }
+}
+
+/* Glow pulse for accent elements */
+.glow-pulse {
+  animation: glowPulse 3.5s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(201, 162, 39, 0.25); }
+  50% { box-shadow: 0 0 45px rgba(201, 162, 39, 0.55); }
+}
+
+/* Section media with light framing */
+.media-frame {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.media-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5, 7, 12, 0.85), transparent 55%);
+}
+.media-frame .frame-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: inset 0 0 80px rgba(201, 162, 39, 0.15);
+}
+
 /* --------------------------------------------------------------------------
    Accessibility — respect reduced motion
    -------------------------------------------------------------------------- */
@@ -573,4 +690,5 @@ body.has-custom-cursor button {
   [data-clip] { clip-path: none !important; }
   .grain, #preloader { display: none !important; }
   .cursor-dot, .cursor-ring { display: none !important; }
+  .beam-layer, .light-overlay, .aurora, .glow-pulse { animation: none !important; }
 }
