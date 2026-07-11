@@ -1,9 +1,25 @@
+from django.conf import settings
 from django.contrib import messages
-from django.shortcuts import redirect, render
+from django.core.cache import cache
+from django.core.mail import send_mail
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
+from django.views.decorators.http import require_POST
 
-from .forms import ContactForm
-from .models import PartnerLogo, Service, Stat, TimelineEvent
+from .forms import ContactForm, JobApplicationForm, NewsletterForm
+from .models import (
+    Article,
+    FAQ,
+    JobOffer,
+    PartnerLogo,
+    Project,
+    Service,
+    Stat,
+    Subscriber,
+    Testimonial,
+    TimelineEvent,
+)
 
 
 def _common():
@@ -12,43 +28,211 @@ def _common():
         "stats": Stat.objects.all(),
         "timeline": TimelineEvent.objects.all(),
         "partners": PartnerLogo.objects.all(),
+        "testimonials": Testimonial.objects.all(),
+        "faqs": FAQ.objects.all(),
+        "newsletter_form": NewsletterForm(),
     }
+
+
+def _rate_limited(request, key: str, limit: int = 5, window: int = 3600) -> bool:
+    """Simple IP-based rate limiter backed by the cache."""
+    ip = request.META.get("REMOTE_ADDR", "unknown")
+    cache_key = f"rl:{key}:{ip}"
+    count = cache.get(cache_key, 0)
+    if count >= limit:
+        return True
+    cache.set(cache_key, count + 1, window)
+    return False
 
 
 def home(request):
     ctx = _common()
     ctx["featured_services"] = ctx["services"].filter(featured=True)[:6]
+    ctx["projects"] = Project.objects.all()[:6]
+    ctx["articles"] = Article.objects.filter(is_published=True)[:3]
     ctx["active_page"] = "home"
+    ctx["meta_description"] = _(
+        "Togo Rail conçoit et exploite des infrastructures ferroviaires de nouvelle "
+        "génération pour connecter l'Afrique de l'Ouest."
+    )
     return render(request, "pages/home.html", ctx)
 
 
 def about(request):
     ctx = _common()
     ctx["active_page"] = "about"
+    ctx["meta_description"] = _(
+        "Découvrez la mission, la vision et l'histoire de Togo Rail."
+    )
     return render(request, "pages/about.html", ctx)
 
 
 def services(request):
     ctx = _common()
     ctx["active_page"] = "services"
+    ctx["meta_description"] = _(
+        "Fret, transport de passagers, ingénierie et maintenance : l'offre complète de Togo Rail."
+    )
     return render(request, "pages/services.html", ctx)
+
+
+def service_detail(request, slug):
+    service = get_object_or_404(Service, slug=slug)
+    ctx = _common()
+    ctx["service"] = service
+    ctx["other_services"] = Service.objects.exclude(pk=service.pk)[:3]
+    ctx["active_page"] = "services"
+    ctx["meta_description"] = service.summary
+    return render(request, "pages/service_detail.html", ctx)
+
+
+def projects(request):
+    ctx = _common()
+    ctx["projects"] = Project.objects.all()
+    ctx["active_page"] = "projects"
+    ctx["meta_description"] = _("Nos réalisations et études de cas ferroviaires.")
+    return render(request, "pages/projects.html", ctx)
+
+
+def blog(request):
+    ctx = _common()
+    ctx["articles"] = Article.objects.filter(is_published=True)
+    ctx["active_page"] = "blog"
+    ctx["meta_description"] = _("Actualités, annonces et publications de Togo Rail.")
+    return render(request, "pages/blog.html", ctx)
+
+
+def article_detail(request, slug):
+    article = get_object_or_404(Article, slug=slug, is_published=True)
+    ctx = _common()
+    ctx["article"] = article
+    ctx["related"] = Article.objects.filter(is_published=True).exclude(pk=article.pk)[:3]
+    ctx["active_page"] = "blog"
+    ctx["meta_description"] = article.excerpt
+    return render(request, "pages/article_detail.html", ctx)
+
+
+def careers(request):
+    ctx = _common()
+    if request.method == "POST":
+        form = JobApplicationForm(request.POST, request.FILES)
+        if _rate_limited(request, "apply", limit=5):
+            messages.error(request, _("Trop de tentatives. Réessayez plus tard."))
+        elif form.is_valid():
+            application = form.save()
+            _notify_application(application)
+            messages.success(
+                request,
+                _("Merci ! Votre candidature a bien été reçue."),
+            )
+            return redirect("careers")
+        else:
+            messages.error(request, _("Veuillez corriger les erreurs ci-dessous."))
+    else:
+        form = JobApplicationForm()
+
+    ctx["offers"] = JobOffer.objects.filter(is_open=True)
+    ctx["form"] = form
+    ctx["active_page"] = "careers"
+    ctx["meta_description"] = _("Rejoignez les équipes de Togo Rail.")
+    return render(request, "pages/careers.html", ctx)
 
 
 def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
+        if _rate_limited(request, "contact", limit=5):
+            messages.error(request, _("Trop de messages envoyés. Réessayez plus tard."))
+        elif form.is_valid():
+            msg = form.save()
+            _notify_contact(msg)
             messages.success(
                 request,
                 _("Merci ! Votre message a bien été envoyé. Nous vous répondrons rapidement."),
             )
             return redirect("contact")
-        messages.error(request, _("Veuillez corriger les erreurs ci-dessous."))
+        else:
+            messages.error(request, _("Veuillez corriger les erreurs ci-dessous."))
     else:
         form = ContactForm()
 
     ctx = _common()
     ctx["form"] = form
     ctx["active_page"] = "contact"
+    ctx["meta_description"] = _("Contactez les équipes de Togo Rail.")
     return render(request, "pages/contact.html", ctx)
+
+
+@require_POST
+def newsletter_subscribe(request):
+    email = (request.POST.get("email") or "").strip().lower()
+    is_ajax = request.headers.get("x-requested-with") == "XMLHttpRequest"
+    form = NewsletterForm({"email": email})
+    if _rate_limited(request, "newsletter", limit=10):
+        msg = _("Trop de tentatives. Réessayez plus tard.")
+        ok = False
+    elif form.is_valid():
+        Subscriber.objects.get_or_create(email=email)
+        msg = _("Merci ! Vous êtes bien inscrit à notre newsletter.")
+        ok = True
+    else:
+        msg = _("Adresse e-mail invalide.")
+        ok = False
+
+    if is_ajax:
+        return JsonResponse({"ok": ok, "message": str(msg)})
+    messages.success(request, msg) if ok else messages.error(request, msg)
+    return redirect(request.META.get("HTTP_REFERER", "home"))
+
+
+def faq(request):
+    ctx = _common()
+    ctx["active_page"] = "faq"
+    ctx["meta_description"] = _("Questions fréquentes à propos de Togo Rail.")
+    return render(request, "pages/faq.html", ctx)
+
+
+# ── Email helpers ─────────────────────────────────────────────────────────
+
+def _notify_contact(msg):
+    try:
+        send_mail(
+            subject=f"[Togo Rail] Nouveau message — {msg.subject or msg.name}",
+            message=(
+                f"De : {msg.name} <{msg.email}>\n"
+                f"Société : {msg.company}\n\n{msg.message}"
+            ),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.CONTACT_EMAIL],
+            fail_silently=True,
+        )
+        # Auto-acknowledgement to the sender.
+        send_mail(
+            subject=_("Togo Rail — Nous avons bien reçu votre message"),
+            message=_(
+                "Bonjour %(name)s,\n\nMerci de nous avoir contactés. "
+                "Notre équipe vous répondra dans les meilleurs délais.\n\n— Togo Rail"
+            ) % {"name": msg.name},
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[msg.email],
+            fail_silently=True,
+        )
+    except Exception:
+        pass
+
+
+def _notify_application(application):
+    try:
+        send_mail(
+            subject=f"[Togo Rail] Candidature — {application.name}",
+            message=(
+                f"Candidat : {application.name} <{application.email}>\n"
+                f"Poste : {application.offer}\n"
+                f"Téléphone : {application.phone}\n\n{application.message}"
+            ),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.CONTACT_EMAIL],
+            fail_silently=True,
+        )
+    except Exception:
+        pass
