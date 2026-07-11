@@ -652,6 +652,46 @@ body.has-custom-cursor button {
   50% { box-shadow: 0 0 45px rgba(201, 162, 39, 0.55); }
 }
 
+/* Ken Burns — cinemagraph motion (makes still images feel like luxury GIFs) */
+.kenburns {
+  will-change: transform;
+  animation: kenburns 26s ease-in-out infinite alternate;
+}
+.kenburns-2 {
+  will-change: transform;
+  animation: kenburns2 30s ease-in-out infinite alternate;
+}
+@keyframes kenburns {
+  0% { transform: scale(1.08) translate(0, 0); }
+  100% { transform: scale(1.22) translate(-2.5%, -2%); }
+}
+@keyframes kenburns2 {
+  0% { transform: scale(1.1) translate(0, 0); }
+  100% { transform: scale(1.2) translate(2.5%, -1.5%); }
+}
+
+/* Animated gold light sweep over media (cinemagraph shine) */
+.media-frame .shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 225, 150, 0.18) 48%,
+    rgba(255, 255, 255, 0.05) 52%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  background-position: 150% 0;
+  animation: shineSweep 7s ease-in-out infinite;
+}
+@keyframes shineSweep {
+  0%, 60% { background-position: 150% 0; }
+  100% { background-position: -50% 0; }
+}
+
 /* Section media with light framing */
 .media-frame {
   position: relative;
@@ -691,4 +731,5 @@ body.has-custom-cursor button {
   .grain, #preloader { display: none !important; }
   .cursor-dot, .cursor-ring { display: none !important; }
   .beam-layer, .light-overlay, .aurora, .glow-pulse { animation: none !important; }
+  .kenburns, .kenburns-2, .media-frame .shine { animation: none !important; }
 }
