@@ -789,8 +789,13 @@ body.has-custom-cursor button {
     height: 66vh;
   }
 }
-.carousel-slide > img,
-.carousel-slide > video {
+.carousel-slide picture {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.carousel-slide img,
+.carousel-slide video {
   display: block;
   height: 100%;
   width: 100%;
