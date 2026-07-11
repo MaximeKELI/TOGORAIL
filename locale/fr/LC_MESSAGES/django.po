@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-11 17:01+0000\n"
+"POT-Creation-Date: 2026-07-11 17:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,11 +25,11 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: core/admin.py:54
+#: core/admin.py:55
 msgid "Marquer comme traité"
 msgstr ""
 
-#: core/admin.py:118
+#: core/admin.py:119
 msgid "Gestion du contenu"
 msgstr ""
 
@@ -37,465 +37,525 @@ msgstr ""
 msgid "Relier le Togo, connecter l'Afrique de l'Ouest."
 msgstr ""
 
-#: core/forms.py:30 core/forms.py:69
+#: core/forms.py:32 core/forms.py:71
 msgid "Nom complet"
 msgstr ""
 
-#: core/forms.py:31 core/forms.py:70
+#: core/forms.py:33 core/forms.py:72 core/forms.py:104
 msgid "Adresse e-mail"
 msgstr ""
 
-#: core/forms.py:32 core/models.py:129
+#: core/forms.py:34 core/models.py:138
 msgid "Société"
 msgstr ""
 
-#: core/forms.py:33 core/models.py:130
+#: core/forms.py:35 core/forms.py:167 core/models.py:139
 msgid "Sujet"
 msgstr ""
 
-#: core/forms.py:34
+#: core/forms.py:36 core/forms.py:168
 msgid "Votre message"
 msgstr ""
 
-#: core/forms.py:68
+#: core/forms.py:70
 msgid "Poste visé"
 msgstr ""
 
-#: core/forms.py:71 core/models.py:270 templates/pages/contact.html:30
+#: core/forms.py:73 core/models.py:279 templates/pages/contact.html:30
 msgid "Téléphone"
 msgstr ""
 
-#: core/forms.py:72
+#: core/forms.py:74
 msgid "CV (PDF, DOC)"
 msgstr ""
 
-#: core/forms.py:73
+#: core/forms.py:75
 msgid "Message / motivation"
 msgstr ""
 
-#: core/forms.py:86
+#: core/forms.py:88
 msgid "Format accepté : PDF, DOC, DOCX."
 msgstr ""
 
-#: core/forms.py:88
+#: core/forms.py:90
 msgid "Fichier trop volumineux (5 Mo max)."
 msgstr ""
 
-#: core/forms.py:102 templates/partials/footer.html:17
-msgid "Votre e-mail"
+#: core/forms.py:96
+msgid "Prénom"
 msgstr ""
 
-#: core/forms.py:106
-msgid "E-mail"
-msgstr ""
-
-#: core/models.py:18 core/models.py:88 core/models.py:145 core/models.py:192
-msgid "Titre (FR)"
-msgstr ""
-
-#: core/models.py:19 core/models.py:89 core/models.py:146 core/models.py:193
-msgid "Title (EN)"
-msgstr ""
-
-#: core/models.py:20 core/models.py:147 core/models.py:194
-msgid "Slug"
-msgstr ""
-
-#: core/models.py:21 core/models.py:195
-msgid "Résumé (FR)"
-msgstr ""
-
-#: core/models.py:22 core/models.py:196
-msgid "Summary (EN)"
-msgstr ""
-
-#: core/models.py:23
-msgid "Description détaillée (FR)"
-msgstr ""
-
-#: core/models.py:24
-msgid "Detailed description (EN)"
-msgstr ""
-
-#: core/models.py:25 core/models.py:199
-msgid "Image"
-msgstr ""
-
-#: core/models.py:28
-msgid "Icône (nom)"
-msgstr ""
-
-#: core/models.py:31
-msgid "rail, cargo, network, shield, bolt, globe"
-msgstr ""
-
-#: core/models.py:33 core/models.py:71 core/models.py:92 core/models.py:115
-#: core/models.py:202 core/models.py:244 core/models.py:289 core/models.py:315
-msgid "Ordre"
-msgstr ""
-
-#: core/models.py:34
-msgid "Mis en avant"
-msgstr ""
-
-#: core/models.py:38
-msgid "Service"
-msgstr ""
-
-#: core/models.py:39 templates/pages/service_detail.html:11
-#: templates/pages/services.html:4 templates/partials/footer.html:29
-#: templates/partials/navbar.html:17 templates/partials/navbar.html:55
-msgid "Services"
-msgstr ""
-
-#: core/models.py:66
-msgid "Libellé (FR)"
-msgstr ""
-
-#: core/models.py:67
-msgid "Label (EN)"
-msgstr ""
-
-#: core/models.py:68
-msgid "Valeur"
-msgstr ""
-
-#: core/models.py:69
-msgid "Suffixe"
-msgstr ""
-
-#: core/models.py:70
-msgid "Préfixe"
-msgstr ""
-
-#: core/models.py:75
-msgid "Statistique"
-msgstr ""
-
-#: core/models.py:76
-msgid "Statistiques"
-msgstr ""
-
-#: core/models.py:87 core/models.py:200
-msgid "Année"
-msgstr ""
-
-#: core/models.py:90 core/models.py:241
-msgid "Description (FR)"
-msgstr ""
-
-#: core/models.py:91 core/models.py:242
-msgid "Description (EN)"
-msgstr ""
-
-#: core/models.py:96
-msgid "Étape (timeline)"
-msgstr ""
-
-#: core/models.py:97
-msgid "Timeline"
-msgstr ""
-
-#: core/models.py:112 core/models.py:127 core/models.py:268
+#: core/forms.py:100 core/models.py:113 core/models.py:136 core/models.py:277
 msgid "Nom"
 msgstr ""
 
-#: core/models.py:113
-msgid "Logo"
+#: core/forms.py:117 core/forms.py:150
+msgid "Nom d'utilisateur"
+msgstr ""
+
+#: core/forms.py:122 core/forms.py:151
+msgid "Mot de passe"
+msgstr ""
+
+#: core/forms.py:123
+msgid "Confirmer le mot de passe"
+msgstr ""
+
+#: core/forms.py:128
+msgid "Un compte utilise déjà cette adresse e-mail."
+msgstr ""
+
+#: core/forms.py:166
+msgid "Société (optionnel)"
+msgstr ""
+
+#: core/forms.py:187 templates/partials/footer.html:17
+msgid "Votre e-mail"
+msgstr ""
+
+#: core/forms.py:191
+msgid "E-mail"
+msgstr ""
+
+#: core/models.py:19 core/models.py:89 core/models.py:154 core/models.py:201
+msgid "Titre (FR)"
+msgstr ""
+
+#: core/models.py:20 core/models.py:90 core/models.py:155 core/models.py:202
+msgid "Title (EN)"
+msgstr ""
+
+#: core/models.py:21 core/models.py:156 core/models.py:203
+msgid "Slug"
+msgstr ""
+
+#: core/models.py:22 core/models.py:204
+msgid "Résumé (FR)"
+msgstr ""
+
+#: core/models.py:23 core/models.py:205
+msgid "Summary (EN)"
+msgstr ""
+
+#: core/models.py:24
+msgid "Description détaillée (FR)"
+msgstr ""
+
+#: core/models.py:25
+msgid "Detailed description (EN)"
+msgstr ""
+
+#: core/models.py:26 core/models.py:208
+msgid "Image"
+msgstr ""
+
+#: core/models.py:29
+msgid "Icône (nom)"
+msgstr ""
+
+#: core/models.py:32
+msgid "rail, cargo, network, shield, bolt, globe"
+msgstr ""
+
+#: core/models.py:34 core/models.py:72 core/models.py:93 core/models.py:116
+#: core/models.py:211 core/models.py:253 core/models.py:298 core/models.py:324
+msgid "Ordre"
+msgstr ""
+
+#: core/models.py:35
+msgid "Mis en avant"
+msgstr ""
+
+#: core/models.py:39
+msgid "Service"
+msgstr ""
+
+#: core/models.py:40 templates/pages/service_detail.html:11
+#: templates/pages/services.html:4 templates/partials/footer.html:29
+#: templates/partials/navbar.html:17 templates/partials/navbar.html:63
+msgid "Services"
+msgstr ""
+
+#: core/models.py:67
+msgid "Libellé (FR)"
+msgstr ""
+
+#: core/models.py:68
+msgid "Label (EN)"
+msgstr ""
+
+#: core/models.py:69
+msgid "Valeur"
+msgstr ""
+
+#: core/models.py:70
+msgid "Suffixe"
+msgstr ""
+
+#: core/models.py:71
+msgid "Préfixe"
+msgstr ""
+
+#: core/models.py:76
+msgid "Statistique"
+msgstr ""
+
+#: core/models.py:77
+msgid "Statistiques"
+msgstr ""
+
+#: core/models.py:88 core/models.py:209
+msgid "Année"
+msgstr ""
+
+#: core/models.py:91 core/models.py:250
+msgid "Description (FR)"
+msgstr ""
+
+#: core/models.py:92 core/models.py:251
+msgid "Description (EN)"
+msgstr ""
+
+#: core/models.py:97
+msgid "Étape (timeline)"
+msgstr ""
+
+#: core/models.py:98
+msgid "Timeline"
 msgstr ""
 
 #: core/models.py:114
+msgid "Logo"
+msgstr ""
+
+#: core/models.py:115
 msgid "Lien"
 msgstr ""
 
-#: core/models.py:119
+#: core/models.py:120
 msgid "Logo partenaire"
 msgstr ""
 
-#: core/models.py:120
+#: core/models.py:121
 msgid "Logos partenaires"
 msgstr ""
 
-#: core/models.py:128 core/models.py:269 core/models.py:335
+#: core/models.py:134
+msgid "Utilisateur"
+msgstr ""
+
+#: core/models.py:137 core/models.py:278 core/models.py:344
 #: templates/pages/contact.html:26
 msgid "Email"
 msgstr ""
 
-#: core/models.py:131 core/models.py:272
+#: core/models.py:140 core/models.py:281
 msgid "Message"
 msgstr ""
 
-#: core/models.py:132 core/models.py:273
+#: core/models.py:141 core/models.py:282
 msgid "Reçu le"
 msgstr ""
 
-#: core/models.py:133
+#: core/models.py:142 templates/pages/account.html:57
 msgid "Traité"
 msgstr ""
 
-#: core/models.py:137
+#: core/models.py:146
 msgid "Message de contact"
 msgstr ""
 
-#: core/models.py:138
+#: core/models.py:147
 msgid "Messages de contact"
 msgstr ""
 
-#: core/models.py:148
+#: core/models.py:157
 msgid "Chapô (FR)"
 msgstr ""
 
-#: core/models.py:149
+#: core/models.py:158
 msgid "Excerpt (EN)"
 msgstr ""
 
-#: core/models.py:150
+#: core/models.py:159
 msgid "Contenu (FR)"
 msgstr ""
 
-#: core/models.py:151
+#: core/models.py:160
 msgid "Content (EN)"
 msgstr ""
 
-#: core/models.py:152
+#: core/models.py:161
 msgid "Image de couverture"
 msgstr ""
 
-#: core/models.py:153
+#: core/models.py:162
 msgid "Catégorie (FR)"
 msgstr ""
 
-#: core/models.py:154
+#: core/models.py:163
 msgid "Category (EN)"
 msgstr ""
 
-#: core/models.py:155
+#: core/models.py:164
 msgid "Date de publication"
 msgstr ""
 
-#: core/models.py:156
+#: core/models.py:165
 msgid "Publié"
 msgstr ""
 
-#: core/models.py:160
+#: core/models.py:169
 msgid "Article"
 msgstr ""
 
-#: core/models.py:161
+#: core/models.py:170
 msgid "Articles"
 msgstr ""
 
-#: core/models.py:197
+#: core/models.py:206
 msgid "Étude de cas (FR)"
 msgstr ""
 
-#: core/models.py:198
+#: core/models.py:207
 msgid "Case study (EN)"
 msgstr ""
 
-#: core/models.py:201 core/models.py:239
+#: core/models.py:210 core/models.py:248
 msgid "Lieu"
 msgstr ""
 
-#: core/models.py:206
+#: core/models.py:215
 msgid "Projet"
 msgstr ""
 
-#: core/models.py:207
+#: core/models.py:216
 msgid "Projets"
 msgstr ""
 
-#: core/models.py:232
+#: core/models.py:241
 msgid "CDI"
 msgstr ""
 
-#: core/models.py:233
+#: core/models.py:242
 msgid "CDD"
 msgstr ""
 
-#: core/models.py:234
+#: core/models.py:243
 msgid "Stage"
 msgstr ""
 
-#: core/models.py:235
+#: core/models.py:244
 msgid "Alternance"
 msgstr ""
 
-#: core/models.py:237
+#: core/models.py:246
 msgid "Poste (FR)"
 msgstr ""
 
-#: core/models.py:238
+#: core/models.py:247
 msgid "Position (EN)"
 msgstr ""
 
-#: core/models.py:240
+#: core/models.py:249
 msgid "Contrat"
 msgstr ""
 
-#: core/models.py:243
+#: core/models.py:252
 msgid "Ouvert"
 msgstr ""
 
-#: core/models.py:248
+#: core/models.py:257
 msgid "Offre d'emploi"
 msgstr ""
 
-#: core/models.py:249
+#: core/models.py:258
 msgid "Offres d'emploi"
 msgstr ""
 
-#: core/models.py:266
+#: core/models.py:275
 msgid "Offre"
 msgstr ""
 
-#: core/models.py:271
+#: core/models.py:280
 msgid "CV"
 msgstr ""
 
-#: core/models.py:277 templates/pages/careers.html:42
+#: core/models.py:286 templates/pages/careers.html:42
 msgid "Candidature"
 msgstr ""
 
-#: core/models.py:278
+#: core/models.py:287
 msgid "Candidatures"
 msgstr ""
 
-#: core/models.py:285
+#: core/models.py:294
 msgid "Question (FR)"
 msgstr ""
 
-#: core/models.py:286
+#: core/models.py:295
 msgid "Question (EN)"
 msgstr ""
 
-#: core/models.py:287
+#: core/models.py:296
 msgid "Réponse (FR)"
 msgstr ""
 
-#: core/models.py:288
+#: core/models.py:297
 msgid "Answer (EN)"
 msgstr ""
 
-#: core/models.py:293 core/models.py:294 templates/pages/faq.html:4
-#: templates/partials/footer.html:34 templates/partials/navbar.html:60
+#: core/models.py:302 core/models.py:303 templates/pages/faq.html:4
+#: templates/partials/footer.html:34 templates/partials/navbar.html:68
 msgid "FAQ"
 msgstr ""
 
-#: core/models.py:309
+#: core/models.py:318
 msgid "Auteur"
 msgstr ""
 
-#: core/models.py:310
+#: core/models.py:319
 msgid "Fonction (FR)"
 msgstr ""
 
-#: core/models.py:311
+#: core/models.py:320
 msgid "Role (EN)"
 msgstr ""
 
-#: core/models.py:312
+#: core/models.py:321
 msgid "Citation (FR)"
 msgstr ""
 
-#: core/models.py:313
+#: core/models.py:322
 msgid "Quote (EN)"
 msgstr ""
 
-#: core/models.py:314
+#: core/models.py:323
 msgid "Photo"
 msgstr ""
 
-#: core/models.py:319
+#: core/models.py:328
 msgid "Témoignage"
 msgstr ""
 
-#: core/models.py:320
+#: core/models.py:329
 msgid "Témoignages"
 msgstr ""
 
-#: core/models.py:336
+#: core/models.py:345
 msgid "Inscrit le"
 msgstr ""
 
-#: core/models.py:340
+#: core/models.py:349
 msgid "Abonné newsletter"
 msgstr ""
 
-#: core/models.py:341
+#: core/models.py:350
 msgid "Abonnés newsletter"
 msgstr ""
 
-#: core/views.py:55
+#: core/views.py:66
 msgid ""
 "Togo Rail conçoit et exploite des infrastructures ferroviaires de nouvelle "
 "génération pour connecter l'Afrique de l'Ouest."
 msgstr ""
 
-#: core/views.py:65
+#: core/views.py:76
 msgid "Découvrez la mission, la vision et l'histoire de Togo Rail."
 msgstr ""
 
-#: core/views.py:74
+#: core/views.py:85
 msgid ""
 "Fret, transport de passagers, ingénierie et maintenance : l'offre complète "
 "de Togo Rail."
 msgstr ""
 
-#: core/views.py:93
+#: core/views.py:104
 msgid "Nos réalisations et études de cas ferroviaires."
 msgstr ""
 
-#: core/views.py:101
+#: core/views.py:112
 msgid "Actualités, annonces et publications de Togo Rail."
 msgstr ""
 
-#: core/views.py:120 core/views.py:172
+#: core/views.py:131 core/views.py:186 core/views.py:217
 msgid "Trop de tentatives. Réessayez plus tard."
 msgstr ""
 
-#: core/views.py:126
+#: core/views.py:137
 msgid "Merci ! Votre candidature a bien été reçue."
 msgstr ""
 
-#: core/views.py:130 core/views.py:155
+#: core/views.py:141 core/views.py:169 core/views.py:224 core/views.py:278
 msgid "Veuillez corriger les erreurs ci-dessous."
 msgstr ""
 
-#: core/views.py:137
+#: core/views.py:148
 msgid "Rejoignez les équipes de Togo Rail."
 msgstr ""
 
-#: core/views.py:145
+#: core/views.py:156 core/views.py:267
 msgid "Trop de messages envoyés. Réessayez plus tard."
 msgstr ""
 
-#: core/views.py:151
+#: core/views.py:165
 msgid ""
 "Merci ! Votre message a bien été envoyé. Nous vous répondrons rapidement."
 msgstr ""
 
-#: core/views.py:162
+#: core/views.py:176
 msgid "Contactez les équipes de Togo Rail."
 msgstr ""
 
-#: core/views.py:176
+#: core/views.py:190
 msgid "Merci ! Vous êtes bien inscrit à notre newsletter."
 msgstr ""
 
-#: core/views.py:179
+#: core/views.py:193
 msgid "Adresse e-mail invalide."
 msgstr ""
 
-#: core/views.py:191
+#: core/views.py:205
 msgid "Questions fréquentes à propos de Togo Rail."
 msgstr ""
 
-#: core/views.py:211
+#: core/views.py:221
+msgid "Bienvenue ! Votre compte a bien été créé."
+msgstr ""
+
+#: core/views.py:230
+msgid "Créez votre compte Togo Rail."
+msgstr ""
+
+#: core/views.py:241
+msgid "Connexion réussie."
+msgstr ""
+
+#: core/views.py:244
+msgid "Identifiants invalides."
+msgstr ""
+
+#: core/views.py:251
+msgid "Connectez-vous à votre espace Togo Rail."
+msgstr ""
+
+#: core/views.py:258
+msgid "Vous êtes déconnecté."
+msgstr ""
+
+#: core/views.py:275
+msgid "Message envoyé à Togo Rail. Merci !"
+msgstr ""
+
+#: core/views.py:286
+msgid "Votre espace membre Togo Rail."
+msgstr ""
+
+#: core/views.py:306
 msgid "Togo Rail — Nous avons bien reçu votre message"
 msgstr ""
 
-#: core/views.py:213
+#: core/views.py:308
 #, python-format
 msgid ""
 "Bonjour %(name)s,\n"
@@ -525,7 +585,7 @@ msgid "Revenir en haut"
 msgstr ""
 
 #: templates/pages/about.html:4 templates/partials/footer.html:31
-#: templates/partials/navbar.html:19 templates/partials/navbar.html:57
+#: templates/partials/navbar.html:19 templates/partials/navbar.html:65
 msgid "À propos"
 msgstr ""
 
@@ -585,10 +645,52 @@ msgstr ""
 msgid "constante."
 msgstr ""
 
+#: templates/pages/account.html:4 templates/partials/footer.html:37
+#: templates/partials/navbar.html:41 templates/partials/navbar.html:71
+msgid "Mon espace"
+msgstr ""
+
+#: templates/pages/account.html:11 templates/pages/login.html:10
+#: templates/pages/register.html:10
+msgid "Espace membre"
+msgstr ""
+
+#: templates/pages/account.html:13
+msgid "Bonjour"
+msgstr ""
+
+#: templates/pages/account.html:18 templates/partials/navbar.html:80
+msgid "Se déconnecter"
+msgstr ""
+
+#: templates/pages/account.html:26
+msgid "Envoyer un message"
+msgstr ""
+
+#: templates/pages/account.html:44
+msgid "Envoyer à Togo Rail"
+msgstr ""
+
+#: templates/pages/account.html:50
+msgid "Mes messages"
+msgstr ""
+
+#: templates/pages/account.html:55
+msgid "(Sans sujet)"
+msgstr ""
+
+#: templates/pages/account.html:57
+msgid "En attente"
+msgstr ""
+
+#: templates/pages/account.html:65
+msgid "Vous n’avez encore envoyé aucun message."
+msgstr ""
+
 #: templates/pages/article_detail.html:12 templates/pages/blog.html:4
 #: templates/pages/blog.html:10 templates/pages/home.html:419
 #: templates/partials/footer.html:32 templates/partials/navbar.html:20
-#: templates/partials/navbar.html:58
+#: templates/partials/navbar.html:66
 msgid "Actualités"
 msgstr ""
 
@@ -615,7 +717,7 @@ msgstr ""
 
 #: templates/pages/careers.html:4 templates/pages/careers.html:10
 #: templates/partials/footer.html:33 templates/partials/navbar.html:21
-#: templates/partials/navbar.html:59
+#: templates/partials/navbar.html:67
 msgid "Carrières"
 msgstr ""
 
@@ -652,8 +754,8 @@ msgid "Envoyer ma candidature"
 msgstr ""
 
 #: templates/pages/contact.html:4 templates/pages/contact.html:10
-#: templates/partials/footer.html:35 templates/partials/footer.html:40
-#: templates/partials/navbar.html:22 templates/partials/navbar.html:61
+#: templates/partials/footer.html:35 templates/partials/footer.html:45
+#: templates/partials/navbar.html:22 templates/partials/navbar.html:69
 msgid "Contact"
 msgstr ""
 
@@ -961,7 +1063,7 @@ msgstr ""
 
 #: templates/pages/home.html:362 templates/pages/projects.html:4
 #: templates/partials/footer.html:30 templates/partials/navbar.html:18
-#: templates/partials/navbar.html:56
+#: templates/partials/navbar.html:64
 msgid "Réalisations"
 msgstr ""
 
@@ -1051,6 +1153,31 @@ msgstr ""
 msgid "Demander un devis"
 msgstr ""
 
+#: templates/pages/login.html:4 templates/partials/navbar.html:45
+#: templates/partials/navbar.html:73
+msgid "Connexion"
+msgstr ""
+
+#: templates/pages/login.html:12
+msgid "Bon retour"
+msgstr ""
+
+#: templates/pages/login.html:12
+msgid "parmi nous."
+msgstr ""
+
+#: templates/pages/login.html:32 templates/pages/register.html:67
+msgid "Se connecter"
+msgstr ""
+
+#: templates/pages/login.html:35
+msgid "Pas encore de compte ?"
+msgstr ""
+
+#: templates/pages/login.html:36 templates/partials/navbar.html:74
+msgid "S’inscrire"
+msgstr ""
+
 #: templates/pages/projects.html:10
 msgid "Nos réalisations"
 msgstr ""
@@ -1070,6 +1197,26 @@ msgstr ""
 
 #: templates/pages/projects.html:49
 msgid "Parlons de votre prochaine infrastructure ferroviaire."
+msgstr ""
+
+#: templates/pages/register.html:4
+msgid "Créer un compte"
+msgstr ""
+
+#: templates/pages/register.html:12
+msgid "Créez votre"
+msgstr ""
+
+#: templates/pages/register.html:12
+msgid "compte."
+msgstr ""
+
+#: templates/pages/register.html:63
+msgid "Créer mon compte"
+msgstr ""
+
+#: templates/pages/register.html:66
+msgid "Vous avez déjà un compte ?"
 msgstr ""
 
 #: templates/pages/service_detail.html:19
@@ -1123,15 +1270,19 @@ msgid "Navigation"
 msgstr ""
 
 #: templates/partials/footer.html:28 templates/partials/navbar.html:16
-#: templates/partials/navbar.html:54
+#: templates/partials/navbar.html:62
 msgid "Accueil"
 msgstr ""
 
-#: templates/partials/footer.html:51
+#: templates/partials/footer.html:39
+msgid "Connexion / Inscription"
+msgstr ""
+
+#: templates/partials/footer.html:56
 msgid "Tous droits réservés."
 msgstr ""
 
-#: templates/partials/footer.html:52
+#: templates/partials/footer.html:57
 msgid "Conçu avec précision et passion."
 msgstr ""
 
@@ -1139,6 +1290,6 @@ msgstr ""
 msgid "Changer de thème"
 msgstr ""
 
-#: templates/partials/navbar.html:40
+#: templates/partials/navbar.html:48
 msgid "Devis"
 msgstr ""
