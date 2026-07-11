@@ -394,15 +394,15 @@ msgstr "To make Togo a major logistics hub in West Africa."
 
 #: templates/pages/home.html:174
 msgid "Notre méthode"
-msgstr ""
+msgstr "Our method"
 
 #: templates/pages/home.html:176
 msgid "De la vision"
-msgstr ""
+msgstr "From vision"
 
 #: templates/pages/home.html:176
 msgid "à la mise en service."
-msgstr ""
+msgstr "to going live."
 
 #: templates/pages/home.html:184
 msgid "Étude & conception"
