@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Contact" %} — Togo Rail{% endblock %}
+
+{% block content %}
+<section class="relative pt-40 pb-16 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_0%,rgba(201,162,39,0.15),transparent_45%)]"></div>
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <p data-animate class="eyebrow mb-5">{% trans "Contact" %}</p>
+    <h1 data-animate class="font-display text-5xl md:text-7xl font-extrabold max-w-4xl leading-[0.95]">
+      {% trans "Parlons de votre" %} <span class="text-gradient">{% trans "prochain projet." %}</span>
+    </h1>
+  </div>
+</section>
+
+<section class="mx-auto max-w-7xl px-5 md:px-8 py-12">
+  <div class="grid lg:grid-cols-5 gap-10">
+    <!-- Info -->
+    <div data-animate="left" class="lg:col-span-2 space-y-6">
+      <div class="glass rounded-2xl p-6">
+        <h3 class="font-display font-semibold text-gold">{% trans "Adresse" %}</h3>
+        <p class="mt-2 text-muted">{{ CONTACT_ADDRESS }}</p>
+      </div>
+      <div class="glass rounded-2xl p-6">
+        <h3 class="font-display font-semibold text-gold">{% trans "Email" %}</h3>
+        <a href="mailto:{{ CONTACT_EMAIL }}" class="mt-2 block text-muted hover:text-white transition-colors">{{ CONTACT_EMAIL }}</a>
+      </div>
+      <div class="glass rounded-2xl p-6">
+        <h3 class="font-display font-semibold text-gold">{% trans "Téléphone" %}</h3>
+        <a href="tel:{{ CONTACT_PHONE }}" class="mt-2 block text-muted hover:text-white transition-colors">{{ CONTACT_PHONE }}</a>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div data-animate="right" class="lg:col-span-3">
+      <form method="post" novalidate class="glass rounded-3xl p-8 md:p-10 space-y-6">
+        {% csrf_token %}
+        {{ form.website }}
+
+        {% if form.non_field_errors %}
+        <div class="text-sm text-red-400">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="field">
+            {{ form.name }}
+            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+            {% if form.name.errors %}<p class="mt-1 text-xs text-red-400">{{ form.name.errors|striptags }}</p>{% endif %}
+          </div>
+          <div class="field">
+            {{ form.email }}
+            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+            {% if form.email.errors %}<p class="mt-1 text-xs text-red-400">{{ form.email.errors|striptags }}</p>{% endif %}
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="field">
+            {{ form.company }}
+            <label for="{{ form.company.id_for_label }}">{{ form.company.label }}</label>
+          </div>
+          <div class="field">
+            {{ form.subject }}
+            <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label>
+          </div>
+        </div>
+
+        <div class="field">
+          {{ form.message }}
+          <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+          {% if form.message.errors %}<p class="mt-1 text-xs text-red-400">{{ form.message.errors|striptags }}</p>{% endif %}
+        </div>
+
+        <button type="submit" class="btn-gold w-full justify-center">
+          {% trans "Envoyer le message" %}
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

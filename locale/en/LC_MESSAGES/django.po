@@ -1,0 +1,353 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Togo Rail 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-11 14:55+0000\n"
+"PO-Revision-Date: 2026-07-11 15:00+0000\n"
+"Last-Translator: Togo Rail\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Français"
+msgstr "French"
+
+msgid "English"
+msgstr "English"
+
+msgid "Marquer comme traité"
+msgstr "Mark as handled"
+
+msgid "Gestion du contenu"
+msgstr "Content management"
+
+msgid "Relier le Togo, connecter l'Afrique de l'Ouest."
+msgstr "Connecting Togo, powering West Africa."
+
+msgid "Nom complet"
+msgstr "Full name"
+
+msgid "Adresse e-mail"
+msgstr "Email address"
+
+msgid "Société"
+msgstr "Company"
+
+msgid "Sujet"
+msgstr "Subject"
+
+msgid "Votre message"
+msgstr "Your message"
+
+msgid "Titre (FR)"
+msgstr "Title (FR)"
+
+msgid "Title (EN)"
+msgstr "Title (EN)"
+
+msgid "Résumé (FR)"
+msgstr "Summary (FR)"
+
+msgid "Summary (EN)"
+msgstr "Summary (EN)"
+
+msgid "Icône (nom)"
+msgstr "Icon (name)"
+
+msgid "rail, cargo, network, shield, bolt, globe"
+msgstr "rail, cargo, network, shield, bolt, globe"
+
+msgid "Ordre"
+msgstr "Order"
+
+msgid "Mis en avant"
+msgstr "Featured"
+
+msgid "Service"
+msgstr "Service"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "Libellé (FR)"
+msgstr "Label (FR)"
+
+msgid "Label (EN)"
+msgstr "Label (EN)"
+
+msgid "Valeur"
+msgstr "Value"
+
+msgid "Suffixe"
+msgstr "Suffix"
+
+msgid "Préfixe"
+msgstr "Prefix"
+
+msgid "Statistique"
+msgstr "Statistic"
+
+msgid "Statistiques"
+msgstr "Statistics"
+
+msgid "Année"
+msgstr "Year"
+
+msgid "Description (FR)"
+msgstr "Description (FR)"
+
+msgid "Description (EN)"
+msgstr "Description (EN)"
+
+msgid "Étape (timeline)"
+msgstr "Timeline event"
+
+msgid "Timeline"
+msgstr "Timeline"
+
+msgid "Nom"
+msgstr "Name"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Lien"
+msgstr "Link"
+
+msgid "Logo partenaire"
+msgstr "Partner logo"
+
+msgid "Logos partenaires"
+msgstr "Partner logos"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Reçu le"
+msgstr "Received on"
+
+msgid "Traité"
+msgstr "Handled"
+
+msgid "Message de contact"
+msgstr "Contact message"
+
+msgid "Messages de contact"
+msgstr "Contact messages"
+
+msgid ""
+"Merci ! Votre message a bien été envoyé. Nous vous répondrons rapidement."
+msgstr "Thank you! Your message has been sent. We will get back to you shortly."
+
+msgid "Veuillez corriger les erreurs ci-dessous."
+msgstr "Please correct the errors below."
+
+msgid ""
+"Togo Rail — Relier le Togo, connecter l’Afrique de l’Ouest. Fret "
+"ferroviaire, transport de voyageurs et logistique intégrée."
+msgstr ""
+"Togo Rail — Connecting Togo, powering West Africa. Rail freight, passenger "
+"transport and integrated logistics."
+
+msgid "À propos"
+msgstr "About"
+
+msgid "À propos de Togo Rail"
+msgstr "About Togo Rail"
+
+msgid "L’avenir du rail"
+msgstr "The future of rail"
+
+msgid "commence ici."
+msgstr "starts here."
+
+msgid ""
+"Depuis notre création, nous plaçons la fiabilité, la sécurité et la "
+"durabilité au cœur de chaque kilomètre de voie que nous construisons."
+msgstr ""
+"Since day one, we have put reliability, safety and sustainability at the "
+"heart of every kilometre of track we build."
+
+msgid "Mission"
+msgstr "Mission"
+
+msgid ""
+"Connecter les personnes et les marchandises grâce à une infrastructure "
+"ferroviaire de classe mondiale."
+msgstr ""
+"Connecting people and goods through world-class railway infrastructure."
+
+msgid "Vision"
+msgstr "Vision"
+
+msgid "Devenir le corridor logistique de référence de l’Afrique de l’Ouest."
+msgstr "To become West Africa's leading logistics corridor."
+
+msgid "Valeurs"
+msgstr "Values"
+
+msgid "Excellence, sécurité, durabilité et engagement envers les communautés."
+msgstr "Excellence, safety, sustainability and commitment to communities."
+
+msgid "Notre parcours"
+msgstr "Our journey"
+
+msgid "Une progression"
+msgstr "Steady"
+
+msgid "constante."
+msgstr "progress."
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Parlons de votre"
+msgstr "Let's talk about your"
+
+msgid "prochain projet."
+msgstr "next project."
+
+msgid "Adresse"
+msgstr "Address"
+
+msgid "Téléphone"
+msgstr "Phone"
+
+msgid "Envoyer le message"
+msgstr "Send message"
+
+msgid "Mobilité ferroviaire premium"
+msgstr "Premium rail mobility"
+
+msgid "Togo Rail · Infrastructure de nouvelle génération"
+msgstr "Togo Rail · Next-generation infrastructure"
+
+msgid "Relier le Togo,"
+msgstr "Connecting Togo,"
+
+msgid "propulser l’Afrique."
+msgstr "powering Africa."
+
+msgid ""
+"Fret ferroviaire, transport de voyageurs et logistique intégrée. Une "
+"infrastructure fiable, durable et intelligente au cœur de l’Afrique de "
+"l’Ouest."
+msgstr ""
+"Rail freight, passenger transport and integrated logistics. Reliable, "
+"sustainable and intelligent infrastructure at the heart of West Africa."
+
+msgid "Découvrir nos services"
+msgstr "Explore our services"
+
+msgid "Nous contacter"
+msgstr "Get in touch"
+
+msgid "Défiler"
+msgstr "Scroll"
+
+msgid "Ils nous font confiance"
+msgstr "Trusted by"
+
+msgid "Nos expertises"
+msgstr "Our expertise"
+
+msgid "Des solutions ferroviaires"
+msgstr "End-to-end railway"
+
+msgid "de bout en bout."
+msgstr "solutions."
+
+msgid "Tous les services →"
+msgstr "All services →"
+
+msgid "En savoir plus"
+msgstr "Learn more"
+
+msgid "Le contenu sera bientôt disponible."
+msgstr "Content will be available soon."
+
+msgid "Notre raison d’être"
+msgstr "Our purpose"
+
+msgid "Nous construisons l’épine dorsale"
+msgstr "We are building the backbone"
+
+msgid "de la mobilité togolaise."
+msgstr "of Togolese mobility."
+
+msgid ""
+"Togo Rail conçoit et opère des infrastructures ferroviaires modernes qui "
+"accélèrent le commerce, rapprochent les territoires et réduisent l’empreinte "
+"carbone des transports."
+msgstr ""
+"Togo Rail designs and operates modern railway infrastructure that "
+"accelerates trade, brings regions closer together and reduces the carbon "
+"footprint of transport."
+
+msgid ""
+"Offrir une mobilité fiable, sûre et durable à chaque citoyen et entreprise."
+msgstr ""
+"To deliver reliable, safe and sustainable mobility to every citizen and "
+"business."
+
+msgid "Faire du Togo un hub logistique majeur de l’Afrique de l’Ouest."
+msgstr "To make Togo a major logistics hub in West Africa."
+
+msgid "Prêt à faire avancer votre projet logistique ?"
+msgstr "Ready to move your logistics project forward?"
+
+msgid ""
+"Parlons de vos besoins en transport et infrastructure. Notre équipe vous "
+"répond sous 24h."
+msgstr ""
+"Let's discuss your transport and infrastructure needs. Our team replies "
+"within 24 hours."
+
+msgid "Demander un devis"
+msgstr "Request a quote"
+
+msgid "Nos services"
+msgstr "Our services"
+
+msgid "Une expertise"
+msgstr "Complete railway"
+
+msgid "ferroviaire complète."
+msgstr "expertise."
+
+msgid ""
+"Du fret longue distance à la logistique du dernier kilomètre, nous couvrons "
+"toute la chaîne de valeur du transport ferroviaire."
+msgstr ""
+"From long-haul freight to last-mile logistics, we cover the entire railway "
+"transport value chain."
+
+msgid "Un besoin spécifique ?"
+msgstr "A specific need?"
+
+msgid "Construisons ensemble une solution logistique sur mesure."
+msgstr "Let's build a tailor-made logistics solution together."
+
+msgid "Contactez-nous"
+msgstr "Contact us"
+
+msgid "Navigation"
+msgstr "Navigation"
+
+msgid "Accueil"
+msgstr "Home"
+
+msgid "Tous droits réservés."
+msgstr "All rights reserved."
+
+msgid "Conçu avec précision et passion."
+msgstr "Crafted with precision and passion."
+
+msgid "Devis"
+msgstr "Quote"

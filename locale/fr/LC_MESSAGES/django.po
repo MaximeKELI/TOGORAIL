@@ -1,0 +1,450 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-11 14:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: config/settings.py:126
+msgid "Français"
+msgstr ""
+
+#: config/settings.py:127
+msgid "English"
+msgstr ""
+
+#: core/admin.py:40
+msgid "Marquer comme traité"
+msgstr ""
+
+#: core/admin.py:49
+msgid "Gestion du contenu"
+msgstr ""
+
+#: core/context_processors.py:8
+msgid "Relier le Togo, connecter l'Afrique de l'Ouest."
+msgstr ""
+
+#: core/forms.py:30
+msgid "Nom complet"
+msgstr ""
+
+#: core/forms.py:31
+msgid "Adresse e-mail"
+msgstr ""
+
+#: core/forms.py:32 core/models.py:111
+msgid "Société"
+msgstr ""
+
+#: core/forms.py:33 core/models.py:112
+msgid "Sujet"
+msgstr ""
+
+#: core/forms.py:34
+msgid "Votre message"
+msgstr ""
+
+#: core/models.py:16 core/models.py:70
+msgid "Titre (FR)"
+msgstr ""
+
+#: core/models.py:17 core/models.py:71
+msgid "Title (EN)"
+msgstr ""
+
+#: core/models.py:18
+msgid "Résumé (FR)"
+msgstr ""
+
+#: core/models.py:19
+msgid "Summary (EN)"
+msgstr ""
+
+#: core/models.py:22
+msgid "Icône (nom)"
+msgstr ""
+
+#: core/models.py:25
+msgid "rail, cargo, network, shield, bolt, globe"
+msgstr ""
+
+#: core/models.py:27 core/models.py:53 core/models.py:74 core/models.py:97
+msgid "Ordre"
+msgstr ""
+
+#: core/models.py:28
+msgid "Mis en avant"
+msgstr ""
+
+#: core/models.py:32
+msgid "Service"
+msgstr ""
+
+#: core/models.py:33 templates/pages/services.html:4
+#: templates/partials/footer.html:16 templates/partials/navbar.html:17
+#: templates/partials/navbar.html:46
+msgid "Services"
+msgstr ""
+
+#: core/models.py:48
+msgid "Libellé (FR)"
+msgstr ""
+
+#: core/models.py:49
+msgid "Label (EN)"
+msgstr ""
+
+#: core/models.py:50
+msgid "Valeur"
+msgstr ""
+
+#: core/models.py:51
+msgid "Suffixe"
+msgstr ""
+
+#: core/models.py:52
+msgid "Préfixe"
+msgstr ""
+
+#: core/models.py:57
+msgid "Statistique"
+msgstr ""
+
+#: core/models.py:58
+msgid "Statistiques"
+msgstr ""
+
+#: core/models.py:69
+msgid "Année"
+msgstr ""
+
+#: core/models.py:72
+msgid "Description (FR)"
+msgstr ""
+
+#: core/models.py:73
+msgid "Description (EN)"
+msgstr ""
+
+#: core/models.py:78
+msgid "Étape (timeline)"
+msgstr ""
+
+#: core/models.py:79
+msgid "Timeline"
+msgstr ""
+
+#: core/models.py:94 core/models.py:109
+msgid "Nom"
+msgstr ""
+
+#: core/models.py:95
+msgid "Logo"
+msgstr ""
+
+#: core/models.py:96
+msgid "Lien"
+msgstr ""
+
+#: core/models.py:101
+msgid "Logo partenaire"
+msgstr ""
+
+#: core/models.py:102
+msgid "Logos partenaires"
+msgstr ""
+
+#: core/models.py:110 templates/pages/contact.html:26
+msgid "Email"
+msgstr ""
+
+#: core/models.py:113
+msgid "Message"
+msgstr ""
+
+#: core/models.py:114
+msgid "Reçu le"
+msgstr ""
+
+#: core/models.py:115
+msgid "Traité"
+msgstr ""
+
+#: core/models.py:119
+msgid "Message de contact"
+msgstr ""
+
+#: core/models.py:120
+msgid "Messages de contact"
+msgstr ""
+
+#: core/views.py:44
+msgid ""
+"Merci ! Votre message a bien été envoyé. Nous vous répondrons rapidement."
+msgstr ""
+
+#: core/views.py:47
+msgid "Veuillez corriger les erreurs ci-dessous."
+msgstr ""
+
+#: templates/base.html:7
+msgid ""
+"Togo Rail — Relier le Togo, connecter l’Afrique de l’Ouest. Fret "
+"ferroviaire, transport de voyageurs et logistique intégrée."
+msgstr ""
+
+#: templates/pages/about.html:4 templates/partials/footer.html:17
+#: templates/partials/navbar.html:18 templates/partials/navbar.html:47
+msgid "À propos"
+msgstr ""
+
+#: templates/pages/about.html:10
+msgid "À propos de Togo Rail"
+msgstr ""
+
+#: templates/pages/about.html:12
+msgid "L’avenir du rail"
+msgstr ""
+
+#: templates/pages/about.html:12
+msgid "commence ici."
+msgstr ""
+
+#: templates/pages/about.html:15
+msgid ""
+"Depuis notre création, nous plaçons la fiabilité, la sécurité et la "
+"durabilité au cœur de chaque kilomètre de voie que nous construisons."
+msgstr ""
+
+#: templates/pages/about.html:24 templates/pages/home.html:141
+msgid "Mission"
+msgstr ""
+
+#: templates/pages/about.html:25
+msgid ""
+"Connecter les personnes et les marchandises grâce à une infrastructure "
+"ferroviaire de classe mondiale."
+msgstr ""
+
+#: templates/pages/about.html:28 templates/pages/home.html:145
+msgid "Vision"
+msgstr ""
+
+#: templates/pages/about.html:29
+msgid "Devenir le corridor logistique de référence de l’Afrique de l’Ouest."
+msgstr ""
+
+#: templates/pages/about.html:32
+msgid "Valeurs"
+msgstr ""
+
+#: templates/pages/about.html:33
+msgid "Excellence, sécurité, durabilité et engagement envers les communautés."
+msgstr ""
+
+#: templates/pages/about.html:55
+msgid "Notre parcours"
+msgstr ""
+
+#: templates/pages/about.html:56
+msgid "Une progression"
+msgstr ""
+
+#: templates/pages/about.html:56
+msgid "constante."
+msgstr ""
+
+#: templates/pages/contact.html:4 templates/pages/contact.html:10
+#: templates/partials/footer.html:18 templates/partials/footer.html:23
+#: templates/partials/navbar.html:19 templates/partials/navbar.html:48
+msgid "Contact"
+msgstr ""
+
+#: templates/pages/contact.html:12
+msgid "Parlons de votre"
+msgstr ""
+
+#: templates/pages/contact.html:12
+msgid "prochain projet."
+msgstr ""
+
+#: templates/pages/contact.html:22
+msgid "Adresse"
+msgstr ""
+
+#: templates/pages/contact.html:30
+msgid "Téléphone"
+msgstr ""
+
+#: templates/pages/contact.html:76
+msgid "Envoyer le message"
+msgstr ""
+
+#: templates/pages/home.html:4
+msgid "Mobilité ferroviaire premium"
+msgstr ""
+
+#: templates/pages/home.html:23
+msgid "Togo Rail · Infrastructure de nouvelle génération"
+msgstr ""
+
+#: templates/pages/home.html:26
+msgid "Relier le Togo,"
+msgstr ""
+
+#: templates/pages/home.html:27
+msgid "propulser l’Afrique."
+msgstr ""
+
+#: templates/pages/home.html:31
+msgid ""
+"Fret ferroviaire, transport de voyageurs et logistique intégrée. Une "
+"infrastructure fiable, durable et intelligente au cœur de l’Afrique de "
+"l’Ouest."
+msgstr ""
+
+#: templates/pages/home.html:36
+msgid "Découvrir nos services"
+msgstr ""
+
+#: templates/pages/home.html:39
+msgid "Nous contacter"
+msgstr ""
+
+#: templates/pages/home.html:56
+msgid "Défiler"
+msgstr ""
+
+#: templates/pages/home.html:65
+msgid "Ils nous font confiance"
+msgstr ""
+
+#: templates/pages/home.html:82
+msgid "Nos expertises"
+msgstr ""
+
+#: templates/pages/home.html:84
+msgid "Des solutions ferroviaires"
+msgstr ""
+
+#: templates/pages/home.html:84
+msgid "de bout en bout."
+msgstr ""
+
+#: templates/pages/home.html:87
+msgid "Tous les services →"
+msgstr ""
+
+#: templates/pages/home.html:99
+msgid "En savoir plus"
+msgstr ""
+
+#: templates/pages/home.html:104 templates/pages/services.html:31
+msgid "Le contenu sera bientôt disponible."
+msgstr ""
+
+#: templates/pages/home.html:131
+msgid "Notre raison d’être"
+msgstr ""
+
+#: templates/pages/home.html:133
+msgid "Nous construisons l’épine dorsale"
+msgstr ""
+
+#: templates/pages/home.html:133
+msgid "de la mobilité togolaise."
+msgstr ""
+
+#: templates/pages/home.html:136
+msgid ""
+"Togo Rail conçoit et opère des infrastructures ferroviaires modernes qui "
+"accélèrent le commerce, rapprochent les territoires et réduisent l’empreinte "
+"carbone des transports."
+msgstr ""
+
+#: templates/pages/home.html:142
+msgid ""
+"Offrir une mobilité fiable, sûre et durable à chaque citoyen et entreprise."
+msgstr ""
+
+#: templates/pages/home.html:146
+msgid "Faire du Togo un hub logistique majeur de l’Afrique de l’Ouest."
+msgstr ""
+
+#: templates/pages/home.html:174
+msgid "Prêt à faire avancer votre projet logistique ?"
+msgstr ""
+
+#: templates/pages/home.html:176
+msgid ""
+"Parlons de vos besoins en transport et infrastructure. Notre équipe vous "
+"répond sous 24h."
+msgstr ""
+
+#: templates/pages/home.html:178
+msgid "Demander un devis"
+msgstr ""
+
+#: templates/pages/services.html:10
+msgid "Nos services"
+msgstr ""
+
+#: templates/pages/services.html:12
+msgid "Une expertise"
+msgstr ""
+
+#: templates/pages/services.html:12
+msgid "ferroviaire complète."
+msgstr ""
+
+#: templates/pages/services.html:15
+msgid ""
+"Du fret longue distance à la logistique du dernier kilomètre, nous couvrons "
+"toute la chaîne de valeur du transport ferroviaire."
+msgstr ""
+
+#: templates/pages/services.html:39
+msgid "Un besoin spécifique ?"
+msgstr ""
+
+#: templates/pages/services.html:40
+msgid "Construisons ensemble une solution logistique sur mesure."
+msgstr ""
+
+#: templates/pages/services.html:41
+msgid "Contactez-nous"
+msgstr ""
+
+#: templates/partials/footer.html:13
+msgid "Navigation"
+msgstr ""
+
+#: templates/partials/footer.html:15 templates/partials/navbar.html:16
+#: templates/partials/navbar.html:45
+msgid "Accueil"
+msgstr ""
+
+#: templates/partials/footer.html:34
+msgid "Tous droits réservés."
+msgstr ""
+
+#: templates/partials/footer.html:35
+msgid "Conçu avec précision et passion."
+msgstr ""
+
+#: templates/partials/navbar.html:31
+msgid "Devis"
+msgstr ""
