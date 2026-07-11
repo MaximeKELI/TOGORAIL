@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Togo Rail 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-11 14:55+0000\n"
+"POT-Creation-Date: 2026-07-11 15:16+0000\n"
 "PO-Revision-Date: 2026-07-11 15:00+0000\n"
 "Last-Translator: Togo Rail\n"
 "Language-Team: English\n"
@@ -12,142 +12,191 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: config/settings.py:126
 msgid "Français"
 msgstr "French"
 
+#: config/settings.py:127
 msgid "English"
 msgstr "English"
 
+#: core/admin.py:40
 msgid "Marquer comme traité"
 msgstr "Mark as handled"
 
+#: core/admin.py:49
 msgid "Gestion du contenu"
 msgstr "Content management"
 
+#: core/context_processors.py:8
 msgid "Relier le Togo, connecter l'Afrique de l'Ouest."
 msgstr "Connecting Togo, powering West Africa."
 
+#: core/forms.py:30
 msgid "Nom complet"
 msgstr "Full name"
 
+#: core/forms.py:31
 msgid "Adresse e-mail"
 msgstr "Email address"
 
+#: core/forms.py:32 core/models.py:111
 msgid "Société"
 msgstr "Company"
 
+#: core/forms.py:33 core/models.py:112
 msgid "Sujet"
 msgstr "Subject"
 
+#: core/forms.py:34
 msgid "Votre message"
 msgstr "Your message"
 
+#: core/models.py:16 core/models.py:70
 msgid "Titre (FR)"
 msgstr "Title (FR)"
 
+#: core/models.py:17 core/models.py:71
 msgid "Title (EN)"
 msgstr "Title (EN)"
 
+#: core/models.py:18
 msgid "Résumé (FR)"
 msgstr "Summary (FR)"
 
+#: core/models.py:19
 msgid "Summary (EN)"
 msgstr "Summary (EN)"
 
+#: core/models.py:22
 msgid "Icône (nom)"
 msgstr "Icon (name)"
 
+#: core/models.py:25
 msgid "rail, cargo, network, shield, bolt, globe"
 msgstr "rail, cargo, network, shield, bolt, globe"
 
+#: core/models.py:27 core/models.py:53 core/models.py:74 core/models.py:97
 msgid "Ordre"
 msgstr "Order"
 
+#: core/models.py:28
 msgid "Mis en avant"
 msgstr "Featured"
 
+#: core/models.py:32
 msgid "Service"
 msgstr "Service"
 
+#: core/models.py:33 templates/pages/services.html:4
+#: templates/partials/footer.html:16 templates/partials/navbar.html:17
+#: templates/partials/navbar.html:46
 msgid "Services"
 msgstr "Services"
 
+#: core/models.py:48
 msgid "Libellé (FR)"
 msgstr "Label (FR)"
 
+#: core/models.py:49
 msgid "Label (EN)"
 msgstr "Label (EN)"
 
+#: core/models.py:50
 msgid "Valeur"
 msgstr "Value"
 
+#: core/models.py:51
 msgid "Suffixe"
 msgstr "Suffix"
 
+#: core/models.py:52
 msgid "Préfixe"
 msgstr "Prefix"
 
+#: core/models.py:57
 msgid "Statistique"
 msgstr "Statistic"
 
+#: core/models.py:58
 msgid "Statistiques"
 msgstr "Statistics"
 
+#: core/models.py:69
 msgid "Année"
 msgstr "Year"
 
+#: core/models.py:72
 msgid "Description (FR)"
 msgstr "Description (FR)"
 
+#: core/models.py:73
 msgid "Description (EN)"
 msgstr "Description (EN)"
 
+#: core/models.py:78
 msgid "Étape (timeline)"
 msgstr "Timeline event"
 
+#: core/models.py:79
 msgid "Timeline"
 msgstr "Timeline"
 
+#: core/models.py:94 core/models.py:109
 msgid "Nom"
 msgstr "Name"
 
+#: core/models.py:95
 msgid "Logo"
 msgstr "Logo"
 
+#: core/models.py:96
 msgid "Lien"
 msgstr "Link"
 
+#: core/models.py:101
 msgid "Logo partenaire"
 msgstr "Partner logo"
 
+#: core/models.py:102
 msgid "Logos partenaires"
 msgstr "Partner logos"
 
+#: core/models.py:110 templates/pages/contact.html:26
 msgid "Email"
 msgstr "Email"
 
+#: core/models.py:113
 msgid "Message"
 msgstr "Message"
 
+#: core/models.py:114
 msgid "Reçu le"
 msgstr "Received on"
 
+#: core/models.py:115
 msgid "Traité"
 msgstr "Handled"
 
+#: core/models.py:119
 msgid "Message de contact"
 msgstr "Contact message"
 
+#: core/models.py:120
 msgid "Messages de contact"
 msgstr "Contact messages"
 
+#: core/views.py:44
 msgid ""
 "Merci ! Votre message a bien été envoyé. Nous vous répondrons rapidement."
-msgstr "Thank you! Your message has been sent. We will get back to you shortly."
+msgstr ""
+"Thank you! Your message has been sent. We will get back to you shortly."
 
+#: core/views.py:47
 msgid "Veuillez corriger les erreurs ci-dessous."
 msgstr "Please correct the errors below."
 
+#: templates/base.html:7
 msgid ""
 "Togo Rail — Relier le Togo, connecter l’Afrique de l’Ouest. Fret "
 "ferroviaire, transport de voyageurs et logistique intégrée."
@@ -155,18 +204,24 @@ msgstr ""
 "Togo Rail — Connecting Togo, powering West Africa. Rail freight, passenger "
 "transport and integrated logistics."
 
+#: templates/pages/about.html:4 templates/partials/footer.html:17
+#: templates/partials/navbar.html:18 templates/partials/navbar.html:47
 msgid "À propos"
 msgstr "About"
 
+#: templates/pages/about.html:10
 msgid "À propos de Togo Rail"
 msgstr "About Togo Rail"
 
+#: templates/pages/about.html:12
 msgid "L’avenir du rail"
 msgstr "The future of rail"
 
+#: templates/pages/about.html:12
 msgid "commence ici."
 msgstr "starts here."
 
+#: templates/pages/about.html:15
 msgid ""
 "Depuis notre création, nous plaçons la fiabilité, la sécurité et la "
 "durabilité au cœur de chaque kilomètre de voie que nous construisons."
@@ -174,66 +229,88 @@ msgstr ""
 "Since day one, we have put reliability, safety and sustainability at the "
 "heart of every kilometre of track we build."
 
+#: templates/pages/about.html:24 templates/pages/home.html:143
 msgid "Mission"
 msgstr "Mission"
 
+#: templates/pages/about.html:25
 msgid ""
 "Connecter les personnes et les marchandises grâce à une infrastructure "
 "ferroviaire de classe mondiale."
 msgstr ""
 "Connecting people and goods through world-class railway infrastructure."
 
+#: templates/pages/about.html:28 templates/pages/home.html:147
 msgid "Vision"
 msgstr "Vision"
 
+#: templates/pages/about.html:29
 msgid "Devenir le corridor logistique de référence de l’Afrique de l’Ouest."
 msgstr "To become West Africa's leading logistics corridor."
 
+#: templates/pages/about.html:32
 msgid "Valeurs"
 msgstr "Values"
 
+#: templates/pages/about.html:33
 msgid "Excellence, sécurité, durabilité et engagement envers les communautés."
 msgstr "Excellence, safety, sustainability and commitment to communities."
 
+#: templates/pages/about.html:55
 msgid "Notre parcours"
 msgstr "Our journey"
 
+#: templates/pages/about.html:56
 msgid "Une progression"
 msgstr "Steady"
 
+#: templates/pages/about.html:56
 msgid "constante."
 msgstr "progress."
 
+#: templates/pages/contact.html:4 templates/pages/contact.html:10
+#: templates/partials/footer.html:18 templates/partials/footer.html:23
+#: templates/partials/navbar.html:19 templates/partials/navbar.html:48
 msgid "Contact"
 msgstr "Contact"
 
+#: templates/pages/contact.html:12
 msgid "Parlons de votre"
 msgstr "Let's talk about your"
 
+#: templates/pages/contact.html:12
 msgid "prochain projet."
 msgstr "next project."
 
+#: templates/pages/contact.html:22
 msgid "Adresse"
 msgstr "Address"
 
+#: templates/pages/contact.html:30
 msgid "Téléphone"
 msgstr "Phone"
 
+#: templates/pages/contact.html:76
 msgid "Envoyer le message"
 msgstr "Send message"
 
+#: templates/pages/home.html:4
 msgid "Mobilité ferroviaire premium"
 msgstr "Premium rail mobility"
 
+#: templates/pages/home.html:23
 msgid "Togo Rail · Infrastructure de nouvelle génération"
 msgstr "Togo Rail · Next-generation infrastructure"
 
+#: templates/pages/home.html:26
 msgid "Relier le Togo,"
 msgstr "Connecting Togo,"
 
+#: templates/pages/home.html:27
 msgid "propulser l’Afrique."
 msgstr "powering Africa."
 
+#: templates/pages/home.html:31
 msgid ""
 "Fret ferroviaire, transport de voyageurs et logistique intégrée. Une "
 "infrastructure fiable, durable et intelligente au cœur de l’Afrique de "
@@ -242,45 +319,59 @@ msgstr ""
 "Rail freight, passenger transport and integrated logistics. Reliable, "
 "sustainable and intelligent infrastructure at the heart of West Africa."
 
+#: templates/pages/home.html:36
 msgid "Découvrir nos services"
 msgstr "Explore our services"
 
+#: templates/pages/home.html:39
 msgid "Nous contacter"
 msgstr "Get in touch"
 
+#: templates/pages/home.html:56
 msgid "Défiler"
 msgstr "Scroll"
 
+#: templates/pages/home.html:65
 msgid "Ils nous font confiance"
 msgstr "Trusted by"
 
+#: templates/pages/home.html:82
 msgid "Nos expertises"
 msgstr "Our expertise"
 
+#: templates/pages/home.html:84
 msgid "Des solutions ferroviaires"
 msgstr "End-to-end railway"
 
+#: templates/pages/home.html:84
 msgid "de bout en bout."
 msgstr "solutions."
 
+#: templates/pages/home.html:87
 msgid "Tous les services →"
 msgstr "All services →"
 
+#: templates/pages/home.html:100
 msgid "En savoir plus"
 msgstr "Learn more"
 
+#: templates/pages/home.html:106 templates/pages/services.html:33
 msgid "Le contenu sera bientôt disponible."
 msgstr "Content will be available soon."
 
+#: templates/pages/home.html:133
 msgid "Notre raison d’être"
 msgstr "Our purpose"
 
+#: templates/pages/home.html:135
 msgid "Nous construisons l’épine dorsale"
 msgstr "We are building the backbone"
 
+#: templates/pages/home.html:135
 msgid "de la mobilité togolaise."
 msgstr "of Togolese mobility."
 
+#: templates/pages/home.html:138
 msgid ""
 "Togo Rail conçoit et opère des infrastructures ferroviaires modernes qui "
 "accélèrent le commerce, rapprochent les territoires et réduisent l’empreinte "
@@ -290,18 +381,72 @@ msgstr ""
 "accelerates trade, brings regions closer together and reduces the carbon "
 "footprint of transport."
 
+#: templates/pages/home.html:144
 msgid ""
 "Offrir une mobilité fiable, sûre et durable à chaque citoyen et entreprise."
 msgstr ""
 "To deliver reliable, safe and sustainable mobility to every citizen and "
 "business."
 
+#: templates/pages/home.html:148
 msgid "Faire du Togo un hub logistique majeur de l’Afrique de l’Ouest."
 msgstr "To make Togo a major logistics hub in West Africa."
 
+#: templates/pages/home.html:174
+msgid "Notre méthode"
+msgstr ""
+
+#: templates/pages/home.html:176
+msgid "De la vision"
+msgstr ""
+
+#: templates/pages/home.html:176
+msgid "à la mise en service."
+msgstr ""
+
+#: templates/pages/home.html:184
+msgid "Étude & conception"
+msgstr ""
+
+#: templates/pages/home.html:185
+msgid ""
+"Analyse des corridors, modélisation du trafic et ingénierie de précision "
+"pour chaque tracé."
+msgstr ""
+
+#: templates/pages/home.html:190
+msgid "Construction durable"
+msgstr ""
+
+#: templates/pages/home.html:191
+msgid ""
+"Matériaux responsables, standards internationaux et suivi qualité à chaque "
+"kilomètre."
+msgstr ""
+
+#: templates/pages/home.html:196
+msgid "Exploitation intelligente"
+msgstr ""
+
+#: templates/pages/home.html:197
+msgid ""
+"Supervision numérique en temps réel, maintenance prédictive et sécurité 24/7."
+msgstr ""
+
+#: templates/pages/home.html:202
+msgid "Impact régional"
+msgstr ""
+
+#: templates/pages/home.html:203
+msgid ""
+"Interconnexion des marchés ouest-africains et croissance partagée durable."
+msgstr ""
+
+#: templates/pages/home.html:215
 msgid "Prêt à faire avancer votre projet logistique ?"
 msgstr "Ready to move your logistics project forward?"
 
+#: templates/pages/home.html:217
 msgid ""
 "Parlons de vos besoins en transport et infrastructure. Notre équipe vous "
 "répond sous 24h."
@@ -309,18 +454,23 @@ msgstr ""
 "Let's discuss your transport and infrastructure needs. Our team replies "
 "within 24 hours."
 
+#: templates/pages/home.html:219
 msgid "Demander un devis"
 msgstr "Request a quote"
 
+#: templates/pages/services.html:10
 msgid "Nos services"
 msgstr "Our services"
 
+#: templates/pages/services.html:12
 msgid "Une expertise"
 msgstr "Complete railway"
 
+#: templates/pages/services.html:12
 msgid "ferroviaire complète."
 msgstr "expertise."
 
+#: templates/pages/services.html:15
 msgid ""
 "Du fret longue distance à la logistique du dernier kilomètre, nous couvrons "
 "toute la chaîne de valeur du transport ferroviaire."
@@ -328,26 +478,35 @@ msgstr ""
 "From long-haul freight to last-mile logistics, we cover the entire railway "
 "transport value chain."
 
+#: templates/pages/services.html:41
 msgid "Un besoin spécifique ?"
 msgstr "A specific need?"
 
+#: templates/pages/services.html:42
 msgid "Construisons ensemble une solution logistique sur mesure."
 msgstr "Let's build a tailor-made logistics solution together."
 
+#: templates/pages/services.html:43
 msgid "Contactez-nous"
 msgstr "Contact us"
 
+#: templates/partials/footer.html:13
 msgid "Navigation"
 msgstr "Navigation"
 
+#: templates/partials/footer.html:15 templates/partials/navbar.html:16
+#: templates/partials/navbar.html:45
 msgid "Accueil"
 msgstr "Home"
 
+#: templates/partials/footer.html:34
 msgid "Tous droits réservés."
 msgstr "All rights reserved."
 
+#: templates/partials/footer.html:35
 msgid "Conçu avec précision et passion."
 msgstr "Crafted with precision and passion."
 
+#: templates/partials/navbar.html:31
 msgid "Devis"
 msgstr "Quote"

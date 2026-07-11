@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-11 14:55+0000\n"
+"POT-Creation-Date: 2026-07-11 15:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
 #: config/settings.py:126
 msgid "Français"
 msgstr ""
@@ -229,7 +230,7 @@ msgid ""
 "durabilité au cœur de chaque kilomètre de voie que nous construisons."
 msgstr ""
 
-#: templates/pages/about.html:24 templates/pages/home.html:141
+#: templates/pages/about.html:24 templates/pages/home.html:143
 msgid "Mission"
 msgstr ""
 
@@ -239,7 +240,7 @@ msgid ""
 "ferroviaire de classe mondiale."
 msgstr ""
 
-#: templates/pages/about.html:28 templates/pages/home.html:145
+#: templates/pages/about.html:28 templates/pages/home.html:147
 msgid "Vision"
 msgstr ""
 
@@ -348,53 +349,103 @@ msgstr ""
 msgid "Tous les services →"
 msgstr ""
 
-#: templates/pages/home.html:99
+#: templates/pages/home.html:100
 msgid "En savoir plus"
 msgstr ""
 
-#: templates/pages/home.html:104 templates/pages/services.html:31
+#: templates/pages/home.html:106 templates/pages/services.html:33
 msgid "Le contenu sera bientôt disponible."
 msgstr ""
 
-#: templates/pages/home.html:131
+#: templates/pages/home.html:133
 msgid "Notre raison d’être"
 msgstr ""
 
-#: templates/pages/home.html:133
+#: templates/pages/home.html:135
 msgid "Nous construisons l’épine dorsale"
 msgstr ""
 
-#: templates/pages/home.html:133
+#: templates/pages/home.html:135
 msgid "de la mobilité togolaise."
 msgstr ""
 
-#: templates/pages/home.html:136
+#: templates/pages/home.html:138
 msgid ""
 "Togo Rail conçoit et opère des infrastructures ferroviaires modernes qui "
 "accélèrent le commerce, rapprochent les territoires et réduisent l’empreinte "
 "carbone des transports."
 msgstr ""
 
-#: templates/pages/home.html:142
+#: templates/pages/home.html:144
 msgid ""
 "Offrir une mobilité fiable, sûre et durable à chaque citoyen et entreprise."
 msgstr ""
 
-#: templates/pages/home.html:146
+#: templates/pages/home.html:148
 msgid "Faire du Togo un hub logistique majeur de l’Afrique de l’Ouest."
 msgstr ""
 
 #: templates/pages/home.html:174
-msgid "Prêt à faire avancer votre projet logistique ?"
+msgid "Notre méthode"
 msgstr ""
 
 #: templates/pages/home.html:176
+msgid "De la vision"
+msgstr ""
+
+#: templates/pages/home.html:176
+msgid "à la mise en service."
+msgstr ""
+
+#: templates/pages/home.html:184
+msgid "Étude & conception"
+msgstr ""
+
+#: templates/pages/home.html:185
+msgid ""
+"Analyse des corridors, modélisation du trafic et ingénierie de précision "
+"pour chaque tracé."
+msgstr ""
+
+#: templates/pages/home.html:190
+msgid "Construction durable"
+msgstr ""
+
+#: templates/pages/home.html:191
+msgid ""
+"Matériaux responsables, standards internationaux et suivi qualité à chaque "
+"kilomètre."
+msgstr ""
+
+#: templates/pages/home.html:196
+msgid "Exploitation intelligente"
+msgstr ""
+
+#: templates/pages/home.html:197
+msgid ""
+"Supervision numérique en temps réel, maintenance prédictive et sécurité 24/7."
+msgstr ""
+
+#: templates/pages/home.html:202
+msgid "Impact régional"
+msgstr ""
+
+#: templates/pages/home.html:203
+msgid ""
+"Interconnexion des marchés ouest-africains et croissance partagée durable."
+msgstr ""
+
+#: templates/pages/home.html:215
+msgid "Prêt à faire avancer votre projet logistique ?"
+msgstr ""
+
+#: templates/pages/home.html:217
 msgid ""
 "Parlons de vos besoins en transport et infrastructure. Notre équipe vous "
 "répond sous 24h."
 msgstr ""
 
-#: templates/pages/home.html:178
+#: templates/pages/home.html:219
 msgid "Demander un devis"
 msgstr ""
 
@@ -416,15 +467,15 @@ msgid ""
 "toute la chaîne de valeur du transport ferroviaire."
 msgstr ""
 
-#: templates/pages/services.html:39
+#: templates/pages/services.html:41
 msgid "Un besoin spécifique ?"
 msgstr ""
 
-#: templates/pages/services.html:40
+#: templates/pages/services.html:42
 msgid "Construisons ensemble une solution logistique sur mesure."
 msgstr ""
 
-#: templates/pages/services.html:41
+#: templates/pages/services.html:43
 msgid "Contactez-nous"
 msgstr ""
 
