@@ -21,6 +21,15 @@
     document.body.classList.add("loading");
     const bar = pre.querySelector(".pl-bar span");
     const count = pre.querySelector(".pl-count");
+    const drawEls = pre.querySelectorAll(".pl-path, .pl-ring");
+    // Prepare SVG stroke-draw
+    drawEls.forEach((p) => {
+      try {
+        const len = p.getTotalLength();
+        p.style.strokeDasharray = len;
+        p.style.strokeDashoffset = len;
+      } catch (e) {}
+    });
     const obj = { v: 0 };
 
     function finish() {
@@ -43,17 +52,26 @@
       finish();
       return;
     }
-    gsap.to(obj, {
-      v: 100,
-      duration: 1.2,
+    const tl = gsap.timeline({ onComplete: finish });
+    tl.to(drawEls, {
+      strokeDashoffset: 0,
+      duration: 1.1,
       ease: "power2.inOut",
-      onUpdate: () => {
-        const val = Math.round(obj.v);
-        if (bar) bar.style.width = val + "%";
-        if (count) count.textContent = String(val).padStart(3, "0");
-      },
-      onComplete: finish,
     });
+    tl.to(
+      obj,
+      {
+        v: 100,
+        duration: 1.2,
+        ease: "power2.inOut",
+        onUpdate: () => {
+          const val = Math.round(obj.v);
+          if (bar) bar.style.width = val + "%";
+          if (count) count.textContent = String(val).padStart(3, "0");
+        },
+      },
+      0
+    );
   })();
 
   /* ======================================================================
