@@ -1,11 +1,45 @@
 {% load static i18n %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}" class="scroll-smooth">
+<html lang="{{ LANGUAGE_CODE }}" class="scroll-smooth dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{% block meta_description %}{% trans 'Togo Rail — Relier le Togo, connecter l’Afrique de l’Ouest. Fret ferroviaire, transport de voyageurs et logistique intégrée.' %}{% endblock %}" />
-  <title>{% block title %}Togo Rail{% endblock %}</title>
+  <meta name="theme-color" content="#05070c" />
+
+  {% block seo %}
+  <title>{% block title %}Togo Rail — {% trans "Infrastructure ferroviaire nouvelle génération" %}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{{ meta_description|default:_('Togo Rail — Relier le Togo, connecter l’Afrique de l’Ouest. Fret ferroviaire, transport de voyageurs et logistique intégrée.') }}{% endblock %}" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Togo Rail" />
+  <meta property="og:title" content="{% block og_title %}Togo Rail{% endblock %}" />
+  <meta property="og:description" content="{{ meta_description|default:_('Relier le Togo, connecter l’Afrique de l’Ouest.') }}" />
+  <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'media/hero-train.png' %}{% endblock %}" />
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}" />
+  <meta property="og:locale" content="{{ LANGUAGE_CODE }}" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{% block twitter_title %}Togo Rail{% endblock %}" />
+  <meta name="twitter:description" content="{{ meta_description|default:_('Relier le Togo, connecter l’Afrique de l’Ouest.') }}" />
+  <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'media/hero-train.png' %}" />
+
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.get_full_path }}" />
+  {% endblock %}
+
+  <link rel="icon" type="image/svg+xml" href="{% static 'media/favicon.svg' %}" />
+
+  <!-- Prevent theme flash: apply stored theme before paint -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("tr-theme");
+        if (t === "light") document.documentElement.classList.remove("dark");
+        else document.documentElement.classList.add("dark");
+      } catch (e) {}
+    })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,6 +49,7 @@
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   <script>
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
           colors: {
@@ -45,17 +80,33 @@
 </head>
 <body class="bg-ink text-white font-body antialiased overflow-x-hidden selection:bg-gold/30 loading">
 
-  <!-- Cinematic preloader -->
+  <!-- Cinematic preloader with drawing logo -->
   <div id="preloader">
     <div class="pl-inner">
+      <svg class="pl-logo" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+        <circle class="pl-ring" cx="60" cy="60" r="52" stroke="url(#plg)" stroke-width="2" />
+        <path class="pl-path" d="M28 78 L92 78 M36 78 L52 42 L68 42 L84 78 M46 60 L74 60" stroke="url(#plg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        <defs>
+          <linearGradient id="plg" x1="0" y1="0" x2="120" y2="120">
+            <stop offset="0" stop-color="#e8d48b" />
+            <stop offset="1" stop-color="#c9a227" />
+          </linearGradient>
+        </defs>
+      </svg>
       <div class="pl-brand">Togo<span class="dot">Rail</span></div>
       <div class="pl-bar"><span></span></div>
       <div class="pl-count">000</div>
     </div>
   </div>
 
+  <!-- Page transition overlay -->
+  <div id="page-transition" aria-hidden="true"><span class="pt-brand">Togo<span>Rail</span></span></div>
+
   <!-- Film grain overlay -->
   <div class="grain" aria-hidden="true"></div>
+
+  <!-- Custom cursor label -->
+  <div class="cursor-label" aria-hidden="true"></div>
 
   <!-- Scroll progress bar -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] w-0 z-[60] bg-gradient-to-r from-goldsoft to-gold"></div>
@@ -85,23 +136,25 @@
   {% include "partials/footer.html" %}
 
   <!-- Back to top -->
-  <button id="to-top" aria-label="Back to top">
-    <svg class="ring" viewBox="0 0 54 54">
+  <button id="to-top" aria-label="{% trans 'Revenir en haut' %}">
+    <svg class="ring" viewBox="0 0 54 54" aria-hidden="true">
       <circle class="bg" cx="27" cy="27" r="25"></circle>
       <circle class="fg" cx="27" cy="27" r="25"></circle>
     </svg>
-    <svg class="arrow h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    <svg class="arrow h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
   <!-- Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
 
   <script src="{% static 'js/main.js' %}" defer></script>
   <script src="{% static 'js/animations.js' %}" defer></script>
   <script src="{% static 'js/premium.js' %}" defer></script>
   <script src="{% static 'js/lights.js' %}" defer></script>
+  <script src="{% static 'js/hero3d.js' %}" defer></script>
   <script src="{% static 'js/carousel.js' %}" defer></script>
   {% block extra_js %}{% endblock %}
 </body>
