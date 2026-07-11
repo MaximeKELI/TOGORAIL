@@ -67,6 +67,68 @@
   </a>
 </section>
 
+<!-- ============================ CARROUSEL — EN IMAGES (vidéo rails + cinemagraphs) ============================ -->
+<section id="galerie" class="mx-auto max-w-7xl px-5 md:px-8 pt-16 pb-8 md:pt-20">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+    <div>
+      <p class="eyebrow mb-4">{% trans "En mouvement" %}</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold max-w-2xl leading-tight">
+        {% trans "Togo Rail" %} <span class="text-gradient">{% trans "en images." %}</span>
+      </h2>
+    </div>
+    <div class="hidden md:flex items-center gap-3">
+      <button data-carousel-prev class="carousel-btn" aria-label="{% trans 'Précédent' %}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button data-carousel-next class="carousel-btn" aria-label="{% trans 'Suivant' %}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="carousel" data-carousel>
+    <div class="carousel-viewport media-frame">
+      <div class="carousel-track" data-carousel-track>
+
+        <!-- Slide 1 — vidéo rails téléchargée -->
+        <div class="carousel-slide" data-carousel-slide>
+          <video class="h-full w-full object-cover" autoplay muted loop playsinline preload="metadata" poster="{% static 'media/hero-train.png' %}">
+            <source src="{% static 'media/hero.mp4' %}" type="video/mp4" />
+          </video>
+          <div class="carousel-caption"><span class="eyebrow mb-2">{% trans "Vidéo" %}</span><h3>{% trans "Sur les rails, en direct" %}</h3></div>
+        </div>
+
+        <!-- Slides images animées (cinemagraph) -->
+        <div class="carousel-slide" data-carousel-slide>
+          <img class="kenburns h-full w-full object-cover" src="{% static 'media/slide-station.png' %}" alt="{% trans 'Gare de nuit' %}" loading="lazy" />
+          <div class="carousel-caption"><h3>{% trans "Gares d’exception" %}</h3></div>
+        </div>
+        <div class="carousel-slide" data-carousel-slide>
+          <img class="kenburns-2 h-full w-full object-cover" src="{% static 'media/slide-bridge.png' %}" alt="{% trans 'Pont ferroviaire' %}" loading="lazy" />
+          <div class="carousel-caption"><h3>{% trans "Ouvrages d’art" %}</h3></div>
+        </div>
+        <div class="carousel-slide" data-carousel-slide>
+          <img class="kenburns h-full w-full object-cover" src="{% static 'media/slide-cargo.png' %}" alt="{% trans 'Fret ferroviaire' %}" loading="lazy" />
+          <div class="carousel-caption"><h3>{% trans "Fret & logistique" %}</h3></div>
+        </div>
+        <div class="carousel-slide" data-carousel-slide>
+          <img class="kenburns-2 h-full w-full object-cover" src="{% static 'media/slide-control.png' %}" alt="{% trans 'Centre de supervision' %}" loading="lazy" />
+          <div class="carousel-caption"><h3>{% trans "Supervision intelligente" %}</h3></div>
+        </div>
+        <div class="carousel-slide" data-carousel-slide>
+          <img class="kenburns h-full w-full object-cover" src="{% static 'media/slide-junction.png' %}" alt="{% trans 'Nœud ferroviaire' %}" loading="lazy" />
+          <div class="carousel-caption"><h3>{% trans "Réseau connecté" %}</h3></div>
+        </div>
+
+      </div>
+      <span class="frame-glow"></span>
+      <div class="carousel-progress"><span data-carousel-progress></span></div>
+    </div>
+
+    <div class="carousel-dots" data-carousel-dots></div>
+  </div>
+</section>
+
 <!-- ============================ LOGO MARQUEE ============================ -->
 <section class="py-14 border-y border-white/5 bg-panel/30">
   <p class="text-center text-xs uppercase tracking-[0.3em] text-muted mb-8">{% trans "Ils nous font confiance" %}</p>
@@ -112,68 +174,6 @@
     {% empty %}
     <p class="text-muted">{% trans "Le contenu sera bientôt disponible." %}</p>
     {% endfor %}
-  </div>
-</section>
-
-<!-- ============================ CARROUSEL — EN IMAGES ============================ -->
-<section id="galerie" class="mx-auto max-w-7xl px-5 md:px-8 py-24 md:py-28">
-  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-    <div>
-      <p data-animate class="eyebrow mb-4">{% trans "En mouvement" %}</p>
-      <h2 data-animate class="font-display text-4xl md:text-5xl font-bold max-w-2xl leading-tight">
-        {% trans "Togo Rail" %} <span class="text-gradient">{% trans "en images." %}</span>
-      </h2>
-    </div>
-    <div data-animate class="hidden md:flex items-center gap-3">
-      <button data-carousel-prev class="carousel-btn" aria-label="{% trans 'Précédent' %}">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button data-carousel-next class="carousel-btn" aria-label="{% trans 'Suivant' %}">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5"><path d="M9 6l6 6-6 6"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <div data-animate="scale" class="carousel" data-carousel>
-    <div class="carousel-viewport media-frame">
-      <div class="carousel-track" data-carousel-track>
-
-        <!-- Slide 1 — vidéo -->
-        <div class="carousel-slide" data-carousel-slide>
-          <video class="h-full w-full object-cover" autoplay muted loop playsinline preload="metadata" poster="{% static 'media/hero-train.png' %}">
-            <source src="{% static 'media/hero.mp4' %}" type="video/mp4" />
-          </video>
-          <div class="carousel-caption"><span class="eyebrow mb-2">{% trans "Vidéo" %}</span><h3>{% trans "Sur les rails, en direct" %}</h3></div>
-        </div>
-
-        <!-- Slides images animées (cinemagraph) -->
-        <div class="carousel-slide" data-carousel-slide>
-          <img class="kenburns h-full w-full object-cover" src="{% static 'media/slide-station.png' %}" alt="{% trans 'Gare de nuit' %}" loading="lazy" />
-          <div class="carousel-caption"><h3>{% trans "Gares d’exception" %}</h3></div>
-        </div>
-        <div class="carousel-slide" data-carousel-slide>
-          <img class="kenburns-2 h-full w-full object-cover" src="{% static 'media/slide-bridge.png' %}" alt="{% trans 'Pont ferroviaire' %}" loading="lazy" />
-          <div class="carousel-caption"><h3>{% trans "Ouvrages d’art" %}</h3></div>
-        </div>
-        <div class="carousel-slide" data-carousel-slide>
-          <img class="kenburns h-full w-full object-cover" src="{% static 'media/slide-cargo.png' %}" alt="{% trans 'Fret ferroviaire' %}" loading="lazy" />
-          <div class="carousel-caption"><h3>{% trans "Fret & logistique" %}</h3></div>
-        </div>
-        <div class="carousel-slide" data-carousel-slide>
-          <img class="kenburns-2 h-full w-full object-cover" src="{% static 'media/slide-control.png' %}" alt="{% trans 'Centre de supervision' %}" loading="lazy" />
-          <div class="carousel-caption"><h3>{% trans "Supervision intelligente" %}</h3></div>
-        </div>
-        <div class="carousel-slide" data-carousel-slide>
-          <img class="kenburns h-full w-full object-cover" src="{% static 'media/slide-junction.png' %}" alt="{% trans 'Nœud ferroviaire' %}" loading="lazy" />
-          <div class="carousel-caption"><h3>{% trans "Réseau connecté" %}</h3></div>
-        </div>
-
-      </div>
-      <span class="frame-glow"></span>
-      <div class="carousel-progress"><span data-carousel-progress></span></div>
-    </div>
-
-    <div class="carousel-dots" data-carousel-dots></div>
   </div>
 </section>
 

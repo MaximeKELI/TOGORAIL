@@ -10,37 +10,25 @@
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  /* ---------- Lenis smooth scrolling ---------- */
-  let lenis = null;
-  if (window.Lenis && !prefersReduced) {
-    lenis = new Lenis({
-      lerp: 0.2,
-      wheelMultiplier: 1.6,
-      touchMultiplier: 2,
-      smoothWheel: true,
-    });
+  /* ---------- Native scrolling (Lenis smooth-scroll disabled) ----------
+     We keep native browser scrolling for a normal, responsive feel.
+     GSAP ScrollTrigger works natively, so all animations stay intact. */
+  window.__lenis = null;
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+  // Smooth anchor jumps only (native scroll for the wheel/trackpad).
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    const id = a.getAttribute("href");
+    if (id.length > 1) {
+      a.addEventListener("click", (e) => {
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          const y = target.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      });
     }
-    requestAnimationFrame(raf);
-    window.__lenis = lenis;
-
-    // Anchor links routed through Lenis
-    document.querySelectorAll('a[href^="#"]').forEach((a) => {
-      const id = a.getAttribute("href");
-      if (id.length > 1) {
-        a.addEventListener("click", (e) => {
-          const target = document.querySelector(id);
-          if (target) {
-            e.preventDefault();
-            lenis.scrollTo(target, { offset: -80, duration: 0.8 });
-          }
-        });
-      }
-    });
-  }
+  });
 
   /* ---------- Navbar: scrolled state + scroll progress ---------- */
   const navbar = document.getElementById("navbar");
