@@ -33,6 +33,11 @@
         <li><a href="{% url 'careers' %}" class="hover:text-gold transition-colors">{% trans "Carrières" %}</a></li>
         <li><a href="{% url 'faq' %}" class="hover:text-gold transition-colors">{% trans "FAQ" %}</a></li>
         <li><a href="{% url 'contact' %}" class="hover:text-gold transition-colors">{% trans "Contact" %}</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'account' %}" class="hover:text-gold transition-colors">{% trans "Mon espace" %}</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}" class="hover:text-gold transition-colors">{% trans "Connexion / Inscription" %}</a></li>
+        {% endif %}
       </ul>
     </div>
 
