@@ -37,6 +37,14 @@
           <button type="submit" name="language" value="en" class="rounded-full px-3 py-1.5 transition-colors {% if LANGUAGE_CODE == 'en' %}bg-gold text-ink font-semibold{% else %}text-muted hover:text-white{% endif %}">EN</button>
         </form>
 
+        {% if user.is_authenticated %}
+        <a href="{% url 'account' %}" data-nav title="{% trans 'Mon espace' %}" class="hidden lg:grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-muted hover:text-gold transition-colors">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}" data-nav class="hidden lg:inline-flex nav-link text-sm text-muted">{% trans "Connexion" %}</a>
+        {% endif %}
+
         <a href="{% url 'contact' %}" data-magnetic="0.5" data-nav class="hidden lg:inline-flex btn-gold text-sm !px-5 !py-2.5">{% trans "Devis" %}</a>
 
         <!-- Mobile toggle -->
