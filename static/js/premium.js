@@ -222,6 +222,41 @@
   }
 
   /* ======================================================================
+     7b. KINETIC TYPOGRAPHY (opposite-direction infinite rows)
+     ====================================================================== */
+  if (hasGsap && !reduced) {
+    const kinetics = [];
+    document.querySelectorAll("[data-kinetic]").forEach((row) => {
+      const dir = row.dataset.dir === "right" ? 1 : -1;
+      const half = row.scrollWidth / 2;
+      if (!half) return;
+      const tween = gsap.fromTo(
+        row,
+        { x: dir < 0 ? 0 : -half },
+        {
+          x: dir < 0 ? -half : 0,
+          duration: 24,
+          ease: "none",
+          repeat: -1,
+        }
+      );
+      kinetics.push({ tween, dir });
+    });
+    // React to scroll velocity
+    if (window.ScrollTrigger && kinetics.length) {
+      ScrollTrigger.create({
+        onUpdate: (self) => {
+          const boost = 1 + Math.min(Math.abs(self.getVelocity()) / 300, 6);
+          kinetics.forEach((k) => {
+            k.tween.timeScale(boost);
+            gsap.to(k.tween, { timeScale: 1, duration: 0.8, overwrite: true });
+          });
+        },
+      });
+    }
+  }
+
+  /* ======================================================================
      8. PINNED HORIZONTAL SCROLL
      ====================================================================== */
   if (hasGsap && window.ScrollTrigger && !reduced) {
