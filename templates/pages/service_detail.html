@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{{ service.title }} — Togo Rail{% endblock %}
+{% block og_title %}{{ service.title }} — Togo Rail{% endblock %}
+
+{% block content %}
+<section class="relative pt-40 pb-16 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_0%,rgba(201,162,39,0.15),transparent_45%)]"></div>
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <nav class="mb-6 text-sm text-muted"><a href="{% url 'services' %}" class="hover:text-gold transition-colors">{% trans "Services" %}</a> <span class="mx-2">/</span> <span class="text-white/80">{{ service.title }}</span></nav>
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="icon-wrap inline-grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 text-gold border border-gold/20">
+          {% include "partials/icon.html" with icon=service.icon %}
+        </div>
+        <h1 data-split class="mt-6 font-display text-5xl md:text-6xl font-extrabold leading-[0.95]">{{ service.title }}</h1>
+        <p class="mt-6 text-lg text-muted leading-relaxed">{{ service.summary }}</p>
+        <div class="mt-8"><a href="{% url 'contact' %}" data-magnetic="0.5" class="btn-gold">{% trans "Discuter de ce service" %}</a></div>
+      </div>
+      <div data-clip class="media-frame overflow-hidden rounded-3xl border border-white/10">
+        {% if service.image %}
+        <img src="{{ service.image.url }}" alt="{{ service.title }}" class="kenburns w-full h-[26rem] object-cover" />
+        {% else %}
+        <img src="{% static 'media/corridor.png' %}" alt="{{ service.title }}" class="kenburns w-full h-[26rem] object-cover" />
+        {% endif %}
+        <span class="shine" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if service.body %}
+<section class="mx-auto max-w-3xl px-5 md:px-8 py-12">
+  <div data-animate class="prose-tr text-muted leading-relaxed text-lg space-y-5">
+    {{ service.body|linebreaks }}
+  </div>
+</section>
+{% endif %}
+
+{% if other_services %}
+<section class="mx-auto max-w-7xl px-5 md:px-8 py-16">
+  <h2 data-animate class="font-display text-3xl font-bold mb-8">{% trans "Autres services" %}</h2>
+  <div data-stagger class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {% for s in other_services %}
+    <a href="{{ s.get_absolute_url }}" data-stagger-item data-tilt data-cursor="{% trans 'Voir' %}" class="service-card group block">
+      <div class="tilt-layer">
+        <div class="icon-wrap grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 text-gold border border-gold/20">
+          {% include "partials/icon.html" with icon=s.icon %}
+        </div>
+        <h3 class="mt-6 font-display text-xl font-semibold">{{ s.title }}</h3>
+        <p class="mt-3 text-muted leading-relaxed text-[0.95rem]">{{ s.summary }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}
