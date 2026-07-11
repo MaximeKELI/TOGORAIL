@@ -18,6 +18,8 @@ db.sqlite3-journal
 
 # Node / Tailwind
 node_modules/
+static/css/tailwind.build.css
+package-lock.json
 
 # OS / IDE
 .DS_Store
