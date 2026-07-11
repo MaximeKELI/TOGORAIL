@@ -91,6 +91,89 @@ class JobApplicationForm(forms.ModelForm):
         return cv
 
 
+class SignUpForm(UserCreationForm):
+    first_name = forms.CharField(
+        label=_("Prénom"), max_length=60, required=True,
+        widget=forms.TextInput(attrs={"class": INPUT_CLASS, "placeholder": " "}),
+    )
+    last_name = forms.CharField(
+        label=_("Nom"), max_length=60, required=True,
+        widget=forms.TextInput(attrs={"class": INPUT_CLASS, "placeholder": " "}),
+    )
+    email = forms.EmailField(
+        label=_("Adresse e-mail"), required=True,
+        widget=forms.EmailInput(attrs={"class": INPUT_CLASS, "placeholder": " "}),
+    )
+
+    class Meta:
+        model = User
+        fields = ["first_name", "last_name", "username", "email", "password1", "password2"]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["username"].widget = forms.TextInput(
+            attrs={"class": INPUT_CLASS, "placeholder": " "}
+        )
+        self.fields["username"].label = _("Nom d'utilisateur")
+        for name in ("password1", "password2"):
+            self.fields[name].widget = forms.PasswordInput(
+                attrs={"class": INPUT_CLASS, "placeholder": " "}
+            )
+        self.fields["password1"].label = _("Mot de passe")
+        self.fields["password2"].label = _("Confirmer le mot de passe")
+
+    def clean_email(self):
+        email = self.cleaned_data.get("email", "").strip().lower()
+        if email and User.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError(_("Un compte utilise déjà cette adresse e-mail."))
+        return email
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data["email"]
+        user.first_name = self.cleaned_data["first_name"]
+        user.last_name = self.cleaned_data["last_name"]
+        if commit:
+            user.save()
+        return user
+
+
+class LoginForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["username"].widget = forms.TextInput(
+            attrs={"class": INPUT_CLASS, "placeholder": " "}
+        )
+        self.fields["password"].widget = forms.PasswordInput(
+            attrs={"class": INPUT_CLASS, "placeholder": " "}
+        )
+        self.fields["username"].label = _("Nom d'utilisateur")
+        self.fields["password"].label = _("Mot de passe")
+
+
+class MemberMessageForm(forms.ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ["company", "subject", "message"]
+        widgets = {
+            "company": forms.TextInput(attrs={"class": INPUT_CLASS, "placeholder": " "}),
+            "subject": forms.TextInput(attrs={"class": INPUT_CLASS, "placeholder": " "}),
+            "message": forms.Textarea(
+                attrs={"class": INPUT_CLASS, "placeholder": " ", "rows": 5}
+            ),
+        }
+        labels = {
+            "company": _("Société (optionnel)"),
+            "subject": _("Sujet"),
+            "message": _("Votre message"),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["subject"].required = True
+        self.fields["message"].required = True
+
+
 class NewsletterForm(forms.ModelForm):
     class Meta:
         model = Subscriber
