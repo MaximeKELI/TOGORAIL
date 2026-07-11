@@ -21,6 +21,18 @@ from core.models import (
 class Command(BaseCommand):
     help = "Seed the database with bilingual demo content for Togo Rail."
 
+    def _attach_image(self, obj, filename, field="image", force=False):
+        """Copy a static/media image into the object's ImageField (idempotent)."""
+        current = getattr(obj, field)
+        if current and not force:
+            return
+        src = Path(settings.BASE_DIR) / "static" / "media" / filename
+        if not src.exists():
+            self.stderr.write(f"  ! image introuvable: {filename}")
+            return
+        with src.open("rb") as fh:
+            getattr(obj, field).save(filename, File(fh), save=True)
+
     def handle(self, *args, **options):
         services = [
             {
@@ -108,10 +120,19 @@ class Command(BaseCommand):
             "Every project is led by multidisciplinary teams ensuring quality, "
             "safety and sustainability at every step."
         )
+        service_images = {
+            1: "slide-cargo.png",       # Fret ferroviaire
+            2: "svc-passenger.png",     # Transport de voyageurs
+            3: "svc-network.png",       # Logistique intégrée
+            4: "svc-engineering.png",   # Ingénierie & infrastructure
+            5: "slide-control.png",     # Sécurité & conformité
+            6: "corridor.png",          # Corridors régionaux
+        }
         for data in services:
             data.setdefault("body_fr", body_fr)
             data.setdefault("body_en", body_en)
-            Service.objects.update_or_create(order=data["order"], defaults=data)
+            obj, _ = Service.objects.update_or_create(order=data["order"], defaults=data)
+            self._attach_image(obj, service_images.get(data["order"], "corridor.png"))
         for data in stats:
             Stat.objects.update_or_create(order=data["order"], defaults=data)
         for data in timeline:
@@ -124,8 +145,14 @@ class Command(BaseCommand):
             {"title_fr": "Gare intelligente de Lomé", "title_en": "Lomé Smart Station", "summary_fr": "Un hub multimodal de nouvelle génération au cœur de la capitale.", "summary_en": "A next-generation multimodal hub in the heart of the capital.", "year": "2024", "location": "Lomé", "order": 2},
             {"title_fr": "Terminal fret de Kara", "title_en": "Kara Freight Terminal", "summary_fr": "Plateforme logistique automatisée pour le fret régional.", "summary_en": "Automated logistics platform for regional freight.", "year": "2025", "location": "Kara", "order": 3},
         ]
+        project_images = {
+            1: "project-corridor.png",
+            2: "project-station.png",
+            3: "project-terminal.png",
+        }
         for data in projects:
-            Project.objects.update_or_create(order=data["order"], defaults=data)
+            obj, _ = Project.objects.update_or_create(order=data["order"], defaults=data)
+            self._attach_image(obj, project_images.get(data["order"], "about-infra.png"))
 
         now = timezone.now()
         articles = [
@@ -133,8 +160,16 @@ class Command(BaseCommand):
             {"title_fr": "La supervision numérique en temps réel", "title_en": "Real-time digital supervision", "excerpt_fr": "Comment la technologie transforme notre réseau.", "excerpt_en": "How technology is transforming our network.", "body_fr": "Grâce à la maintenance prédictive et à la supervision 24/7, notre réseau atteint des niveaux de fiabilité inédits.", "body_en": "Thanks to predictive maintenance and 24/7 supervision, our network reaches unprecedented reliability.", "category_fr": "Innovation", "category_en": "Innovation", "published_at": now},
             {"title_fr": "Une mobilité plus durable", "title_en": "Towards more sustainable mobility", "excerpt_fr": "Le rail au service de la transition écologique.", "excerpt_en": "Rail serving the ecological transition.", "body_fr": "Le transport ferroviaire réduit drastiquement l'empreinte carbone du fret régional.", "body_en": "Rail transport drastically reduces the carbon footprint of regional freight.", "category_fr": "Durabilité", "category_en": "Sustainability", "published_at": now},
         ]
+        article_images = {
+            "Togo Rail opens a new corridor": "news-corridor.png",
+            "Real-time digital supervision": "news-supervision.png",
+            "Towards more sustainable mobility": "news-sustainable.png",
+        }
         for data in articles:
-            Article.objects.update_or_create(title_en=data["title_en"], defaults=data)
+            obj, _ = Article.objects.update_or_create(title_en=data["title_en"], defaults=data)
+            self._attach_image(
+                obj, article_images.get(data["title_en"], "slide-station.png"), field="cover"
+            )
 
         offers = [
             {"title_fr": "Ingénieur voie ferrée", "title_en": "Track Engineer", "contract_type": "cdi", "description_fr": "Vous concevez et supervisez la construction des voies de nouvelle génération.", "description_en": "You design and supervise the construction of next-generation tracks.", "order": 1},
