@@ -89,4 +89,90 @@
   document
     .querySelectorAll("[data-year]")
     .forEach((el) => (el.textContent = new Date().getFullYear()));
+
+  /* ---------- Theme toggle (dark / light) ---------- */
+  (function themeToggle() {
+    const root = document.documentElement;
+    const btn = document.getElementById("theme-toggle");
+    function sync() {
+      const dark = root.classList.contains("dark");
+      if (btn) {
+        const sun = btn.querySelector(".icon-sun");
+        const moon = btn.querySelector(".icon-moon");
+        if (sun) sun.classList.toggle("hidden", !dark);
+        if (moon) moon.classList.toggle("hidden", dark);
+      }
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", dark ? "#05070c" : "#f4f5f8");
+    }
+    sync();
+    if (btn) {
+      btn.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        try {
+          localStorage.setItem(
+            "tr-theme",
+            root.classList.contains("dark") ? "dark" : "light"
+          );
+        } catch (e) {}
+        sync();
+      });
+    }
+  })();
+
+  /* ---------- Active section indicator (home in-page sections) ---------- */
+  (function activeSection() {
+    const sections = document.querySelectorAll("section[id]");
+    if (!sections.length || !("IntersectionObserver" in window)) return;
+    const links = document.querySelectorAll("#navbar a[href]");
+    const map = {};
+    links.forEach((l) => {
+      const href = l.getAttribute("href") || "";
+      const hash = href.split("#")[1];
+      if (hash) map[hash] = l;
+    });
+    if (!Object.keys(map).length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting && map[en.target.id]) {
+            links.forEach((l) => l.classList.remove("section-active"));
+            map[en.target.id].classList.add("section-active");
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    sections.forEach((s) => io.observe(s));
+  })();
+
+  /* ---------- Newsletter AJAX ---------- */
+  (function newsletter() {
+    const form = document.getElementById("newsletter-form");
+    if (!form) return;
+    const msg = document.getElementById("newsletter-msg");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { "X-Requested-With": "XMLHttpRequest" },
+        });
+        const json = await res.json();
+        if (msg) {
+          msg.textContent = json.message;
+          msg.classList.remove("hidden");
+          msg.style.color = json.ok ? "#c9a227" : "#f87171";
+        }
+        if (json.ok) form.reset();
+      } catch (err) {
+        if (msg) {
+          msg.textContent = "Erreur réseau.";
+          msg.classList.remove("hidden");
+        }
+      }
+    });
+  })();
 })();
