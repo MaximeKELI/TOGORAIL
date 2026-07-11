@@ -398,6 +398,128 @@
     );
   })();
 
+  /* ======================================================================
+     12. FAQ ACCORDION
+     ====================================================================== */
+  (function accordion() {
+    document.querySelectorAll(".accordion").forEach((item) => {
+      const trigger = item.querySelector(".accordion-trigger");
+      const panel = item.querySelector(".accordion-panel");
+      if (!trigger || !panel) return;
+      trigger.addEventListener("click", () => {
+        const open = item.classList.contains("open");
+        // Close siblings for a clean single-open accordion feel
+        item.parentElement
+          .querySelectorAll(".accordion.open")
+          .forEach((sib) => {
+            if (sib !== item) {
+              sib.classList.remove("open");
+              sib.querySelector(".accordion-panel").style.maxHeight = null;
+              sib.querySelector(".accordion-trigger").setAttribute("aria-expanded", "false");
+            }
+          });
+        if (open) {
+          item.classList.remove("open");
+          panel.style.maxHeight = null;
+          trigger.setAttribute("aria-expanded", "false");
+        } else {
+          item.classList.add("open");
+          panel.style.maxHeight = panel.scrollHeight + "px";
+          trigger.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+  })();
+
+  /* ======================================================================
+     13. TESTIMONIAL SLIDER (auto + dots)
+     ====================================================================== */
+  (function testimonials() {
+    document.querySelectorAll("[data-testimonials]").forEach((root) => {
+      const track = root.querySelector("[data-testimonial-track]");
+      const slides = root.querySelectorAll("[data-testimonial-slide]");
+      const dotsWrap = root.querySelector("[data-testimonial-dots]");
+      if (!track || slides.length === 0) return;
+      let index = 0;
+      let timer;
+
+      if (dotsWrap) {
+        slides.forEach((_, i) => {
+          const b = document.createElement("button");
+          b.className = "t-dot";
+          b.setAttribute("aria-label", "Slide " + (i + 1));
+          b.addEventListener("click", () => go(i, true));
+          dotsWrap.appendChild(b);
+        });
+      }
+      const dots = dotsWrap ? dotsWrap.querySelectorAll(".t-dot") : [];
+
+      function go(i, manual) {
+        index = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((d, di) => d.classList.toggle("active", di === index));
+        if (manual) restart();
+      }
+      function next() {
+        go(index + 1);
+      }
+      function restart() {
+        clearInterval(timer);
+        if (!reduced) timer = setInterval(next, 6000);
+      }
+      go(0);
+      restart();
+      root.addEventListener("mouseenter", () => clearInterval(timer));
+      root.addEventListener("mouseleave", restart);
+    });
+  })();
+
+  /* ======================================================================
+     14. PAGE TRANSITIONS (golden overlay sweep on internal navigation)
+     ====================================================================== */
+  (function pageTransition() {
+    const overlay = document.getElementById("page-transition");
+    if (!overlay || reduced) return;
+
+    // Reveal-in on load
+    overlay.classList.add("is-hidden");
+
+    function isInternal(a) {
+      if (!a || a.target === "_blank" || a.hasAttribute("download")) return false;
+      const href = a.getAttribute("href") || "";
+      if (
+        href.startsWith("#") ||
+        href.startsWith("mailto:") ||
+        href.startsWith("tel:") ||
+        href.startsWith("http")
+      )
+        return false;
+      if (a.hostname && a.hostname !== window.location.hostname) return false;
+      return true;
+    }
+
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a[href]");
+      if (!a || !isInternal(a)) return;
+      // Skip language form buttons, lightbox etc.
+      if (a.getAttribute("href") === window.location.pathname) return;
+      e.preventDefault();
+      const url = a.href;
+      overlay.classList.remove("is-hidden");
+      overlay.classList.add("is-active");
+      setTimeout(() => {
+        window.location.href = url;
+      }, 550);
+    });
+
+    window.addEventListener("pageshow", (e) => {
+      if (e.persisted) {
+        overlay.classList.remove("is-active");
+        overlay.classList.add("is-hidden");
+      }
+    });
+  })();
+
   if (hasGsap && window.ScrollTrigger) {
     window.addEventListener("load", () => ScrollTrigger.refresh());
   }
