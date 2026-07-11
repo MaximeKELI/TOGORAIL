@@ -157,6 +157,13 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # --------------------------------------------------------------------------- #
+# Authentication redirects
+# --------------------------------------------------------------------------- #
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "account"
+LOGOUT_REDIRECT_URL = "home"
+
+# --------------------------------------------------------------------------- #
 # Email (console backend in dev; SMTP in production via env vars)
 # --------------------------------------------------------------------------- #
 CONTACT_EMAIL = os.getenv("CONTACT_EMAIL", "contact@togorail.tg")

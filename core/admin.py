@@ -45,9 +45,10 @@ class PartnerLogoAdmin(admin.ModelAdmin):
 
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):
-    list_display = ("name", "email", "company", "subject", "created_at", "handled")
+    list_display = ("name", "email", "user", "company", "subject", "created_at", "handled")
     list_filter = ("handled", "created_at")
-    search_fields = ("name", "email", "company", "message")
+    search_fields = ("name", "email", "company", "message", "user__username")
+    autocomplete_fields = ("user",)
     list_editable = ("handled",)
     readonly_fields = ("created_at",)
 
