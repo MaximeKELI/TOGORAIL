@@ -269,8 +269,11 @@
   <div class="grid lg:grid-cols-2 gap-8 items-center">
     <div data-clip class="media-frame">
       <div class="relative h-[38vh] md:h-[52vh] overflow-hidden">
+        <picture>
+        <source srcset="{% static 'media/about-infra.webp' %}" type="image/webp" />
         <img src="{% static 'media/about-infra.png' %}" alt="{% trans 'Infrastructure ferroviaire moderne' %}" loading="lazy"
              class="kenburns-2 absolute inset-0 h-full w-full object-cover" />
+      </picture>
       </div>
       <span class="shine"></span>
       <span class="frame-glow"></span>
