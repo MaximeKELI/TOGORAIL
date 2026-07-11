@@ -78,7 +78,7 @@ msgstr "File too large (5 MB max)."
 
 #: core/forms.py:96
 msgid "Prénom"
-msgstr ""
+msgstr "First name"
 
 #: core/forms.py:100 core/models.py:113 core/models.py:136 core/models.py:277
 msgid "Nom"
@@ -86,22 +86,21 @@ msgstr "Name"
 
 #: core/forms.py:117 core/forms.py:150
 msgid "Nom d'utilisateur"
-msgstr ""
+msgstr "Username"
 
 #: core/forms.py:122 core/forms.py:151
 msgid "Mot de passe"
-msgstr ""
+msgstr "Password"
 
 #: core/forms.py:123
 msgid "Confirmer le mot de passe"
-msgstr ""
+msgstr "Confirm password"
 
 #: core/forms.py:128
 msgid "Un compte utilise déjà cette adresse e-mail."
-msgstr ""
+msgstr "An account already uses this email address."
 
 #: core/forms.py:166
-#, fuzzy
 #| msgid "Société"
 msgid "Société (optionnel)"
 msgstr "Company"
@@ -239,7 +238,7 @@ msgstr "Partner logos"
 
 #: core/models.py:134
 msgid "Utilisateur"
-msgstr ""
+msgstr "User"
 
 #: core/models.py:137 core/models.py:278 core/models.py:344
 #: templates/pages/contact.html:26
@@ -518,41 +517,37 @@ msgid "Questions fréquentes à propos de Togo Rail."
 msgstr "About Togo Rail"
 
 #: core/views.py:221
-#, fuzzy
 #| msgid "Merci ! Votre candidature a bien été reçue."
 msgid "Bienvenue ! Votre compte a bien été créé."
 msgstr "Thank you! Your application has been received."
 
 #: core/views.py:230
-#, fuzzy
 #| msgid "À propos de Togo Rail"
 msgid "Créez votre compte Togo Rail."
 msgstr "About Togo Rail"
 
 #: core/views.py:241
 msgid "Connexion réussie."
-msgstr ""
+msgstr "Signed in successfully."
 
 #: core/views.py:244
 msgid "Identifiants invalides."
-msgstr ""
+msgstr "Invalid credentials."
 
 #: core/views.py:251
-#, fuzzy
 #| msgid "Contactez les équipes de Togo Rail."
 msgid "Connectez-vous à votre espace Togo Rail."
 msgstr "Contact the Togo Rail teams."
 
 #: core/views.py:258
 msgid "Vous êtes déconnecté."
-msgstr ""
+msgstr "You have been signed out."
 
 #: core/views.py:275
 msgid "Message envoyé à Togo Rail. Merci !"
-msgstr ""
+msgstr "Message sent to Togo Rail. Thank you!"
 
 #: core/views.py:286
-#, fuzzy
 #| msgid "Contactez les équipes de Togo Rail."
 msgid "Votre espace membre Togo Rail."
 msgstr "Contact the Togo Rail teams."
@@ -659,50 +654,47 @@ msgstr "progress."
 #: templates/pages/account.html:4 templates/partials/footer.html:37
 #: templates/partials/navbar.html:41 templates/partials/navbar.html:71
 msgid "Mon espace"
-msgstr ""
+msgstr "My space"
 
 #: templates/pages/account.html:11 templates/pages/login.html:10
 #: templates/pages/register.html:10
 msgid "Espace membre"
-msgstr ""
+msgstr "Member area"
 
 #: templates/pages/account.html:13
 msgid "Bonjour"
-msgstr ""
+msgstr "Hello"
 
 #: templates/pages/account.html:18 templates/partials/navbar.html:80
 msgid "Se déconnecter"
-msgstr ""
+msgstr "Sign out"
 
 #: templates/pages/account.html:26
-#, fuzzy
 #| msgid "Envoyer le message"
 msgid "Envoyer un message"
 msgstr "Send message"
 
 #: templates/pages/account.html:44
-#, fuzzy
 #| msgid "Togo Rail"
 msgid "Envoyer à Togo Rail"
 msgstr "Togo Rail"
 
 #: templates/pages/account.html:50
-#, fuzzy
 #| msgid "Message"
 msgid "Mes messages"
 msgstr "Message"
 
 #: templates/pages/account.html:55
 msgid "(Sans sujet)"
-msgstr ""
+msgstr "(No subject)"
 
 #: templates/pages/account.html:57
 msgid "En attente"
-msgstr ""
+msgstr "Pending"
 
 #: templates/pages/account.html:65
 msgid "Vous n’avez encore envoyé aucun message."
-msgstr ""
+msgstr "You haven’t sent any message yet."
 
 #: templates/pages/article_detail.html:12 templates/pages/blog.html:4
 #: templates/pages/blog.html:10 templates/pages/home.html:419
@@ -1188,31 +1180,29 @@ msgstr "Request a quote"
 #: templates/pages/login.html:4 templates/partials/navbar.html:45
 #: templates/partials/navbar.html:73
 msgid "Connexion"
-msgstr ""
+msgstr "Sign in"
 
 #: templates/pages/login.html:12
 msgid "Bon retour"
-msgstr ""
+msgstr "Welcome back"
 
 #: templates/pages/login.html:12
-#, fuzzy
 #| msgid "avec nous."
 msgid "parmi nous."
 msgstr "with us."
 
 #: templates/pages/login.html:32 templates/pages/register.html:67
-#, fuzzy
 #| msgid "Réseau connecté"
 msgid "Se connecter"
 msgstr "Connected network"
 
 #: templates/pages/login.html:35
 msgid "Pas encore de compte ?"
-msgstr ""
+msgstr "No account yet?"
 
 #: templates/pages/login.html:36 templates/partials/navbar.html:74
 msgid "S’inscrire"
-msgstr ""
+msgstr "Sign up"
 
 #: templates/pages/projects.html:10
 msgid "Nos réalisations"
@@ -1237,23 +1227,23 @@ msgstr "Let’s talk about your next railway infrastructure."
 
 #: templates/pages/register.html:4
 msgid "Créer un compte"
-msgstr ""
+msgstr "Create an account"
 
 #: templates/pages/register.html:12
 msgid "Créez votre"
-msgstr ""
+msgstr "Create your"
 
 #: templates/pages/register.html:12
 msgid "compte."
-msgstr ""
+msgstr "account."
 
 #: templates/pages/register.html:63
 msgid "Créer mon compte"
-msgstr ""
+msgstr "Create my account"
 
 #: templates/pages/register.html:66
 msgid "Vous avez déjà un compte ?"
-msgstr ""
+msgstr "Already have an account?"
 
 #: templates/pages/service_detail.html:19
 msgid "Discuter de ce service"
@@ -1314,7 +1304,7 @@ msgstr "Home"
 
 #: templates/partials/footer.html:39
 msgid "Connexion / Inscription"
-msgstr ""
+msgstr "Sign in / Sign up"
 
 #: templates/partials/footer.html:56
 msgid "Tous droits réservés."
