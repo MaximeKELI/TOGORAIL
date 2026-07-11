@@ -520,17 +520,32 @@
     }
 
     document.addEventListener("click", (e) => {
+      // Respect modifier clicks, middle/right clicks and already-handled events.
+      if (
+        e.defaultPrevented ||
+        e.button !== 0 ||
+        e.metaKey ||
+        e.ctrlKey ||
+        e.shiftKey ||
+        e.altKey
+      )
+        return;
       const a = e.target.closest("a[href]");
       if (!a || !isInternal(a)) return;
-      // Skip language form buttons, lightbox etc.
+      if (a.hasAttribute("data-no-transition")) return;
       if (a.getAttribute("href") === window.location.pathname) return;
-      e.preventDefault();
       const url = a.href;
+      e.preventDefault();
       overlay.classList.remove("is-hidden");
       overlay.classList.add("is-active");
-      setTimeout(() => {
+      // Safety fallback: navigate even if the transition class is interrupted.
+      let done = false;
+      const go = () => {
+        if (done) return;
+        done = true;
         window.location.href = url;
-      }, 550);
+      };
+      setTimeout(go, 550);
     });
 
     window.addEventListener("pageshow", (e) => {
