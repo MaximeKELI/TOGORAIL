@@ -132,7 +132,7 @@ def careers(request):
     ctx = _common()
     if request.method == "POST":
         form = JobApplicationForm(request.POST, request.FILES)
-        if _rate_limited(request, "apply", limit=5):
+        if _rate_limited(request, "apply", limit=20):
             messages.error(request, _("Trop de tentatives. Réessayez plus tard."))
         elif form.is_valid():
             application = form.save()
@@ -157,7 +157,7 @@ def careers(request):
 def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
-        if _rate_limited(request, "contact", limit=5):
+        if _rate_limited(request, "contact", limit=20):
             messages.error(request, _("Trop de messages envoyés. Réessayez plus tard."))
         elif form.is_valid():
             msg = form.save(commit=False)
@@ -187,7 +187,7 @@ def newsletter_subscribe(request):
     email = (request.POST.get("email") or "").strip().lower()
     is_ajax = request.headers.get("x-requested-with") == "XMLHttpRequest"
     form = NewsletterForm({"email": email})
-    if _rate_limited(request, "newsletter", limit=10):
+    if _rate_limited(request, "newsletter", limit=20):
         msg = _("Trop de tentatives. Réessayez plus tard.")
         ok = False
     elif form.is_valid():
@@ -218,7 +218,7 @@ def register(request):
         return redirect("account")
     if request.method == "POST":
         form = SignUpForm(request.POST)
-        if _rate_limited(request, "register", limit=8):
+        if _rate_limited(request, "register", limit=30):
             messages.error(request, _("Trop de tentatives. Réessayez plus tard."))
         elif form.is_valid():
             user = form.save()
