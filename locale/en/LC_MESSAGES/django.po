@@ -410,35 +410,35 @@ msgstr "To make Togo a major logistics hub in West Africa."
 
 #: templates/pages/home.html:200
 msgid "Infrastructure ferroviaire moderne"
-msgstr ""
+msgstr "Modern railway infrastructure"
 
 #: templates/pages/home.html:206
 msgid "Infrastructure"
-msgstr ""
+msgstr "Infrastructure"
 
 #: templates/pages/home.html:208
 msgid "Des ouvrages pensés pour"
-msgstr ""
+msgstr "Structures built to"
 
 #: templates/pages/home.html:208
 msgid "durer des générations."
-msgstr ""
+msgstr "last for generations."
 
 #: templates/pages/home.html:211
 msgid ""
 "Gares intelligentes, ponts et voies de nouvelle génération : chaque ouvrage "
 "allie ingénierie de pointe, esthétique et durabilité."
 msgstr ""
+"Smart stations, next-generation bridges and tracks: every structure combines "
+"cutting-edge engineering, aesthetics and sustainability."
 
 #: templates/pages/home.html:216
-#, fuzzy
-#| msgid "Services"
 msgid "Supervision"
-msgstr "Services"
+msgstr "Supervision"
 
 #: templates/pages/home.html:220
 msgid "Sécurité certifiée"
-msgstr ""
+msgstr "Certified safety"
 
 #: templates/pages/home.html:230
 msgid "Notre méthode"
