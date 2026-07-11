@@ -496,6 +496,20 @@ body.has-custom-cursor button {
 .h-scroll-viewport {
   overflow: hidden;
 }
+@media (max-width: 767px) {
+  /* No pinning on mobile — allow native horizontal swipe */
+  .h-scroll-viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .h-scroll-viewport::-webkit-scrollbar {
+    display: none;
+  }
+  .h-panel {
+    scroll-snap-align: center;
+  }
+}
 .h-scroll-track {
   display: flex;
   gap: 1.5rem;

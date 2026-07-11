@@ -406,41 +406,47 @@ msgstr "to going live."
 
 #: templates/pages/home.html:184
 msgid "Étude & conception"
-msgstr ""
+msgstr "Study & design"
 
 #: templates/pages/home.html:185
 msgid ""
 "Analyse des corridors, modélisation du trafic et ingénierie de précision "
 "pour chaque tracé."
 msgstr ""
+"Corridor analysis, traffic modelling and precision engineering for every "
+"route."
 
 #: templates/pages/home.html:190
 msgid "Construction durable"
-msgstr ""
+msgstr "Sustainable construction"
 
 #: templates/pages/home.html:191
 msgid ""
 "Matériaux responsables, standards internationaux et suivi qualité à chaque "
 "kilomètre."
 msgstr ""
+"Responsible materials, international standards and quality control at every "
+"kilometre."
 
 #: templates/pages/home.html:196
 msgid "Exploitation intelligente"
-msgstr ""
+msgstr "Smart operations"
 
 #: templates/pages/home.html:197
 msgid ""
 "Supervision numérique en temps réel, maintenance prédictive et sécurité 24/7."
 msgstr ""
+"Real-time digital supervision, predictive maintenance and 24/7 safety."
 
 #: templates/pages/home.html:202
 msgid "Impact régional"
-msgstr ""
+msgstr "Regional impact"
 
 #: templates/pages/home.html:203
 msgid ""
 "Interconnexion des marchés ouest-africains et croissance partagée durable."
 msgstr ""
+"Interconnecting West-African markets for shared, sustainable growth."
 
 #: templates/pages/home.html:215
 msgid "Prêt à faire avancer votre projet logistique ?"
