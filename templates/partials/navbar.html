@@ -1,0 +1,57 @@
+{% load i18n %}
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+  <nav class="mx-auto max-w-7xl px-5 md:px-8">
+    <div class="mt-4 flex items-center justify-between rounded-2xl glass px-5 py-3">
+      <!-- Brand -->
+      <a href="{% url 'home' %}" class="group flex items-center gap-3">
+        <span class="relative grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-goldsoft to-gold text-ink font-display font-extrabold shadow-glow">
+          TR
+          <span class="absolute inset-0 rounded-xl ring-1 ring-white/30"></span>
+        </span>
+        <span class="font-display text-lg font-bold tracking-wide">Togo<span class="text-gold">Rail</span></span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-muted">
+        <li><a href="{% url 'home' %}" class="nav-link {% if active_page == 'home' %}text-white{% endif %}">{% trans "Accueil" %}</a></li>
+        <li><a href="{% url 'services' %}" class="nav-link {% if active_page == 'services' %}text-white{% endif %}">{% trans "Services" %}</a></li>
+        <li><a href="{% url 'about' %}" class="nav-link {% if active_page == 'about' %}text-white{% endif %}">{% trans "À propos" %}</a></li>
+        <li><a href="{% url 'contact' %}" class="nav-link {% if active_page == 'contact' %}text-white{% endif %}">{% trans "Contact" %}</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <!-- Language switcher -->
+        <form action="{% url 'set_language' %}" method="post" class="hidden sm:flex items-center rounded-full border border-white/10 bg-white/[0.03] p-0.5 text-xs">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ request.path }}" />
+          <button type="submit" name="language" value="fr" class="rounded-full px-3 py-1.5 transition-colors {% if LANGUAGE_CODE == 'fr' %}bg-gold text-ink font-semibold{% else %}text-muted hover:text-white{% endif %}">FR</button>
+          <button type="submit" name="language" value="en" class="rounded-full px-3 py-1.5 transition-colors {% if LANGUAGE_CODE == 'en' %}bg-gold text-ink font-semibold{% else %}text-muted hover:text-white{% endif %}">EN</button>
+        </form>
+
+        <a href="{% url 'contact' %}" class="hidden md:inline-flex btn-gold text-sm !px-5 !py-2.5">{% trans "Devis" %}</a>
+
+        <!-- Mobile toggle -->
+        <button id="menu-toggle" class="md:hidden grid h-10 w-10 place-items-center rounded-xl border border-white/10" aria-label="Menu">
+          <span class="block h-0.5 w-5 bg-white transition-all" data-bar></span>
+          <span class="mt-1.5 block h-0.5 w-5 bg-white transition-all" data-bar></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden mx-5 mt-2 rounded-2xl glass p-5">
+    <ul class="flex flex-col gap-4 text-lg font-medium">
+      <li><a href="{% url 'home' %}">{% trans "Accueil" %}</a></li>
+      <li><a href="{% url 'services' %}">{% trans "Services" %}</a></li>
+      <li><a href="{% url 'about' %}">{% trans "À propos" %}</a></li>
+      <li><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>
+    </ul>
+    <form action="{% url 'set_language' %}" method="post" class="mt-5 flex gap-2">
+      {% csrf_token %}
+      <input name="next" type="hidden" value="{{ request.path }}" />
+      <button type="submit" name="language" value="fr" class="flex-1 rounded-lg border border-white/10 py-2 {% if LANGUAGE_CODE == 'fr' %}bg-gold text-ink{% endif %}">FR</button>
+      <button type="submit" name="language" value="en" class="flex-1 rounded-lg border border-white/10 py-2 {% if LANGUAGE_CODE == 'en' %}bg-gold text-ink{% endif %}">EN</button>
+    </form>
+  </div>
+</header>

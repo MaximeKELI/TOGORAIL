@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}Togo Rail — {% trans "Mobilité ferroviaire premium" %}{% endblock %}
+
+{% block content %}
+
+<!-- ============================ HERO ============================ -->
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- Background media -->
+  <div class="absolute inset-0 -z-10">
+    <div data-hero-media class="absolute inset-0">
+      <video class="h-full w-full object-cover opacity-70" autoplay muted loop playsinline poster="{% static 'media/hero-poster.svg' %}">
+        <source src="{% static 'media/hero.mp4' %}" type="video/mp4" />
+      </video>
+      <img src="{% static 'media/hero-poster.svg' %}" alt="" class="absolute inset-0 h-full w-full object-cover -z-10" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/60 to-ink"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/40 to-transparent"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl w-full px-5 md:px-8 pt-32 pb-20">
+    <p data-hero class="eyebrow mb-6">{% trans "Togo Rail · Infrastructure de nouvelle génération" %}</p>
+
+    <h1 class="font-display font-extrabold leading-[0.95] text-5xl sm:text-6xl md:text-7xl lg:text-8xl max-w-5xl">
+      <span data-hero-line class="block overflow-hidden"><span class="block">{% trans "Relier le Togo," %}</span></span>
+      <span data-hero-line class="block overflow-hidden"><span class="block text-gradient">{% trans "propulser l’Afrique." %}</span></span>
+    </h1>
+
+    <p data-hero-sub class="mt-8 max-w-xl text-lg text-muted leading-relaxed">
+      {% trans "Fret ferroviaire, transport de voyageurs et logistique intégrée. Une infrastructure fiable, durable et intelligente au cœur de l’Afrique de l’Ouest." %}
+    </p>
+
+    <div data-hero-cta class="mt-10 flex flex-wrap items-center gap-4">
+      <a href="{% url 'services' %}" class="btn-gold">
+        {% trans "Découvrir nos services" %}
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="{% url 'contact' %}" class="btn-ghost">{% trans "Nous contacter" %}</a>
+    </div>
+
+    <!-- Inline hero stats -->
+    <div class="mt-16 flex flex-wrap gap-10">
+      {% for stat in stats|slice:":3" %}
+      <div data-hero-stat>
+        <div class="font-display text-3xl md:text-4xl font-bold text-white">
+          {{ stat.prefix }}<span data-counter="{{ stat.value }}">0</span>{{ stat.suffix }}
+        </div>
+        <div class="mt-1 text-xs uppercase tracking-widest text-muted">{{ stat.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <a href="#services" data-hero-scroll class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted text-xs">
+    <span class="uppercase tracking-widest">{% trans "Défiler" %}</span>
+    <span class="h-10 w-6 rounded-full border border-white/20 flex justify-center pt-2">
+      <span class="h-2 w-1 rounded-full bg-gold animate-bounce"></span>
+    </span>
+  </a>
+</section>
+
+<!-- ============================ LOGO MARQUEE ============================ -->
+<section class="py-14 border-y border-white/5 bg-panel/30">
+  <p class="text-center text-xs uppercase tracking-[0.3em] text-muted mb-8">{% trans "Ils nous font confiance" %}</p>
+  <div class="marquee-mask overflow-hidden">
+    <div class="logo-track">
+      {% for p in partners %}<span class="logo-item">{{ p.name }}</span>{% endfor %}
+      {% for p in partners %}<span class="logo-item" aria-hidden="true">{{ p.name }}</span>{% endfor %}
+      {% if not partners %}
+        {% for n in "123456" %}<span class="logo-item">Partner {{ forloop.counter }}</span>{% endfor %}
+        {% for n in "123456" %}<span class="logo-item" aria-hidden="true">Partner {{ forloop.counter }}</span>{% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SERVICES ============================ -->
+<section id="services" class="section-pad mx-auto max-w-7xl px-5 md:px-8 py-24 md:py-32">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+    <div>
+      <p data-animate class="eyebrow mb-4">{% trans "Nos expertises" %}</p>
+      <h2 data-animate class="font-display text-4xl md:text-5xl font-bold max-w-2xl leading-tight">
+        {% trans "Des solutions ferroviaires" %} <span class="text-gradient">{% trans "de bout en bout." %}</span>
+      </h2>
+    </div>
+    <a data-animate href="{% url 'services' %}" class="text-sm text-gold hover:text-goldsoft transition-colors whitespace-nowrap">{% trans "Tous les services →" %}</a>
+  </div>
+
+  <div data-stagger class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {% for service in featured_services %}
+    <article data-stagger-item class="service-card group">
+      <div class="icon-wrap grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 text-gold border border-gold/20">
+        {% include "partials/icon.html" with icon=service.icon %}
+      </div>
+      <h3 class="mt-6 font-display text-xl font-semibold">{{ service.title }}</h3>
+      <p class="mt-3 text-muted leading-relaxed text-[0.95rem]">{{ service.summary }}</p>
+      <div class="mt-6 flex items-center gap-2 text-sm text-gold opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+        {% trans "En savoir plus" %}
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </article>
+    {% empty %}
+    <p class="text-muted">{% trans "Le contenu sera bientôt disponible." %}</p>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ============================ STATS BANNER ============================ -->
+<section class="relative py-24 md:py-28 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-navy via-ink to-ink"></div>
+  <div class="absolute inset-0 -z-10 opacity-40 bg-[radial-gradient(circle_at_20%_20%,rgba(201,162,39,0.18),transparent_40%)]"></div>
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <div data-stagger class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {% for stat in stats %}
+      <div data-stagger-item class="text-center md:text-left">
+        <div class="font-display text-5xl md:text-6xl font-extrabold text-gradient">
+          {{ stat.prefix }}<span data-counter="{{ stat.value }}">0</span>{{ stat.suffix }}
+        </div>
+        <div class="mt-3 text-sm uppercase tracking-widest text-muted">{{ stat.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ABOUT / MISSION ============================ -->
+<section id="about" class="mx-auto max-w-7xl px-5 md:px-8 py-24 md:py-32">
+  <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p data-animate class="eyebrow mb-4">{% trans "Notre raison d’être" %}</p>
+      <h2 data-animate class="font-display text-4xl md:text-5xl font-bold leading-tight">
+        {% trans "Nous construisons l’épine dorsale" %} <span class="text-gradient">{% trans "de la mobilité togolaise." %}</span>
+      </h2>
+      <p data-animate class="mt-6 text-muted leading-relaxed">
+        {% trans "Togo Rail conçoit et opère des infrastructures ferroviaires modernes qui accélèrent le commerce, rapprochent les territoires et réduisent l’empreinte carbone des transports." %}
+      </p>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-6" data-stagger>
+        <div data-stagger-item class="glass rounded-2xl p-6">
+          <h3 class="font-display font-semibold text-lg text-gold">{% trans "Mission" %}</h3>
+          <p class="mt-2 text-sm text-muted leading-relaxed">{% trans "Offrir une mobilité fiable, sûre et durable à chaque citoyen et entreprise." %}</p>
+        </div>
+        <div data-stagger-item class="glass rounded-2xl p-6">
+          <h3 class="font-display font-semibold text-lg text-gold">{% trans "Vision" %}</h3>
+          <p class="mt-2 text-sm text-muted leading-relaxed">{% trans "Faire du Togo un hub logistique majeur de l’Afrique de l’Ouest." %}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div data-timeline class="relative pl-10">
+      <div class="absolute left-3 top-2 bottom-2 w-px bg-white/10"></div>
+      <div data-timeline-progress class="absolute left-3 top-2 bottom-2 w-px timeline-line origin-top scale-y-0"></div>
+      <div class="space-y-10" data-stagger>
+        {% for event in timeline %}
+        <div data-stagger-item class="relative">
+          <span class="absolute -left-[1.85rem] top-1.5 grid h-4 w-4 place-items-center rounded-full bg-ink border-2 border-gold shadow-glow"></span>
+          <div class="text-gold font-display font-bold text-sm">{{ event.year }}</div>
+          <h4 class="mt-1 font-display text-lg font-semibold">{{ event.title }}</h4>
+          <p class="mt-1 text-sm text-muted leading-relaxed">{{ event.body }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA BAND ============================ -->
+<section class="mx-auto max-w-7xl px-5 md:px-8">
+  <div data-animate="scale" class="relative overflow-hidden rounded-3xl glass p-10 md:p-16 text-center">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(201,162,39,0.2),transparent_55%)]"></div>
+    <h2 class="font-display text-3xl md:text-5xl font-bold max-w-3xl mx-auto leading-tight">
+      {% trans "Prêt à faire avancer votre projet logistique ?" %}
+    </h2>
+    <p class="mt-5 text-muted max-w-xl mx-auto">{% trans "Parlons de vos besoins en transport et infrastructure. Notre équipe vous répond sous 24h." %}</p>
+    <div class="mt-8 flex justify-center">
+      <a href="{% url 'contact' %}" class="btn-gold">{% trans "Demander un devis" %}</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

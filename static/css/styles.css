@@ -1,0 +1,299 @@
+/* ==========================================================================
+   Togo Rail — Premium design system
+   Tailwind handles utilities; this file holds component-level polish,
+   glassmorphism, glows, and motion niceties.
+   ========================================================================== */
+
+:root {
+  --gold: #c9a227;
+  --goldsoft: #e8d48b;
+}
+
+html,
+body {
+  background-color: #05070c;
+}
+
+/* Hide native scrollbar chrome but keep functionality */
+::selection {
+  color: #05070c;
+}
+
+/* --------------------------------------------------------------------------
+   Glassmorphism
+   -------------------------------------------------------------------------- */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Navbar scrolled state (toggled from JS) */
+#navbar.scrolled .glass {
+  background: rgba(5, 7, 12, 0.75);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #05070c;
+  border-radius: 9999px;
+  background: linear-gradient(120deg, #e8d48b 0%, #c9a227 55%, #a8861a 100%);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+  box-shadow: 0 8px 30px rgba(201, 162, 39, 0.25);
+}
+.btn-gold:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(201, 162, 39, 0.45);
+}
+.btn-gold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+.btn-gold:hover::after {
+  left: 130%;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--goldsoft);
+  background: rgba(201, 162, 39, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   Nav link underline
+   -------------------------------------------------------------------------- */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: #fff;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--goldsoft), var(--gold));
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Section heading helpers
+   -------------------------------------------------------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--goldsoft);
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #ffffff 0%, #e8d48b 60%, #c9a227 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   Service cards — glow border on hover
+   -------------------------------------------------------------------------- */
+.service-card {
+  position: relative;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease, background 0.4s ease;
+}
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    500px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(201, 162, 39, 0.5),
+    transparent 40%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(201, 162, 39, 0.35);
+}
+.service-card:hover::before {
+  opacity: 1;
+}
+.service-card .icon-wrap {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.service-card:hover .icon-wrap {
+  transform: translateY(-3px) rotate(-4deg);
+  box-shadow: 0 0 30px rgba(201, 162, 39, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   Logo marquee
+   -------------------------------------------------------------------------- */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+.logo-track {
+  display: flex;
+  gap: 4rem;
+  width: max-content;
+  will-change: transform;
+}
+.logo-item {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+.logo-item:hover {
+  color: var(--goldsoft);
+}
+
+/* --------------------------------------------------------------------------
+   Floating label form
+   -------------------------------------------------------------------------- */
+.field {
+  position: relative;
+}
+.field label {
+  position: absolute;
+  left: 1rem;
+  top: 0.95rem;
+  color: #9aa3b5;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  font-size: 0.95rem;
+}
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:focus + label,
+.field textarea:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  left: 0.75rem;
+  font-size: 0.72rem;
+  padding: 0 0.4rem;
+  color: var(--goldsoft);
+  background: #05070c;
+  border-radius: 4px;
+}
+
+/* Honeypot */
+#id_website {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Timeline
+   -------------------------------------------------------------------------- */
+.timeline-line {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(201, 162, 39, 0.6),
+    transparent
+  );
+}
+
+/* --------------------------------------------------------------------------
+   Reveal defaults (JS enhances; content still visible without JS)
+   -------------------------------------------------------------------------- */
+.js [data-animate] {
+  opacity: 0;
+}
+.js [data-hero] {
+  opacity: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility — respect reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .js [data-animate],
+  .js [data-hero] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

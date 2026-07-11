@@ -1,0 +1,38 @@
+{% load i18n %}
+<footer class="relative mt-24 border-t border-white/10 bg-panel/50">
+  <div class="mx-auto max-w-7xl px-5 md:px-8 py-16 grid gap-12 md:grid-cols-4">
+    <div class="md:col-span-2">
+      <a href="{% url 'home' %}" class="flex items-center gap-3">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-goldsoft to-gold text-ink font-display font-extrabold">TR</span>
+        <span class="font-display text-lg font-bold">Togo<span class="text-gold">Rail</span></span>
+      </a>
+      <p class="mt-5 max-w-sm text-muted leading-relaxed">{{ SITE_TAGLINE }}</p>
+    </div>
+
+    <div>
+      <h4 class="font-display font-semibold text-white/90">{% trans "Navigation" %}</h4>
+      <ul class="mt-4 space-y-3 text-sm text-muted">
+        <li><a href="{% url 'home' %}" class="hover:text-gold transition-colors">{% trans "Accueil" %}</a></li>
+        <li><a href="{% url 'services' %}" class="hover:text-gold transition-colors">{% trans "Services" %}</a></li>
+        <li><a href="{% url 'about' %}" class="hover:text-gold transition-colors">{% trans "À propos" %}</a></li>
+        <li><a href="{% url 'contact' %}" class="hover:text-gold transition-colors">{% trans "Contact" %}</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-display font-semibold text-white/90">{% trans "Contact" %}</h4>
+      <ul class="mt-4 space-y-3 text-sm text-muted">
+        <li>{{ CONTACT_ADDRESS }}</li>
+        <li><a href="mailto:{{ CONTACT_EMAIL }}" class="hover:text-gold transition-colors">{{ CONTACT_EMAIL }}</a></li>
+        <li><a href="tel:{{ CONTACT_PHONE }}" class="hover:text-gold transition-colors">{{ CONTACT_PHONE }}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-5 md:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
+      <p>&copy; {% now "Y" %} Togo Rail. {% trans "Tous droits réservés." %}</p>
+      <p>{% trans "Conçu avec précision et passion." %}</p>
+    </div>
+  </div>
+</footer>
