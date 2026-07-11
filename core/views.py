@@ -268,7 +268,7 @@ def logout_view(request):
 def account(request):
     if request.method == "POST":
         form = MemberMessageForm(request.POST)
-        if _rate_limited(request, "member_msg", limit=10):
+        if _rate_limited(request, "member_msg", limit=30):
             messages.error(request, _("Trop de messages envoyés. Réessayez plus tard."))
         elif form.is_valid():
             msg = form.save(commit=False)
