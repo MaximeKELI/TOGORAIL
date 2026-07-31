@@ -140,3 +140,26 @@ Sans Docker :
 - `python manage.py compilemessages`
 - Servir via `gunicorn config.wsgi:application -c gunicorn.conf.py`.
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
